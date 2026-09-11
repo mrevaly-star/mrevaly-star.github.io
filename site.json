@@ -94,7 +94,7 @@
       "slug": "asdf",
       "title": "asdf",
       "excerpt": "asdf",
-      "content": "asdf",
+      "content": "It looks like you don't have any text in your draft yet!\n\nWhat medical topic or story are you planning to write about today?\n\nJust reply with your topic (for example: *\"Tips for studying Anatomy,\" \"Understanding High Blood Pressure,\"* or *\"A day in the life of a 3rd-year med student\"*), and I'll craft a catchy, engaging intro for you!",
       "tags": [],
       "date": "2026-09-11T09:00:00.000Z",
       "draft": false,
@@ -123,6 +123,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-11T07:59:55.594Z",
-  "lastPublishedCommit": "5909c59c48728297203cf03fccbdce12efac9bfb"
+  "updatedAt": "2026-09-11T08:02:54.193Z",
+  "lastPublishedCommit": "82de08106a257d08a5e78df65e47d879b59386cb"
 }
