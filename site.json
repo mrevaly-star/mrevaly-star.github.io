@@ -88,7 +88,19 @@
       ]
     }
   ],
-  "posts": [],
+  "posts": [
+    {
+      "id": "post_e929df2b",
+      "slug": "asdf",
+      "title": "asdf",
+      "excerpt": "asdf",
+      "content": "asdf",
+      "tags": [],
+      "date": "2026-09-11T09:00:00.000Z",
+      "draft": false,
+      "featured": false
+    }
+  ],
   "footer": {
     "text": "© 2026 mrevaly-star's Blog",
     "links": [],
@@ -111,6 +123,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-11T07:59:24.756Z",
-  "lastPublishedCommit": "1274e210ccffc08b2111a56029958a41f08271ae"
+  "updatedAt": "2026-09-11T07:59:55.594Z",
+  "lastPublishedCommit": "5909c59c48728297203cf03fccbdce12efac9bfb"
 }
