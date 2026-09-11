@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "id": "site_b2048c6f",
+  "name": "mrevaly-star's Blog",
+  "tagline": "Thoughts, stories and ideas.",
+  "description": "My thoughts, learning, and perspectives",
+  "language": "en",
+  "author": {
+    "name": "mrevaly-star",
+    "bio": "Writer of this blog."
+  },
+  "template": "minimal",
+  "theme": {
+    "primary": "#4f46e5",
+    "accent": "#f59e0b",
+    "background": "#ffffff",
+    "surface": "#f8fafc",
+    "text": "#0f172a",
+    "muted": "#64748b",
+    "headingFont": "Inter",
+    "bodyFont": "Inter",
+    "radius": "md",
+    "mode": "auto",
+    "spacing": "normal",
+    "layout": "grid",
+    "containerWidth": "normal"
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Posts",
+      "href": "/posts/"
+    },
+    {
+      "label": "About",
+      "href": "/about/"
+    }
+  ],
+  "pages": [
+    {
+      "id": "page_c857b5cf",
+      "slug": "",
+      "title": "Home",
+      "order": 0,
+      "showInNav": true,
+      "sections": [
+        {
+          "id": "sec_654a143e",
+          "type": "hero",
+          "props": {
+            "title": "mrevaly-star's Blog",
+            "subtitle": "Thoughts, stories and ideas.",
+            "ctaLabel": "Read the blog",
+            "ctaHref": "/posts/",
+            "align": "center"
+          }
+        },
+        {
+          "id": "sec_f657d0b6",
+          "type": "posts",
+          "props": {
+            "title": "Latest posts",
+            "count": 6,
+            "showExcerpt": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "page_d1eace85",
+      "slug": "about",
+      "title": "About",
+      "order": 1,
+      "showInNav": true,
+      "sections": [
+        {
+          "id": "sec_24fec606",
+          "type": "about",
+          "props": {
+            "title": "About",
+            "text": "Hi! I'm mrevaly-star. Tell readers who you are and why you write.",
+            "image": ""
+          }
+        }
+      ]
+    }
+  ],
+  "posts": [],
+  "footer": {
+    "text": "© 2026 mrevaly-star's Blog",
+    "links": [],
+    "social": []
+  },
+  "settings": {
+    "customCss": "",
+    "customHead": "",
+    "customDomain": "",
+    "analytics": {
+      "provider": "none",
+      "id": ""
+    },
+    "showSearch": true,
+    "showRss": true,
+    "showDarkToggle": true,
+    "showReadingTime": true,
+    "postsPerPage": 10,
+    "seo": {}
+  },
+  "images": {},
+  "createdAt": "2026-09-11T07:59:24.640Z",
+  "updatedAt": "2026-09-11T07:59:24.756Z",
+  "lastPublishedCommit": "1274e210ccffc08b2111a56029958a41f08271ae"
+}
