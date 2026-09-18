@@ -1,24 +1,24 @@
 :root {
 
-    --color-primary: #4f46e5;
-    --color-accent: #f59e0b;
-    --color-bg: #ffffff;
-    --color-surface: #f8fafc;
-    --color-text: #0f172a;
-    --color-muted: #64748b;
-    --color-border: color-mix(in srgb, #0f172a 12%, transparent);
+    --color-primary: #7c3aed;
+    --color-accent: #06b6d4;
+    --color-bg: #eef0ff;
+    --color-surface: #ffffff;
+    --color-text: #1e1b4b;
+    --color-muted: #5b5f86;
+    --color-border: color-mix(in srgb, #1e1b4b 12%, transparent);
 
-    --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --radius: 10px;
-    --space-scale: 1;
+    --radius: 16px;
+    --space-scale: 1.25;
     --container: 62rem;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
 
-    --color-primary: #4f46e5;
-    --color-accent: #f59e0b;
+    --color-primary: #7c3aed;
+    --color-accent: #06b6d4;
     --color-bg: #171717;
     --color-surface: #242424;
     --color-text: #e8e9ee;
@@ -28,8 +28,8 @@
 }
 :root[data-theme="dark"] {
 
-    --color-primary: #4f46e5;
-    --color-accent: #f59e0b;
+    --color-primary: #7c3aed;
+    --color-accent: #06b6d4;
     --color-bg: #171717;
     --color-surface: #242424;
     --color-text: #e8e9ee;
@@ -189,3 +189,55 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .tpl-minimal .hero { text-align: center; align-items: center; padding-block: calc(4.5rem * var(--space-scale)); }
 .tpl-minimal .hero-title { letter-spacing: -0.02em; }
 .tpl-minimal .btn { border-radius: var(--radius); }
+
+/* glass */
+:root {
+  --glass-bg: color-mix(in srgb, var(--color-surface) 55%, transparent);
+  --glass-edge: rgba(255, 255, 255, 0.6);
+  --glass-shadow: 0 10px 40px rgba(31, 38, 135, 0.12);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --glass-bg: color-mix(in srgb, var(--color-surface) 42%, transparent);
+    --glass-edge: rgba(255, 255, 255, 0.10);
+    --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.35); } }
+:root[data-theme="dark"] { --glass-bg: color-mix(in srgb, var(--color-surface) 42%, transparent);
+    --glass-edge: rgba(255, 255, 255, 0.10);
+    --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.35); }
+body {
+  background:
+    radial-gradient(42rem 42rem at 6% 8%, color-mix(in srgb, var(--color-primary) 38%, transparent), transparent 70%),
+    radial-gradient(38rem 38rem at 96% 14%, color-mix(in srgb, var(--color-accent) 34%, transparent), transparent 70%),
+    radial-gradient(46rem 46rem at 60% 100%, color-mix(in srgb, color-mix(in srgb, var(--color-primary) 50%, var(--color-accent)) 26%, transparent), transparent 70%),
+    var(--color-bg);
+  background-attachment: fixed;
+}
+.site-header { background: var(--glass-bg); border-bottom-color: var(--glass-edge); -webkit-backdrop-filter: blur(16px) saturate(160%); backdrop-filter: blur(16px) saturate(160%); }
+.post-card--cards, .newsletter, .about, .post.container, .archive.container, .search-results {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-edge);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(160%);
+}
+.post.container, .archive.container {
+  width: min(100% - 1.5rem, var(--container));
+  margin-block: 1.5rem;
+  padding-block: clamp(1.5rem, 4vw, 2.75rem);
+  border-radius: calc(var(--radius) * 1.5);
+}
+.about { padding: clamp(1.25rem, 4vw, 2.5rem); border-radius: calc(var(--radius) * 1.5); }
+.post-card--cards { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.post-card--cards:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(31, 38, 135, 0.18); }
+.tag, .tag-pill, .share-btn, .dark-toggle, .nav-search input, .copy-btn {
+  background: var(--glass-bg);
+  border-color: var(--glass-edge);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.btn-primary { box-shadow: 0 8px 24px color-mix(in srgb, var(--color-primary) 35%, transparent); }
+.hero-title {
+  background: linear-gradient(120deg, var(--color-text) 25%, var(--color-primary) 75%, var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.site-footer { border-top-color: var(--glass-edge); }

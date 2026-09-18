@@ -9,21 +9,22 @@
     "name": "mrevaly-star",
     "bio": "Writer of this blog."
   },
-  "template": "minimal",
+  "template": "glass",
   "theme": {
-    "primary": "#4f46e5",
-    "accent": "#f59e0b",
-    "background": "#ffffff",
-    "surface": "#f8fafc",
-    "text": "#0f172a",
-    "muted": "#64748b",
-    "headingFont": "Inter",
+    "primary": "#7c3aed",
+    "accent": "#06b6d4",
+    "background": "#eef0ff",
+    "surface": "#ffffff",
+    "text": "#1e1b4b",
+    "muted": "#5b5f86",
+    "headingFont": "Outfit",
     "bodyFont": "Inter",
-    "radius": "md",
+    "radius": "lg",
     "mode": "auto",
-    "spacing": "normal",
-    "layout": "grid",
-    "containerWidth": "normal"
+    "spacing": "roomy",
+    "layout": "cards",
+    "containerWidth": "normal",
+    "effect": "glass"
   },
   "nav": [
     {
@@ -132,6 +133,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-18T08:40:01.726Z",
-  "lastPublishedCommit": "98e83e2965df16085804189674dcf0bd372efdd7"
+  "updatedAt": "2026-09-18T08:47:15.762Z",
+  "lastPublishedCommit": "6f6c034047cf31c9b6e55a62d7e9ca1ccebbf668"
 }
