@@ -114,15 +114,23 @@
       "provider": "none",
       "id": ""
     },
+    "comments": {
+      "provider": "giscus",
+      "repo": "mrevaly-star/mrevaly-star.github.io",
+      "repoId": "R_kgDOUWWRdA",
+      "category": "Announcements",
+      "categoryId": "DIC_kwDOUWWRdM4DF3X4"
+    },
     "showSearch": true,
     "showRss": true,
     "showDarkToggle": true,
     "showReadingTime": true,
+    "showShare": true,
     "postsPerPage": 10,
     "seo": {}
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-11T08:02:54.193Z",
-  "lastPublishedCommit": "82de08106a257d08a5e78df65e47d879b59386cb"
+  "updatedAt": "2026-09-18T08:01:07.813Z",
+  "lastPublishedCommit": "7b4c017eb954853d7474463667e03edb77ff48f4"
 }
