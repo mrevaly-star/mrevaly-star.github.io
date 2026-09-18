@@ -137,7 +137,6 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .post-header { text-align: left; margin-bottom: 1.5rem; }
 .post-title { font-size: clamp(1.9rem, 1.5rem + 2vw, 3rem); }
 .post-meta { display: flex; gap: 0.8rem; color: var(--color-muted); font-size: 0.95em; margin-bottom: 0.6rem; }
-.post-meta-views:empty { display: none; }
 .post-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.6rem; }
 .post-cover { width: 100%; border-radius: var(--radius); margin-bottom: 2rem; aspect-ratio: 16/8; object-fit: cover; }
 .post-content, .prose { max-width: 42rem; }
@@ -154,7 +153,11 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .share-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 999px; background: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-text); cursor: pointer; text-decoration: none; transition: color 0.15s ease, border-color 0.15s ease; }
 .share-btn:hover { color: var(--color-primary); border-color: var(--color-primary); }
 .share-btn.is-copied { color: var(--color-primary); border-color: var(--color-primary); }
-.post-comments { max-width: 42rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border); }
+.post-comments { max-width: 42rem; margin-top: 3rem; padding: clamp(1.25rem, 4vw, 2rem); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); }
+.comments-title { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.35rem; font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem); }
+.comments-title svg { color: var(--color-primary); flex-shrink: 0; }
+.comments-hint { color: var(--color-muted); font-size: 0.88em; margin: 0 0 1.25rem; }
+.giscus { color: var(--color-muted); font-size: 0.9em; }
 .post-adjacent { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
 .post-adjacent-link { text-decoration: none; display: flex; flex-direction: column; gap: 0.3rem; }
 .post-adjacent-next { text-align: right; align-items: flex-end; }

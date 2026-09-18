@@ -79,18 +79,6 @@
     });
   }
 
-  var viewCountEl = document.querySelector("[data-goatcounter-code]");
-  if (viewCountEl) {
-    var gcCode = viewCountEl.getAttribute("data-goatcounter-code");
-    fetch("https://" + gcCode + ".goatcounter.com/counter/" + encodeURIComponent(location.pathname) + ".json")
-      .then(function (r) { return r.json(); })
-      .then(function (d) {
-        var n = parseInt(d && d.count, 10);
-        if (!isNaN(n)) viewCountEl.textContent = n.toLocaleString() + (n === 1 ? " view" : " views");
-      })
-      .catch(function () {});
-  }
-
   var shareBox = document.querySelector("[data-share]");
   if (shareBox) {
     var shareUrl = window.location.href;
