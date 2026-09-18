@@ -1,18 +1,40 @@
 :root {
 
-    --color-primary: #1a8917;
-    --color-accent: #242424;
+    --color-primary: #4f46e5;
+    --color-accent: #f59e0b;
     --color-bg: #ffffff;
-    --color-surface: #f9f9f9;
-    --color-text: #242424;
-    --color-muted: #6b6b6b;
-    --color-border: color-mix(in srgb, #242424 12%, transparent);
+    --color-surface: #f8fafc;
+    --color-text: #0f172a;
+    --color-muted: #64748b;
+    --color-border: color-mix(in srgb, #0f172a 12%, transparent);
 
-    --font-heading: 'Merriweather', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-body: 'Merriweather', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --radius: 6px;
-    --space-scale: 1.25;
-    --container: 48rem;
+    --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius: 10px;
+    --space-scale: 1;
+    --container: 62rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+
+    --color-primary: #4f46e5;
+    --color-accent: #f59e0b;
+    --color-bg: #171717;
+    --color-surface: #242424;
+    --color-text: #e8e9ee;
+    --color-muted: #a0abbb;
+    --color-border: color-mix(in srgb, #e8e9ee 12%, transparent);
+  }
+}
+:root[data-theme="dark"] {
+
+    --color-primary: #4f46e5;
+    --color-accent: #f59e0b;
+    --color-bg: #171717;
+    --color-surface: #242424;
+    --color-text: #e8e9ee;
+    --color-muted: #a0abbb;
+    --color-border: color-mix(in srgb, #e8e9ee 12%, transparent);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -131,11 +153,9 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .share-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 999px; background: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-text); cursor: pointer; text-decoration: none; transition: color 0.15s ease, border-color 0.15s ease; }
 .share-btn:hover { color: var(--color-primary); border-color: var(--color-primary); }
 .share-btn.is-copied { color: var(--color-primary); border-color: var(--color-primary); }
-.post-comments { max-width: 42rem; margin-top: 3rem; padding: clamp(1.25rem, 4vw, 2rem); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); }
-.comments-title { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.35rem; font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem); }
-.comments-title svg { color: var(--color-primary); flex-shrink: 0; }
-.comments-hint { color: var(--color-muted); font-size: 0.88em; margin: 0 0 1.25rem; }
-.giscus { color: var(--color-muted); font-size: 0.9em; }
+.post-comments { max-width: 42rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border); }
+.comments-hint { color: var(--color-muted); font-size: 0.88em; margin: -0.5rem 0 1.25rem; }
+.giscus-loading { color: var(--color-muted); font-size: 0.9em; }
 .post-adjacent { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
 .post-adjacent-link { text-decoration: none; display: flex; flex-direction: column; gap: 0.3rem; }
 .post-adjacent-next { text-align: right; align-items: flex-end; }
