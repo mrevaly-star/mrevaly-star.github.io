@@ -86,7 +86,12 @@
     var frame = document.querySelector("iframe.giscus-frame");
     if (frame) frame.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusTheme() } } }, "https://giscus.app");
   }
-  if (giscusBox) {
+  // The comments box is a whole app of its own: load it only when the reader
+  // scrolls near it, so it doesn't compete with the post itself. Straight away
+  // when coming back from signing in (?giscus=…) or following a #comments link.
+  function loadGiscus() {
+    if (!giscusBox || giscusBox.getAttribute("data-loaded")) return;
+    giscusBox.setAttribute("data-loaded", "1");
     var gs = document.createElement("script");
     gs.src = "https://giscus.app/client.js";
     gs.async = true;
@@ -106,10 +111,33 @@
     };
     Object.keys(gAttrs).forEach(function (k) { gs.setAttribute(k, gAttrs[k] || ""); });
     giscusBox.parentNode.appendChild(gs);
+  }
+  if (giscusBox) {
+    var comeBack = /[?&]giscus=/.test(location.search) || location.hash === "#comments";
+    if (comeBack || !("IntersectionObserver" in window)) {
+      loadGiscus();
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        if (entries.some(function (en) { return en.isIntersecting; })) { io.disconnect(); loadGiscus(); }
+      }, { rootMargin: "800px 0px" });
+      io.observe(giscusBox);
+    }
+    // The "sign in to comment" hint is only for visitors who haven't signed in to
+    // giscus yet. giscus keeps its sign-in in this site's localStorage (and drops
+    // it again when it expires), so re-check whenever the comments frame reports in.
+    var hint = document.querySelector(".comments-hint");
+    function updateCommentsHint() {
+      if (!hint) return;
+      var signedIn = false;
+      try { signedIn = !!localStorage.getItem("giscus-session"); } catch (e) {}
+      hint.hidden = signedIn;
+    }
+    updateCommentsHint();
     window.addEventListener("message", function (e) {
       if (e.origin !== "https://giscus.app") return;
       var loading = document.querySelector(".giscus-loading");
       if (loading) loading.parentNode.removeChild(loading);
+      updateCommentsHint();
     });
   }
 

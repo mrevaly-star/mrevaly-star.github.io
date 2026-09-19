@@ -161,6 +161,21 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .post-content :not(pre) > code { background: var(--color-surface); padding: 0.15em 0.4em; border-radius: 4px; }
 .post-content blockquote { margin: 1.4em 0; padding-left: 1rem; border-left: 3px solid var(--color-primary); color: var(--color-muted); }
 .post-content img { border-radius: var(--radius); }
+/* photos the writer resized / put to one side in the editor (inline width %, data-align) */
+.post-content { display: flow-root; }
+.post-content :is(h1, h2, h3) { clear: both; }
+.post-content img:is([style*="width"], [data-size]) { margin-inline: auto; }
+.post-content img[data-size="25"] { width: 25%; }
+.post-content img[data-size="50"] { width: 50%; }
+.post-content img[data-size="75"] { width: 75%; }
+.post-content img[data-align="left"] { float: left; margin: 0.3em 1.5em 1em 0; }
+.post-content img[data-align="right"] { float: right; margin: 0.3em 0 1em 1.5em; }
+@media (max-width: 600px) {
+  /* no room to wrap text on a phone: side photos sit centred on their own line */
+  .post-content img[data-align] { float: none; margin: 0 auto 1.2em; }
+  /* tiny photos grow a little (min-width beats the inline width) */
+  .post-content img:is([style*="width"], [data-size]) { min-width: 50%; }
+}
 .post-content a, .prose a { overflow-wrap: anywhere; }
 /* wide tables scroll sideways inside the column instead of stretching the page */
 .post-content table, .prose table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin: 0 0 1.4em; font-size: 0.92em; }
@@ -176,6 +191,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .share-btn.is-copied { color: var(--color-primary); border-color: var(--color-primary); }
 .post-comments { max-width: 42rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border); }
 .comments-hint { color: var(--color-muted); font-size: 0.88em; margin: -0.5rem 0 1.25rem; }
+.comments-hint[hidden] { display: none; }
 .giscus-loading { color: var(--color-muted); font-size: 0.9em; }
 .post-adjacent { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
 .post-adjacent-link { text-decoration: none; display: flex; flex-direction: column; gap: 0.3rem; }
