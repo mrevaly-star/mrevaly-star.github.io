@@ -47,6 +47,7 @@ body {
   line-height: 1.65;
   font-size: clamp(1rem, 0.94rem + 0.25vw, 1.125rem);
   -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
 }
 img { max-width: 100%; display: block; height: auto; }
 a { color: inherit; }
@@ -68,11 +69,13 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .tag-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 2rem; }
 
 /* header / nav */
-.site-header { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--color-bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--color-border); }
+.site-header { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--color-bg) 88%, transparent); border-bottom: 1px solid var(--color-border); }
+/* the blur lives on a pseudo-element: backdrop-filter on the header itself would trap the mobile menu inside it */
+.site-header::before { content: ""; position: absolute; inset: 0; z-index: -1; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
 .site-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 0.9rem; }
 .site-brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-heading); font-weight: 700; font-size: 1.15rem; text-decoration: none; color: var(--color-text); }
 .site-brand-avatar { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
-.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 4px; width: 44px; height: 44px; background: none; border: none; cursor: pointer; }
+.nav-toggle { flex-shrink: 0; display: none; flex-direction: column; justify-content: center; gap: 4px; width: 44px; height: 44px; background: none; border: none; cursor: pointer; }
 .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--color-text); margin-inline: auto; }
 .site-nav { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
 .site-nav a { text-decoration: none; font-weight: 500; font-size: 0.95rem; }
@@ -88,9 +91,15 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 
 @media (max-width: 760px) {
   .nav-toggle { display: flex; }
-  .site-nav { position: fixed; inset: 64px 0 0 0; flex-direction: column; align-items: stretch; background: var(--color-bg); padding: 1.5rem; gap: 1.2rem; transform: translateY(-8px); opacity: 0; pointer-events: none; transition: all 0.2s ease; overflow: auto; }
-  .site-nav.is-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .site-header-inner { position: relative; }
+  .site-brand { min-width: 0; }
+  .site-nav { position: absolute; top: 100%; left: 0; right: 0; max-height: calc(100dvh - 4.5rem); flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 0.25rem; padding: 0.75rem clamp(1rem, 4vw, 2.5rem) 1.25rem; background: var(--color-bg); border-bottom: 1px solid var(--color-border); box-shadow: 0 16px 32px rgba(0,0,0,.12); transform: translateY(-8px); opacity: 0; visibility: hidden; transition: transform 0.2s ease, opacity 0.2s ease, visibility 0.2s; overflow: auto; }
+  .site-nav.is-open { transform: translateY(0); opacity: 1; visibility: visible; }
+  .site-nav a { padding: 0.7rem 0; font-size: 1.05rem; }
+  .nav-search { margin-top: 0.5rem; }
   .nav-search input { width: 100%; max-width: none; }
+  .search-results { position: static; width: auto; max-width: none; margin-top: 0.4rem; box-shadow: none; }
+  .dark-toggle { margin-top: 0.5rem; }
 }
 
 /* sections */
@@ -114,15 +123,18 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 /* post lists / cards */
 .post-list { display: grid; gap: 1.75rem; }
 .post-list--grid, .post-list--cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); }
-.post-list--list { grid-template-columns: 1fr; max-width: 42rem; }
-.post-card { display: flex; flex-direction: column; }
+.post-list--list { grid-template-columns: minmax(0, 1fr); max-width: 42rem; }
+.post-card { display: flex; flex-direction: column; min-width: 0; }
+.post-card-title, .post-card-excerpt { overflow-wrap: anywhere; }
 .post-card--cards { background: var(--color-surface); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--color-border); box-shadow: 0 1px 2px rgba(0,0,0,.04); }
 .post-card--cards .post-card-body { padding: 1.2rem; }
 .post-card--list { flex-direction: row; gap: 1.2rem; align-items: flex-start; padding-block: 1.2rem; border-bottom: 1px solid var(--color-border); }
 .post-card--list .post-card-cover { width: 9rem; flex-shrink: 0; }
+.post-card--list .post-card-body { flex: 1 1 auto; min-width: 0; }
+@media (max-width: 600px) { .post-card--list { gap: 0.9rem; } .post-card--list .post-card-cover { width: 5.5rem; } .post-card--list .post-card-cover img { aspect-ratio: 1; } }
 .post-card-cover img { border-radius: var(--radius); aspect-ratio: 16/10; object-fit: cover; }
 .post-card--grid .post-card-cover img { margin-bottom: 0.8rem; }
-.post-card-meta { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85em; color: var(--color-muted); margin-bottom: 0.4rem; }
+.post-card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; font-size: 0.85em; color: var(--color-muted); margin-bottom: 0.4rem; }
 .post-card-title { font-size: 1.2rem; margin: 0 0 0.4rem; }
 .post-card-title a { text-decoration: none; }
 .post-card-title a:hover { text-decoration: underline; }
@@ -138,7 +150,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .post.container { max-width: min(var(--container), 47rem); }
 .post-header { text-align: left; margin-bottom: 1.5rem; }
 .post-title { font-size: clamp(1.9rem, 1.5rem + 2vw, 3rem); }
-.post-meta { display: flex; gap: 0.8rem; color: var(--color-muted); font-size: 0.95em; margin-bottom: 0.6rem; }
+.post-meta { display: flex; flex-wrap: wrap; gap: 0.3rem 0.8rem; color: var(--color-muted); font-size: 0.95em; margin-bottom: 0.6rem; }
 .post-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.6rem; }
 .post-cover { width: 100%; border-radius: var(--radius); margin-bottom: 2rem; aspect-ratio: 16/8; object-fit: cover; }
 .post-content, .prose { max-width: 42rem; }
@@ -149,6 +161,13 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .post-content :not(pre) > code { background: var(--color-surface); padding: 0.15em 0.4em; border-radius: 4px; }
 .post-content blockquote { margin: 1.4em 0; padding-left: 1rem; border-left: 3px solid var(--color-primary); color: var(--color-muted); }
 .post-content img { border-radius: var(--radius); }
+.post-content a, .prose a { overflow-wrap: anywhere; }
+/* wide tables scroll sideways inside the column instead of stretching the page */
+.post-content table, .prose table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin: 0 0 1.4em; font-size: 0.92em; }
+.post-content :is(th, td), .prose :is(th, td) { padding: 0.5em 0.75em; border: 1px solid var(--color-border); text-align: left; vertical-align: top; }
+.post-content th, .prose th { background: var(--color-surface); }
+.post-content :is(iframe, video, embed, object), .prose :is(iframe, video, embed, object) { max-width: 100%; }
+.post-content iframe:is([src*="youtube"], [src*="vimeo"]), .prose iframe:is([src*="youtube"], [src*="vimeo"]) { width: 100%; height: auto; aspect-ratio: 16 / 9; }
 .copy-btn { position: absolute; top: 0.5rem; right: 0.5rem; font-size: 0.75em; padding: 0.3em 0.7em; border-radius: 6px; background: var(--color-bg); border: 1px solid var(--color-border); color: var(--color-text); cursor: pointer; }
 .post-share { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; max-width: 42rem; margin: 2.5rem 0 0; }
 .post-share-label { color: var(--color-muted); font-size: 0.85em; font-weight: 600; }
@@ -215,7 +234,8 @@ body {
     var(--color-bg);
   background-attachment: fixed;
 }
-.site-header { background: var(--glass-bg); border-bottom-color: var(--glass-edge); -webkit-backdrop-filter: blur(16px) saturate(160%); backdrop-filter: blur(16px) saturate(160%); }
+.site-header { background: var(--glass-bg); border-bottom-color: var(--glass-edge); }
+.site-header::before { -webkit-backdrop-filter: blur(16px) saturate(160%); backdrop-filter: blur(16px) saturate(160%); }
 .post-card--cards, .newsletter, .about, .post.container, .archive.container, .search-results {
   background: var(--glass-bg);
   border: 1px solid var(--glass-edge);

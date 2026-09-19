@@ -9,12 +9,15 @@
       var open = nav.classList.toggle("is-open");
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
-    nav.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        nav.classList.remove("is-open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
+    var closeNav = function () {
+      nav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    };
+    nav.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", closeNav); });
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("is-open") && !nav.contains(e.target) && !navToggle.contains(e.target)) closeNav();
     });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeNav(); });
   }
 
   document.querySelectorAll("pre > code").forEach(function (code) {
