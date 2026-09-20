@@ -587,9 +587,10 @@ body > * { position: relative; z-index: 1; }
 .newsletter { padding: clamp(1.4rem, 4vw, 2.6rem); }
 .newsletter-form { justify-content: center; }
 .newsletter-form input { border-radius: 999px; border-color: var(--nook-edge); background: var(--nook-card-2); }
+/* these are .container elements already: setting a second width here made
+   the archive panel 1200px wide against the header's 1120 */
 .about, .post.container, .archive.container, .not-found.container {
   padding: clamp(1.3rem, 4vw, 2.6rem);
-  width: min(100% - 1.5rem, var(--container));
   margin-block: 1.25rem;
   border-radius: clamp(1rem, 2.2vw, 1.75rem);
   border: 1px solid var(--nook-edge);
