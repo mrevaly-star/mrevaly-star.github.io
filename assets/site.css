@@ -284,6 +284,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
   --nook-shadow-lg: 0 22px 44px -22px color-mix(in srgb, var(--color-primary) 50%, transparent);
   --nook-glow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 15%, transparent);
   --nook-doodles: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.05'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
+  --nook-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.05'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
   --nook-tip-bg: #fff8e1; --nook-tip-edge: #ffe08a; --nook-tip-ink: #8a6100;
   --nook-pearl-bg: #ffeef5; --nook-pearl-edge: #ffc2d8; --nook-pearl-ink: #a8285c;
   --nook-warn-bg: #ffeeea; --nook-warn-edge: #ffb4a2; --nook-warn-ink: #b23b1f;
@@ -304,6 +305,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
     --nook-shadow-lg: 0 24px 48px -24px rgba(0, 0, 0, 0.85);
     --nook-glow: 0 0 0 4px rgba(255, 133, 162, 0.18);
     --nook-doodles: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.1'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
+    --nook-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.1'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
     --nook-tip-bg: #33291a; --nook-tip-edge: #8a6d2f; --nook-tip-ink: #ffd88a;
     --nook-pearl-bg: #352031; --nook-pearl-edge: #a8558a; --nook-pearl-ink: #ffb3d1;
     --nook-warn-bg: #3a2320; --nook-warn-edge: #b0614d; --nook-warn-ink: #ffb3a0;
@@ -323,6 +325,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
     --nook-shadow-lg: 0 24px 48px -24px rgba(0, 0, 0, 0.85);
     --nook-glow: 0 0 0 4px rgba(255, 133, 162, 0.18);
     --nook-doodles: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.1'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
+    --nook-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.1'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
     --nook-tip-bg: #33291a; --nook-tip-edge: #8a6d2f; --nook-tip-ink: #ffd88a;
     --nook-pearl-bg: #352031; --nook-pearl-edge: #a8558a; --nook-pearl-ink: #ffb3d1;
     --nook-warn-bg: #3a2320; --nook-warn-edge: #b0614d; --nook-warn-ink: #ffb3a0;
@@ -699,12 +702,15 @@ body > * { position: relative; z-index: 1; }
 
 /* ── the menu, on a phone ───────────────────────────────────── */
 @media (max-width: 760px) {
+  /* Opaque, not glass: the header bar above has its own backdrop-filter, which
+     makes it a backdrop root, so a blur on this menu has nothing to work with
+     and the page reads straight through the panel. */
   .site-nav {
     z-index: 2; margin-top: 0.5rem; padding: 0.7rem;
     border-radius: 1.4rem; border: 1px solid var(--nook-edge);
-    background: var(--nook-glass);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
-    backdrop-filter: blur(14px) saturate(140%);
+    background: var(--nook-motifs, none) repeat 0 center / 78px 78px, var(--nook-card);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
     box-shadow: var(--nook-shadow-lg);
   }
   .site-nav a { padding: 0.7em 0.9em; }
@@ -732,7 +738,11 @@ body > * { position: relative; z-index: 1; }
   content: ""; position: absolute; inset: -30%; pointer-events: none;
 }
 /* the page's own content keeps its place above the layer */
-.site-header, .site-main, main, .site-footer { position: relative; z-index: 1; }
+.site-main, main, .site-footer { position: relative; z-index: 1; }
+/* The header is left out on purpose. It is already above the layer — sticky,
+   z-index 40 — and re-declaring position here dropped it back to relative, so
+   it stopped sticking and, worse, the phone menu inside it was trapped in a
+   z-index 1 box level with main and opened behind the page. */
 
 /* ── rain ───────────────────────────────────────────────────
    Drops are individual elements the script spawns with randomised position,
