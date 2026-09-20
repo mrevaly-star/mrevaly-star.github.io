@@ -146,6 +146,12 @@
       "category": "Announcements",
       "categoryId": "DIC_kwDOUWWRdM4DF3X4"
     },
+    "weather": {
+      "enabled": true,
+      "lat": 23.71,
+      "lon": 90.407,
+      "place": "Dhaka, Dhaka Division, Bangladesh"
+    },
     "showSearch": true,
     "showRss": true,
     "showDarkToggle": true,
@@ -156,6 +162,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-20T04:24:57.582Z",
-  "lastPublishedCommit": "b773580f960e92bd43fe39fbb98191d273f97c7c"
+  "updatedAt": "2026-09-20T04:40:16.855Z",
+  "lastPublishedCommit": "14ce194e09b6e7160904d1bc21e8e71dd0a3a75b"
 }

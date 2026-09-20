@@ -362,3 +362,69 @@ body {
   border: 3px solid var(--spark-ink); box-shadow: var(--spark-drop); color: var(--color-text);
 }
 .post-content img, .post-content pre { border: 3px solid var(--spark-ink); border-radius: calc(var(--radius) * 0.9); }
+
+/* weather */
+.weather-layer {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  opacity: 0; transition: opacity 1.2s ease;
+}
+[data-weather] .weather-layer { opacity: 1; }
+/* the page's own content keeps its place above the layer */
+.site-header, .site-main, main, .site-footer { position: relative; z-index: 1; }
+
+/* rain: two sheets of streaks at different speeds */
+[data-weather="rain"] .weather-layer, [data-weather="storm"] .weather-layer {
+  background:
+    repeating-linear-gradient(74deg, color-mix(in srgb, var(--color-primary) 26%, transparent) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(72deg, color-mix(in srgb, var(--color-primary) 16%, transparent) 0 1px, transparent 1px 15px);
+  background-size: 100% 22px, 100% 34px;
+  opacity: 0.5;
+}
+[data-weather="storm"] .weather-layer { opacity: 0.66; }
+
+/* snow: dots drifting down */
+/* flakes are mixed from the text colour, so they stay visible whether the
+   page is light or dark — white flakes vanish on a white theme */
+[data-weather="snow"] .weather-layer {
+  background:
+    radial-gradient(2.6px 2.6px at 18% 12%, color-mix(in srgb, var(--color-text) 34%, transparent) 0 60%, transparent 62%) 0 0 / 110px 110px,
+    radial-gradient(2px 2px at 62% 44%, color-mix(in srgb, var(--color-text) 24%, transparent) 0 60%, transparent 62%) 0 0 / 80px 80px,
+    radial-gradient(3px 3px at 84% 76%, color-mix(in srgb, var(--color-text) 30%, transparent) 0 60%, transparent 62%) 0 0 / 140px 140px;
+  opacity: 0.8;
+}
+
+/* sun: a warm corner glow */
+[data-weather="clear"][data-daylight="day"] .weather-layer {
+  background: radial-gradient(38vmax 30vmax at 88% -6%, color-mix(in srgb, var(--color-accent) 38%, transparent), transparent 70%);
+}
+/* night: a cool wash with a few stars */
+[data-weather="clear"][data-daylight="night"] .weather-layer,
+[data-weather="cloud"][data-daylight="night"] .weather-layer {
+  background:
+    radial-gradient(1.6px 1.6px at 22% 18%, color-mix(in srgb, var(--color-text) 40%, transparent) 0 60%, transparent 62%) 0 0 / 160px 140px,
+    radial-gradient(1.2px 1.2px at 68% 34%, color-mix(in srgb, var(--color-text) 30%, transparent) 0 60%, transparent 62%) 0 0 / 200px 180px,
+    linear-gradient(180deg, color-mix(in srgb, var(--color-text) 12%, transparent), transparent 60%);
+}
+/* cloud & fog: soft shapes drifting across */
+[data-weather="cloud"] .weather-layer, [data-weather="fog"] .weather-layer {
+  background:
+    radial-gradient(26vmax 12vmax at 18% 12%, color-mix(in srgb, var(--color-text) 9%, transparent), transparent 70%),
+    radial-gradient(30vmax 14vmax at 76% 22%, color-mix(in srgb, var(--color-text) 7%, transparent), transparent 70%);
+}
+[data-weather="fog"] .weather-layer { backdrop-filter: blur(1px); }
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-weather="rain"] .weather-layer, [data-weather="storm"] .weather-layer { animation: wx-rain 0.7s linear infinite; }
+  [data-weather="snow"] .weather-layer { animation: wx-snow 14s linear infinite; }
+  [data-weather="cloud"] .weather-layer, [data-weather="fog"] .weather-layer { animation: wx-drift 70s ease-in-out infinite alternate; }
+  [data-weather="clear"][data-daylight="day"] .weather-layer { animation: wx-bask 12s ease-in-out infinite; }
+  [data-weather="storm"] .weather-layer::after {
+    content: ""; position: absolute; inset: 0; background: #fff; opacity: 0;
+    animation: wx-flash 14s steps(1, end) infinite;
+  }
+}
+@keyframes wx-rain { to { background-position: -60px 220px, -40px 340px; } }
+@keyframes wx-snow { to { background-position: 40px 1200px, -30px 900px, 60px 1500px; } }
+@keyframes wx-drift { to { transform: translateX(6vw); } }
+@keyframes wx-bask { 0%, 100% { opacity: 1; } 50% { opacity: 0.78; } }
+@keyframes wx-flash { 0%, 97%, 100% { opacity: 0; } 97.6% { opacity: 0.18; } 98.2% { opacity: 0; } 98.8% { opacity: 0.12; } }

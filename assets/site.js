@@ -207,3 +207,60 @@
     });
   }
 })();
+
+(function () {
+  "use strict";
+  var URL = "https://api.open-meteo.com/v1/forecast?latitude=23.71&longitude=90.407" +
+    "&current=weather_code,is_day&timezone=auto";
+  var KEY = "bb-weather";
+  var MAX_AGE = 30 * 60 * 1000;
+
+  // WMO codes -> the handful of looks the stylesheet knows about
+  function bucket(code) {
+    if (code >= 95) return "storm";
+    if (code >= 71 && code <= 77) return "snow";
+    if (code === 85 || code === 86) return "snow";
+    if (code >= 51 && code <= 67) return "rain";
+    if (code >= 80 && code <= 82) return "rain";
+    if (code === 45 || code === 48) return "fog";
+    if (code >= 2 && code <= 3) return "cloud";
+    if (code >= 0 && code <= 1) return "clear";
+    return "";
+  }
+
+  function paint(code, isDay) {
+    var kind = bucket(code);
+    if (!kind) return;
+    var html = document.documentElement;
+    html.setAttribute("data-weather", kind);
+    html.setAttribute("data-daylight", isDay ? "day" : "night");
+    if (!document.querySelector(".weather-layer")) {
+      var layer = document.createElement("div");
+      layer.className = "weather-layer";
+      layer.setAttribute("aria-hidden", "true");
+      document.body.insertBefore(layer, document.body.firstChild);
+    }
+  }
+
+  function cached() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return null;
+      var v = JSON.parse(raw);
+      return v && Date.now() - v.at < MAX_AGE ? v : null;
+    } catch (e) { return null; }
+  }
+
+  var hit = cached();
+  if (hit) { paint(hit.code, hit.day); return; }
+
+  fetch(URL)
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      var c = d && d.current;
+      if (!c || typeof c.weather_code !== "number") return;
+      try { localStorage.setItem(KEY, JSON.stringify({ code: c.weather_code, day: c.is_day === 1, at: Date.now() })); } catch (e) {}
+      paint(c.weather_code, c.is_day === 1);
+    })
+    .catch(function () { /* no weather, no layer — the page is fine without it */ });
+})();
