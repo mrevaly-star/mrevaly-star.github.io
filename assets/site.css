@@ -365,66 +365,116 @@ body {
 
 /* weather */
 .weather-layer {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  opacity: 0; transition: opacity 1.2s ease;
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+  opacity: 0; transition: opacity 1.4s ease;
 }
 [data-weather] .weather-layer { opacity: 1; }
+/* two oversized sheets so a rotated sheet still covers the corners */
+.weather-layer::before, .weather-layer::after {
+  content: ""; position: absolute; inset: -30%; pointer-events: none;
+}
 /* the page's own content keeps its place above the layer */
 .site-header, .site-main, main, .site-footer { position: relative; z-index: 1; }
 
-/* rain: two sheets of streaks at different speeds */
+/* ── rain: short streaks falling on two planes ──────────────── */
 [data-weather="rain"] .weather-layer, [data-weather="storm"] .weather-layer {
-  background:
-    repeating-linear-gradient(74deg, color-mix(in srgb, var(--color-primary) 26%, transparent) 0 1px, transparent 1px 9px),
-    repeating-linear-gradient(72deg, color-mix(in srgb, var(--color-primary) 16%, transparent) 0 1px, transparent 1px 15px);
-  background-size: 100% 22px, 100% 34px;
-  opacity: 0.5;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 7%, transparent), transparent 55%);
 }
-[data-weather="storm"] .weather-layer { opacity: 0.66; }
+/* thin columns, cut into streaks by a mask that slides down — a vertical
+   gradient tiled sideways would paint every column and give solid bands */
+[data-weather="rain"] .weather-layer::before, [data-weather="storm"] .weather-layer::before {
+  background-image: repeating-linear-gradient(to right, color-mix(in srgb, var(--color-primary) 60%, transparent) 0 1.5px, transparent 1.5px 26px);
+  -webkit-mask-image: repeating-linear-gradient(to bottom, #000 0 15px, transparent 15px 46px);
+  mask-image: repeating-linear-gradient(to bottom, #000 0 15px, transparent 15px 46px);
+  transform: rotate(13deg); opacity: 0.5;
+}
+[data-weather="rain"] .weather-layer::after, [data-weather="storm"] .weather-layer::after {
+  background-image: repeating-linear-gradient(to right, color-mix(in srgb, var(--color-primary) 38%, transparent) 0 1px, transparent 1px 41px);
+  -webkit-mask-image: repeating-linear-gradient(to bottom, #000 0 11px, transparent 11px 74px);
+  mask-image: repeating-linear-gradient(to bottom, #000 0 11px, transparent 11px 74px);
+  transform: rotate(11deg); opacity: 0.34;
+}
+[data-weather="storm"] .weather-layer::before { opacity: 0.66; }
+[data-weather="storm"] .weather-layer { background: linear-gradient(180deg, color-mix(in srgb, var(--color-text) 12%, transparent), transparent 60%); }
 
-/* snow: dots drifting down */
-/* flakes are mixed from the text colour, so they stay visible whether the
-   page is light or dark — white flakes vanish on a white theme */
-[data-weather="snow"] .weather-layer {
-  background:
-    radial-gradient(2.6px 2.6px at 18% 12%, color-mix(in srgb, var(--color-text) 34%, transparent) 0 60%, transparent 62%) 0 0 / 110px 110px,
-    radial-gradient(2px 2px at 62% 44%, color-mix(in srgb, var(--color-text) 24%, transparent) 0 60%, transparent 62%) 0 0 / 80px 80px,
-    radial-gradient(3px 3px at 84% 76%, color-mix(in srgb, var(--color-text) 30%, transparent) 0 60%, transparent 62%) 0 0 / 140px 140px;
-  opacity: 0.8;
+/* ── snow: two sizes of flake, drifting ─────────────────────── */
+[data-weather="snow"] .weather-layer::before {
+  background-image:
+    radial-gradient(3px 3px at 14px 18px, color-mix(in srgb, var(--color-text) 38%, transparent) 0 58%, transparent 60%),
+    radial-gradient(2px 2px at 62px 74px, color-mix(in srgb, var(--color-text) 30%, transparent) 0 58%, transparent 60%);
+  background-size: 110px 110px, 90px 90px;
+  opacity: 0.85;
+}
+[data-weather="snow"] .weather-layer::after {
+  background-image: radial-gradient(4.5px 4.5px at 40px 30px, color-mix(in srgb, var(--color-text) 26%, transparent) 0 58%, transparent 60%);
+  background-size: 190px 190px;
+  filter: blur(0.6px); opacity: 0.7;
 }
 
-/* sun: a warm corner glow */
+/* ── clear: a sun by day, stars by night ────────────────────── */
 [data-weather="clear"][data-daylight="day"] .weather-layer {
-  background: radial-gradient(38vmax 30vmax at 88% -6%, color-mix(in srgb, var(--color-accent) 38%, transparent), transparent 70%);
+  background: radial-gradient(42vmax 34vmax at 86% -8%, color-mix(in srgb, var(--color-accent) 34%, transparent), transparent 68%);
 }
-/* night: a cool wash with a few stars */
+[data-weather="clear"][data-daylight="day"] .weather-layer::before {
+  background: radial-gradient(7vmax 7vmax at 84% 4%, color-mix(in srgb, var(--color-accent) 62%, transparent) 0 48%, transparent 52%);
+  filter: blur(6px);
+}
 [data-weather="clear"][data-daylight="night"] .weather-layer,
 [data-weather="cloud"][data-daylight="night"] .weather-layer {
-  background:
-    radial-gradient(1.6px 1.6px at 22% 18%, color-mix(in srgb, var(--color-text) 40%, transparent) 0 60%, transparent 62%) 0 0 / 160px 140px,
-    radial-gradient(1.2px 1.2px at 68% 34%, color-mix(in srgb, var(--color-text) 30%, transparent) 0 60%, transparent 62%) 0 0 / 200px 180px,
-    linear-gradient(180deg, color-mix(in srgb, var(--color-text) 12%, transparent), transparent 60%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-text) 14%, transparent), transparent 62%);
 }
-/* cloud & fog: soft shapes drifting across */
-[data-weather="cloud"] .weather-layer, [data-weather="fog"] .weather-layer {
-  background:
-    radial-gradient(26vmax 12vmax at 18% 12%, color-mix(in srgb, var(--color-text) 9%, transparent), transparent 70%),
-    radial-gradient(30vmax 14vmax at 76% 22%, color-mix(in srgb, var(--color-text) 7%, transparent), transparent 70%);
+[data-weather="clear"][data-daylight="night"] .weather-layer::before {
+  background-image:
+    radial-gradient(1.8px 1.8px at 24px 30px, color-mix(in srgb, var(--color-text) 55%, transparent) 0 60%, transparent 62%),
+    radial-gradient(1.2px 1.2px at 120px 90px, color-mix(in srgb, var(--color-text) 40%, transparent) 0 60%, transparent 62%);
+  background-size: 170px 150px, 230px 210px;
 }
-[data-weather="fog"] .weather-layer { backdrop-filter: blur(1px); }
+[data-weather="clear"][data-daylight="night"] .weather-layer::after {
+  background: radial-gradient(4.5vmax 4.5vmax at 82% 8%, color-mix(in srgb, var(--color-text) 30%, transparent) 0 46%, transparent 50%);
+  filter: blur(3px);
+}
+
+/* ── cloud & fog: soft banks drifting across ────────────────── */
+[data-weather="cloud"] .weather-layer::before, [data-weather="fog"] .weather-layer::before {
+  background:
+    radial-gradient(16vmax 7vmax at 12% 14%, color-mix(in srgb, var(--color-text) 14%, transparent), transparent 72%),
+    radial-gradient(12vmax 5vmax at 26% 12%, color-mix(in srgb, var(--color-text) 12%, transparent), transparent 72%),
+    radial-gradient(20vmax 8vmax at 68% 20%, color-mix(in srgb, var(--color-text) 13%, transparent), transparent 72%);
+  filter: blur(4px);
+}
+[data-weather="cloud"] .weather-layer::after, [data-weather="fog"] .weather-layer::after {
+  background:
+    radial-gradient(22vmax 9vmax at 40% 30%, color-mix(in srgb, var(--color-text) 9%, transparent), transparent 74%),
+    radial-gradient(18vmax 7vmax at 88% 34%, color-mix(in srgb, var(--color-text) 8%, transparent), transparent 74%);
+  filter: blur(6px);
+}
+[data-weather="fog"] .weather-layer {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-text) 10%, transparent), color-mix(in srgb, var(--color-text) 5%, transparent));
+  backdrop-filter: blur(1.5px);
+}
 
 @media (prefers-reduced-motion: no-preference) {
-  [data-weather="rain"] .weather-layer, [data-weather="storm"] .weather-layer { animation: wx-rain 0.7s linear infinite; }
-  [data-weather="snow"] .weather-layer { animation: wx-snow 14s linear infinite; }
-  [data-weather="cloud"] .weather-layer, [data-weather="fog"] .weather-layer { animation: wx-drift 70s ease-in-out infinite alternate; }
-  [data-weather="clear"][data-daylight="day"] .weather-layer { animation: wx-bask 12s ease-in-out infinite; }
-  [data-weather="storm"] .weather-layer::after {
-    content: ""; position: absolute; inset: 0; background: #fff; opacity: 0;
-    animation: wx-flash 14s steps(1, end) infinite;
-  }
+  [data-weather="rain"] .weather-layer::before, [data-weather="storm"] .weather-layer::before { animation: wx-fall-near 0.5s linear infinite; }
+  [data-weather="rain"] .weather-layer::after, [data-weather="storm"] .weather-layer::after { animation: wx-fall-far 0.85s linear infinite; }
+  [data-weather="snow"] .weather-layer::before { animation: wx-snow-near 11s linear infinite; }
+  [data-weather="snow"] .weather-layer::after { animation: wx-snow-far 19s linear infinite; }
+  [data-weather="cloud"] .weather-layer::before, [data-weather="fog"] .weather-layer::before { animation: wx-drift-near 90s linear infinite; }
+  [data-weather="cloud"] .weather-layer::after, [data-weather="fog"] .weather-layer::after { animation: wx-drift-far 150s linear infinite; }
+  [data-weather="clear"][data-daylight="day"] .weather-layer::before { animation: wx-bask 9s ease-in-out infinite; }
+  [data-weather="clear"][data-daylight="night"] .weather-layer::before { animation: wx-twinkle 7s ease-in-out infinite; }
+  [data-weather="storm"] .weather-layer { animation: wx-flash 13s steps(1, end) infinite; }
 }
-@keyframes wx-rain { to { background-position: -60px 220px, -40px 340px; } }
-@keyframes wx-snow { to { background-position: 40px 1200px, -30px 900px, 60px 1500px; } }
-@keyframes wx-drift { to { transform: translateX(6vw); } }
-@keyframes wx-bask { 0%, 100% { opacity: 1; } 50% { opacity: 0.78; } }
-@keyframes wx-flash { 0%, 97%, 100% { opacity: 0; } 97.6% { opacity: 0.18; } 98.2% { opacity: 0; } 98.8% { opacity: 0.12; } }
+@keyframes wx-fall-near { to { -webkit-mask-position: 0 46px; mask-position: 0 46px; } }
+@keyframes wx-fall-far { to { -webkit-mask-position: 0 74px; mask-position: 0 74px; } }
+@keyframes wx-snow-near { to { background-position: 26px 660px, -18px 540px; } }
+@keyframes wx-snow-far { to { background-position: -30px 760px; } }
+@keyframes wx-drift-near { to { transform: translateX(14vw); } }
+@keyframes wx-drift-far { to { transform: translateX(-11vw); } }
+@keyframes wx-bask { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.04); } }
+@keyframes wx-twinkle { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+@keyframes wx-flash {
+  0%, 96%, 100% { background: linear-gradient(180deg, color-mix(in srgb, var(--color-text) 12%, transparent), transparent 60%); }
+  96.5% { background: color-mix(in srgb, var(--color-text) 3%, #fff); }
+  97% { background: linear-gradient(180deg, color-mix(in srgb, var(--color-text) 12%, transparent), transparent 60%); }
+  97.6% { background: color-mix(in srgb, var(--color-text) 6%, #fff); }
+}
