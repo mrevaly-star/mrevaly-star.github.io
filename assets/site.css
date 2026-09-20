@@ -302,6 +302,35 @@ body::before {
   background-size: 22px 13px;
 }
 .dark-toggle, .nav-search input, .share-btn, .copy-btn { border: 2px solid var(--cute-line); border-radius: 999px; }
+/* nav links as little pills */
+.site-nav a { padding: 0.3em 0.75em; border-radius: 999px; transition: background 0.16s ease; }
+.site-nav a:hover { background: color-mix(in srgb, var(--color-primary) 12%, transparent); }
+.site-nav a[aria-current="page"] { background: color-mix(in srgb, var(--color-accent) 30%, transparent); color: var(--color-text); }
+/* a bell dot on every heading inside an article, matching the section titles */
+.post-content :is(h2, h3) { position: relative; }
+.post-content :is(h2, h3)::before {
+  content: ""; position: absolute; left: -0.95em; top: 0.52em; width: 0.4em; height: 0.4em; border-radius: 999px;
+  background: color-mix(in srgb, var(--color-accent) 90%, var(--color-surface));
+}
+/* quotes become speech bubbles with a little tail */
+.post-content blockquote {
+  position: relative; margin: 1.6em 0; padding: 1em 1.2em; border-left: 0; border-radius: calc(var(--radius) * 1.4);
+  background: color-mix(in srgb, var(--color-primary) 9%, var(--color-surface));
+  border: 2px solid var(--cute-line); color: var(--color-text);
+}
+.post-content blockquote::after {
+  content: ""; position: absolute; left: 1.8em; top: 100%; width: 0.9rem; height: 0.9rem; margin-top: -2px;
+  background: inherit; border-right: 2px solid var(--cute-line); border-bottom: 2px solid var(--cute-line);
+  transform: rotate(45deg) translate(-35%, -35%); border-bottom-right-radius: 4px;
+}
+.post-content img { border-radius: calc(var(--radius) * 1.3); border: 2px solid var(--cute-line); }
+.post-content pre { border: 2px solid var(--cute-line); border-radius: calc(var(--radius) * 1.2); }
+/* a card with no cover photo gets a pastel band instead of dead space */
+.post-card--cards:not(:has(.post-card-cover))::before {
+  content: ""; display: block; height: 0.55rem; margin: -0.1rem -0.1rem 0.9rem; border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  opacity: 0.75;
+}
 .site-footer { border-top: 3px solid var(--cute-line); position: relative; }
 .site-footer::before {
   content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 13px; pointer-events: none;
