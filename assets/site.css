@@ -243,9 +243,17 @@ body::before {
   box-shadow: 0 6px 0 var(--cute-drop);
 }
 .post.container, .archive.container {
-  width: min(100% - 1.5rem, var(--container));
+  /* inset a little further than flat themes so the sky frames the page even on a phone */
+  width: min(100% - 2.2rem, var(--container));
   margin-block: 1.5rem;
   padding: clamp(1.5rem, 4vw, 2.75rem);
+  /* a wash of sky at the top so a long article is not one white slab */
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 13%, var(--color-surface)), var(--color-surface) 26%);
+}
+.post-title { position: relative; }
+.post-title::after {
+  content: ""; display: block; width: 3.2rem; height: 0.42rem; margin-top: 0.6rem; border-radius: 999px;
+  background: var(--color-accent);
 }
 /* a little colour variety across the grid, mixed from the theme's own two colours */
 .post-card--cards:nth-child(3n + 1) { background: linear-gradient(170deg, color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)), var(--color-surface) 62%); }
