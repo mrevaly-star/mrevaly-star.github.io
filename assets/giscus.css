@@ -1,49 +1,49 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
 main {
   color-scheme: light;
-  color: #2d2a32;
-  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --color-btn-text: #2d2a32;
-  --color-btn-bg: color-mix(in srgb, #2d2a32 6%, #fff7f2);
+  color: #0b0d17;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --color-btn-text: #0b0d17;
+  --color-btn-bg: color-mix(in srgb, #0b0d17 6%, #ffffff);
   --color-btn-border: transparent;
   --color-btn-shadow: none;
   --color-btn-inset-shadow: none;
-  --color-btn-hover-bg: color-mix(in srgb, #2d2a32 10%, #fff7f2);
+  --color-btn-hover-bg: color-mix(in srgb, #0b0d17 10%, #ffffff);
   --color-btn-hover-border: transparent;
-  --color-btn-active-bg: color-mix(in srgb, #2d2a32 10%, #fff7f2);
+  --color-btn-active-bg: color-mix(in srgb, #0b0d17 10%, #ffffff);
   --color-btn-active-border: transparent;
-  --color-btn-selected-bg: color-mix(in srgb, #2d2a32 10%, #fff7f2);
+  --color-btn-selected-bg: color-mix(in srgb, #0b0d17 10%, #ffffff);
   --color-btn-primary-text: #ffffff;
-  --color-btn-primary-bg: #f97066;
+  --color-btn-primary-bg: #1d3fd1;
   --color-btn-primary-border: transparent;
   --color-btn-primary-shadow: none;
   --color-btn-primary-inset-shadow: none;
-  --color-btn-primary-hover-bg: color-mix(in srgb, #f97066 85%, #000000);
+  --color-btn-primary-hover-bg: color-mix(in srgb, #1d3fd1 85%, #000000);
   --color-btn-primary-hover-border: transparent;
-  --color-btn-primary-selected-bg: #f97066;
+  --color-btn-primary-selected-bg: #1d3fd1;
   --color-btn-primary-selected-shadow: none;
   --color-btn-primary-disabled-text: color-mix(in srgb, #ffffff 70%, transparent);
-  --color-btn-primary-disabled-bg: color-mix(in srgb, #f97066 45%, #fff7f2);
+  --color-btn-primary-disabled-bg: color-mix(in srgb, #1d3fd1 45%, #ffffff);
   --color-btn-primary-disabled-border: transparent;
-  --color-action-list-item-default-hover-bg: color-mix(in srgb, #2d2a32 10%, #fff7f2);
-  --color-segmented-control-bg: color-mix(in srgb, #2d2a32 6%, #fff7f2);
-  --color-segmented-control-button-bg: #fff7f2;
-  --color-segmented-control-button-selected-border: color-mix(in srgb, #2d2a32 14%, #fff7f2);
-  --color-fg-default: #2d2a32;
-  --color-fg-muted: #7a7280;
-  --color-fg-subtle: #7a7280;
-  --color-canvas-default: #fff7f2;
-  --color-canvas-overlay: #fff7f2;
-  --color-canvas-inset: #fff7f2;
-  --color-canvas-subtle: color-mix(in srgb, #2d2a32 6%, #fff7f2);
-  --color-border-default: color-mix(in srgb, #2d2a32 14%, #fff7f2);
-  --color-border-muted: color-mix(in srgb, #2d2a32 14%, #fff7f2);
-  --color-neutral-muted: color-mix(in srgb, #2d2a32 6%, #fff7f2);
-  --color-accent-fg: #f97066;
-  --color-accent-emphasis: #f97066;
-  --color-accent-muted: color-mix(in srgb, #f97066 40%, transparent);
-  --color-accent-subtle: color-mix(in srgb, #f97066 16%, #fff7f2);
+  --color-action-list-item-default-hover-bg: color-mix(in srgb, #0b0d17 10%, #ffffff);
+  --color-segmented-control-bg: color-mix(in srgb, #0b0d17 6%, #ffffff);
+  --color-segmented-control-button-bg: #ffffff;
+  --color-segmented-control-button-selected-border: color-mix(in srgb, #0b0d17 14%, #ffffff);
+  --color-fg-default: #0b0d17;
+  --color-fg-muted: #5b6072;
+  --color-fg-subtle: #5b6072;
+  --color-canvas-default: #ffffff;
+  --color-canvas-overlay: #ffffff;
+  --color-canvas-inset: #ffffff;
+  --color-canvas-subtle: color-mix(in srgb, #0b0d17 6%, #ffffff);
+  --color-border-default: color-mix(in srgb, #0b0d17 14%, #ffffff);
+  --color-border-muted: color-mix(in srgb, #0b0d17 14%, #ffffff);
+  --color-neutral-muted: color-mix(in srgb, #0b0d17 6%, #ffffff);
+  --color-accent-fg: #1d3fd1;
+  --color-accent-emphasis: #1d3fd1;
+  --color-accent-muted: color-mix(in srgb, #1d3fd1 40%, transparent);
+  --color-accent-subtle: color-mix(in srgb, #1d3fd1 16%, #ffffff);
   --color-success-fg: #1a7f37;
   --color-attention-fg: #9a6700;
   --color-attention-muted: rgb(212 167 44 / 40%);
@@ -52,10 +52,10 @@ main {
   --color-danger-muted: rgb(255 129 130 / 40%);
   --color-danger-subtle: #ffebe9;
   --color-primer-shadow-inset: none;
-  --color-scale-gray-1: color-mix(in srgb, #2d2a32 10%, #fff7f2);
-  --color-scale-blue-1: color-mix(in srgb, #f97066 16%, #fff7f2);
-  --color-social-reaction-bg-hover: color-mix(in srgb, #2d2a32 10%, #fff7f2);
-  --color-social-reaction-bg-reacted-hover: color-mix(in srgb, #f97066 16%, #fff7f2);
+  --color-scale-gray-1: color-mix(in srgb, #0b0d17 10%, #ffffff);
+  --color-scale-blue-1: color-mix(in srgb, #1d3fd1 16%, #ffffff);
+  --color-social-reaction-bg-hover: color-mix(in srgb, #0b0d17 10%, #ffffff);
+  --color-social-reaction-bg-reacted-hover: color-mix(in srgb, #1d3fd1 16%, #ffffff);
 }
 :is(#__next, html) main .gsc-loading-image { background-image: url("https://github.githubassets.com/images/mona-loading-default.gif"); }
 
@@ -64,11 +64,11 @@ main {
 :is(#__next, html) main .gsc-direct-reaction-button,
 :is(#__next, html) main .gsc-social-reaction-summary-item {
   height: 30px; padding: 0 12px; border-radius: 999px; border: 1px solid transparent;
-  background: color-mix(in srgb, #2d2a32 6%, #fff7f2); color: #2d2a32;
+  background: color-mix(in srgb, #0b0d17 6%, #ffffff); color: #0b0d17;
 }
 :is(#__next, html) main .gsc-social-reaction-summary-item.has-reacted,
 :is(#__next, html) main .gsc-direct-reaction-button.has-reacted {
-  background: color-mix(in srgb, #f97066 16%, #fff7f2); color: #f97066; border: 1px solid transparent;
+  background: color-mix(in srgb, #1d3fd1 16%, #ffffff); color: #1d3fd1; border: 1px solid transparent;
 }
 :is(#__next, html) main .gsc-reactions-button { border-radius: 999px; }
 
@@ -85,18 +85,18 @@ main {
 :is(#__next, html) main .gsc-comment > div { border: 0 !important; background: transparent !important; border-radius: 0 !important; }
 :is(#__next, html) main .gsc-comment-header { padding: 0; }
 :is(#__next, html) main .gsc-comment-author-avatar img { width: 36px; height: 36px; margin-right: 10px; }
-:is(#__next, html) main .gsc-comment-author-avatar span { font-weight: 700; color: #2d2a32; }
+:is(#__next, html) main .gsc-comment-author-avatar span { font-weight: 700; color: #0b0d17; }
 /* the timestamp is a link to the comment on GitHub; keep the time, drop the trip out */
 :is(#__next, html) main .gsc-comment-author .link-secondary,
 :is(#__next, html) main .gsc-reply-author .link-secondary {
-  font-size: 12px; color: #7a7280; text-decoration: none;
+  font-size: 12px; color: #5b6072; text-decoration: none;
   pointer-events: none; cursor: default;
 }
 :is(#__next, html) main .gsc-comment-author-avatar img,
 :is(#__next, html) main .gsc-reply-author-avatar img { border-radius: 50%; }
 :is(#__next, html) main .gsc-comment-content {
   margin: 2px 0 0 46px; padding: 9px 14px; width: fit-content; max-width: calc(100% - 46px);
-  background: color-mix(in srgb, #2d2a32 6%, #fff7f2); border: 1px solid transparent; border-radius: 18px; font-size: 15px; line-height: 1.45;
+  background: color-mix(in srgb, #0b0d17 6%, #ffffff); border: 1px solid transparent; border-radius: 18px; font-size: 15px; line-height: 1.45;
 }
 :is(#__next, html) main .gsc-comment-content > :last-child, main .gsc-reply-content > :last-child { margin-bottom: 0; }
 :is(#__next, html) main .gsc-comment-footer { margin: 6px 0 0 46px; justify-content: flex-start; align-items: center; gap: 14px; }
@@ -113,12 +113,12 @@ main {
 :is(#__next, html) main .gsc-reply-header { margin: 0 0 2px; padding: 0; }
 :is(#__next, html) main .gsc-reply-content {
   width: fit-content; max-width: 100%; padding: 8px 13px;
-  background: color-mix(in srgb, #2d2a32 6%, #fff7f2); border: 1px solid transparent; border-radius: 16px; font-size: 14px; line-height: 1.45;
+  background: color-mix(in srgb, #0b0d17 6%, #ffffff); border: 1px solid transparent; border-radius: 16px; font-size: 14px; line-height: 1.45;
 }
 :is(#__next, html) main .gsc-reply-footer { margin-top: 4px; }
 :is(#__next, html) main .gsc-reply-box { margin-left: 46px; padding: 6px 0 0; border: 0; background: transparent !important; }
 :is(#__next, html) main .gsc-reply-box > button {
-  border-radius: 999px; border: 1px solid transparent; background: color-mix(in srgb, #2d2a32 6%, #fff7f2); padding: 8px 16px;
+  border-radius: 999px; border: 1px solid transparent; background: color-mix(in srgb, #0b0d17 6%, #ffffff); padding: 8px 16px;
 }
 
 /* write-a-comment box */
@@ -134,8 +134,8 @@ main {
    handle has nothing to do but poke through the rounded corner. */
 :is(#__next, html) main .gsc-comment-box-textarea {
   min-height: 46px; padding: 12px 18px; border: 1px solid transparent; border-radius: 22px;
-  background: color-mix(in srgb, #2d2a32 6%, #fff7f2); color: #2d2a32; font-size: 15px; resize: none;
+  background: color-mix(in srgb, #0b0d17 6%, #ffffff); color: #0b0d17; font-size: 15px; resize: none;
 }
-:is(#__next, html) main .gsc-comment-box-textarea:focus { border-color: #f97066; background: #fff7f2; }
+:is(#__next, html) main .gsc-comment-box-textarea:focus { border-color: #1d3fd1; background: #ffffff; }
 :is(#__next, html) main .gsc-comment-box-bottom { margin: 8px 0 0; }
 :is(#__next, html) main .btn { border-radius: 999px; font-weight: 600; }
