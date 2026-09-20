@@ -119,7 +119,10 @@ main {
 }
 
 /* write-a-comment box */
-:is(#__next, html) main .gsc-comment-box:not(.gsc-comment-box-is-reply) { border: 0; background: transparent; }
+/* the reply composer carries giscus's own color-bg-primary, which reads as a
+   white card on light and glass themes; the rounded textarea is the only
+   surface either box needs. */
+:is(#__next, html) main .gsc-comment-box { border: 0; background: transparent; }
 :is(#__next, html) main .gsc-comment-box-tabs,
 :is(#__next, html) main .gsc-comment-box-textarea-extras { display: none; }
 :is(#__next, html) main .gsc-comment-box-main { margin: 0; }
