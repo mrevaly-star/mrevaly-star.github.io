@@ -211,6 +211,8 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .post-adjacent-link span { color: var(--color-muted); font-size: 0.85em; }
 @media (max-width: 600px) { .post-adjacent { grid-template-columns: 1fr; } .post-adjacent-next { text-align: left; align-items: flex-start; } }
 
+
+
 /* about */
 .about { display: flex; gap: 2rem; align-items: center; }
 .about--with-image .about-image, .about--with-image .about-content { flex: 1 1 0; }
@@ -273,7 +275,60 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
   --vit-line: color-mix(in srgb, var(--color-primary) 9%, transparent);
   --vit-line-strong: color-mix(in srgb, var(--color-primary) 17%, transparent);
   --vit-edge: color-mix(in srgb, var(--color-text) 12%, var(--color-surface));
+  /* card stock and the wash at the head of a page — never plain white */
+  --vit-paper: color-mix(in srgb, var(--color-primary) 4%, var(--color-surface));
+  --vit-wash: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+  --vit-mark: color-mix(in srgb, var(--color-accent) 22%, transparent);
+  --vit-clip: color-mix(in srgb, var(--color-text) 22%, var(--color-surface));
+  --vit-th: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
+  /* tags take their hue from their own name; only the lightness changes here */
+  --vit-tag-s: 55%;
+  --vit-tag-l: 38%;
+  --vit-rx: 0.16;
+  --vit-tube: #0f766e;
+  --vit-scope: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='42' viewBox='0 0 31 42'><g fill='none' stroke='%230f766e' stroke-width='2.4' stroke-linecap='round'><path d='M8 6v5.5a7.7 7.7 0 0 0 15 0V6'/><path d='M15.5 19.5V24c0 2.6 1.6 4 4.2 4H31'/></g><g fill='%23e11d48'><circle cx='8' cy='4.8' r='2.4'/><circle cx='23' cy='4.8' r='2.4'/></g></svg>");
+  --vit-scope-end: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='29' height='42' viewBox='0 0 29 42'><path d='M0 28h9c3.4 0 5.6 1.3 6.4 3.6' fill='none' stroke='%230f766e' stroke-width='2.4' stroke-linecap='round'/><circle cx='18.6' cy='35' r='5' fill='none' stroke='%23e11d48' stroke-width='2.4'/><circle cx='18.6' cy='35' r='1.5' fill='%23e11d48'/></svg>");
+  --vit-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%230f766e' fill-opacity='0.05'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
+  --vit-motifs-alt: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%23e11d48' fill-opacity='0.05'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
+  --vit-trace: 0.5;
+  --vit-shadow: 0 1px 2px color-mix(in srgb, var(--color-text) 7%, transparent);
 }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --vit-line: color-mix(in srgb, var(--color-primary) 24%, transparent);
+    --vit-line-strong: color-mix(in srgb, var(--color-primary) 42%, transparent);
+    --vit-edge: color-mix(in srgb, var(--color-text) 22%, var(--color-surface));
+    --vit-paper: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
+    --vit-wash: color-mix(in srgb, var(--color-primary) 16%, var(--color-surface));
+    --vit-mark: color-mix(in srgb, var(--color-accent) 36%, transparent);
+    --vit-clip: color-mix(in srgb, var(--color-text) 34%, var(--color-surface));
+    --vit-th: color-mix(in srgb, var(--color-primary) 26%, var(--color-surface));
+    --vit-tag-s: 60%;
+    --vit-tag-l: 70%;
+    --vit-rx: 0.34;
+    --vit-tube: #7bb4af;
+    --vit-scope: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='42' viewBox='0 0 31 42'><g fill='none' stroke='%237bb4af' stroke-width='2.4' stroke-linecap='round'><path d='M8 6v5.5a7.7 7.7 0 0 0 15 0V6'/><path d='M15.5 19.5V24c0 2.6 1.6 4 4.2 4H31'/></g><g fill='%23e95676'><circle cx='8' cy='4.8' r='2.4'/><circle cx='23' cy='4.8' r='2.4'/></g></svg>");
+    --vit-scope-end: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='29' height='42' viewBox='0 0 29 42'><path d='M0 28h9c3.4 0 5.6 1.3 6.4 3.6' fill='none' stroke='%237bb4af' stroke-width='2.4' stroke-linecap='round'/><circle cx='18.6' cy='35' r='5' fill='none' stroke='%23e95676' stroke-width='2.4'/><circle cx='18.6' cy='35' r='1.5' fill='%23e95676'/></svg>");
+    --vit-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%230f766e' fill-opacity='0.16'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
+    --vit-motifs-alt: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%23e11d48' fill-opacity='0.13'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
+    --vit-trace: 0.62;
+    --vit-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); } }
+:root[data-theme="dark"] { --vit-line: color-mix(in srgb, var(--color-primary) 24%, transparent);
+    --vit-line-strong: color-mix(in srgb, var(--color-primary) 42%, transparent);
+    --vit-edge: color-mix(in srgb, var(--color-text) 22%, var(--color-surface));
+    --vit-paper: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
+    --vit-wash: color-mix(in srgb, var(--color-primary) 16%, var(--color-surface));
+    --vit-mark: color-mix(in srgb, var(--color-accent) 36%, transparent);
+    --vit-clip: color-mix(in srgb, var(--color-text) 34%, var(--color-surface));
+    --vit-th: color-mix(in srgb, var(--color-primary) 26%, var(--color-surface));
+    --vit-tag-s: 60%;
+    --vit-tag-l: 70%;
+    --vit-rx: 0.34;
+    --vit-tube: #7bb4af;
+    --vit-scope: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='42' viewBox='0 0 31 42'><g fill='none' stroke='%237bb4af' stroke-width='2.4' stroke-linecap='round'><path d='M8 6v5.5a7.7 7.7 0 0 0 15 0V6'/><path d='M15.5 19.5V24c0 2.6 1.6 4 4.2 4H31'/></g><g fill='%23e95676'><circle cx='8' cy='4.8' r='2.4'/><circle cx='23' cy='4.8' r='2.4'/></g></svg>");
+    --vit-scope-end: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='29' height='42' viewBox='0 0 29 42'><path d='M0 28h9c3.4 0 5.6 1.3 6.4 3.6' fill='none' stroke='%237bb4af' stroke-width='2.4' stroke-linecap='round'/><circle cx='18.6' cy='35' r='5' fill='none' stroke='%23e95676' stroke-width='2.4'/><circle cx='18.6' cy='35' r='1.5' fill='%23e95676'/></svg>");
+    --vit-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%230f766e' fill-opacity='0.16'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
+    --vit-motifs-alt: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%23e11d48' fill-opacity='0.13'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
+    --vit-trace: 0.62;
+    --vit-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
 /* graph paper, the fine grid with a heavier rule every fifth square */
 body {
   background:
@@ -284,14 +339,40 @@ body {
     var(--color-bg);
   background-attachment: fixed;
 }
+/* ── the stethoscope that holds the blog's name ─────────────── */
+/* All three pieces — binaural, tube and bell — are background layers of one
+   box drawn around the name, on a shared 40-unit grid where the tube always
+   sits at y=28. That is what keeps the joins exact whatever the blog is
+   called: only the middle layer stretches, and it stretches along the line
+   the other two already end on. */
+.site-brand { position: relative; }
+/* a transparent flex item, so the name leaves room for the binaural */
+.site-brand::before { content: ""; flex: none; width: 1.75em; }
+/* a photo is a badge of its own: two of them in one corner is one too many */
+.site-brand:has(.site-brand-avatar)::before { display: none; }
+.site-brand:has(.site-brand-avatar) :is(span:not(.site-brand-text), .site-brand-text > span:first-child)::after { display: none; }
+:is(.site-brand > span:not(.site-brand-text), .site-brand-text > span:first-child) { position: relative; }
+:is(.site-brand > span:not(.site-brand-text), .site-brand-text > span:first-child)::after {
+  content: ""; position: absolute; pointer-events: none;
+  left: -2.05em; right: -1.25em; top: 0.04em; height: 2.2em;
+  background:
+    var(--vit-scope) no-repeat left top / auto 100%,
+    var(--vit-scope-end) no-repeat right top / auto 100%,
+    linear-gradient(var(--vit-tube), var(--vit-tube)) no-repeat left 1.6em top 1.4em / calc(100% - 3.02em) 0.132em;
+}
+/* where there is a tagline under the name, the tube needs the room */
+.site-brand-text > span:first-child { margin-bottom: 0.55em; }
+
 /* the heartbeat, running under the header */
 .site-header { border-bottom: 1px solid var(--vit-edge); }
+/* room for the tube and the bell, which hang below the name */
+.site-header-inner { padding-block: 1.05rem; }
 .site-header::after {
   content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 22px; pointer-events: none;
   background: var(--color-accent);
   -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 260px 22px;
   mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 260px 22px;
-  opacity: 0.5;
+  opacity: var(--vit-trace);
 }
 @media (prefers-reduced-motion: no-preference) {
   .site-header::after { animation: vit-trace 7s linear infinite; }
@@ -300,39 +381,114 @@ body {
   from { -webkit-mask-position: 0 center; mask-position: 0 center; }
   to { -webkit-mask-position: -260px center; mask-position: -260px center; }
 }
+/* a heartbeat is company at the top of the page and a distraction three
+   screens into a chapter, so it fades out as you read down */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .site-header::after {
+      animation: vit-trace 7s linear infinite, vit-quiet linear both;
+      animation-timeline: auto, scroll(root block);
+      animation-range: normal, 0 340px;
+    }
+  }
+}
+@keyframes vit-quiet { to { opacity: 0.1; } }
 
-/* posts as index cards, with a coloured spine down the left edge */
-.post-card--cards, .post-card--grid, .newsletter, .about, .post.container, .archive.container {
-  background: var(--color-surface);
+/* ── the hero: a sheet clipped to a chart board ─────────────── */
+.sec-hero { padding-block: calc(2.4rem * var(--space-scale)); }
+.sec-hero .hero {
+  position: relative; overflow: hidden;
+  padding: clamp(2.8rem, 6vw, 3.8rem) clamp(1.3rem, 4vw, 3rem) clamp(2.8rem, 6vw, 3.6rem);
+  /* a sheet of notes on a warm wash, with two soft blooms of colour and a
+     scatter of plasters and hearts drifting behind the title */
+  background:
+    var(--vit-motifs) repeat 0 0 / 164px 164px,
+    var(--vit-motifs-alt) repeat 82px 82px / 164px 164px,
+    radial-gradient(42% 60% at 88% 8%, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 70%),
+    radial-gradient(46% 62% at 6% 92%, color-mix(in srgb, var(--color-primary) 16%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--vit-wash), var(--vit-paper) 72%);
+  border: 1px solid var(--vit-edge);
+  border-radius: clamp(1.1rem, 2.6vw, 1.9rem);
+  box-shadow: var(--vit-shadow), 0 18px 36px -28px color-mix(in srgb, var(--color-text) 60%, transparent);
+}
+/* the title and its subtitle sit on the paper, not in the pattern */
+.sec-hero .hero-content { position: relative; }
+.sec-hero .hero-subtitle { color: color-mix(in srgb, var(--color-text) 62%, var(--color-muted)); }
+/* a soft, friendly button rather than a clinical rectangle */
+.sec-hero .hero-cta {
+  border-radius: 999px; padding-inline: 1.7rem;
+  box-shadow: 0 8px 18px -8px color-mix(in srgb, var(--color-primary) 75%, transparent);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.sec-hero .hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px -8px color-mix(in srgb, var(--color-primary) 75%, transparent);
+}
+/* the clip that holds the sheet */
+.sec-hero .hero::before {
+  content: ""; position: absolute; top: 0.75rem; left: 50%; transform: translateX(-50%);
+  width: clamp(4.5rem, 14vw, 6.5rem); height: 0.8rem; border-radius: 999px;
+  background: linear-gradient(180deg, var(--vit-clip), color-mix(in srgb, var(--vit-clip) 45%, var(--color-surface)));
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-surface) 70%, transparent);
+}
+/* a second, still trace along the foot of the sheet */
+.sec-hero .hero::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22px; pointer-events: none;
+  background: var(--color-primary);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 220px 22px;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 220px 22px;
+  opacity: 0.3;
+}
+.sec-hero .hero-title::after {
+  content: ""; display: block; width: 3.4rem; height: 3px; border-radius: 2px; margin-top: 0.9rem;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+}
+.sec-hero .hero--center .hero-title::after { margin-inline: auto; }
+
+/* ── posts as index cards, with a coloured spine ────────────── */
+.post-card--cards, .post-card--grid, .newsletter {
+  background: linear-gradient(180deg, var(--vit-wash), var(--vit-paper) 5rem);
   border: 1px solid var(--vit-edge);
   border-radius: calc(var(--radius) * 1.1);
-  box-shadow: 0 1px 2px color-mix(in srgb, var(--color-text) 6%, transparent);
+  box-shadow: var(--vit-shadow);
 }
 .post-card { position: relative; overflow: hidden; transition: transform 0.18s ease, box-shadow 0.18s ease; }
-.post-card::before {
+.post-card--cards::before, .post-card--grid::before {
   content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
   background: var(--color-primary);
 }
-.post-card--cards:nth-child(3n + 2)::before { background: var(--color-accent); }
-.post-card--cards:nth-child(3n)::before { background: color-mix(in srgb, var(--color-primary) 50%, var(--color-accent)); }
+:is(.post-card--cards, .post-card--grid):nth-child(3n + 2)::before { background: var(--color-accent); }
+:is(.post-card--cards, .post-card--grid):nth-child(3n)::before { background: color-mix(in srgb, var(--color-primary) 50%, var(--color-accent)); }
+/* a grid card is drawn like the others, so it needs the same inner margin */
+.post-card--grid .post-card-body { padding: 1.2rem; }
+.post-card--grid .post-card-cover img { border-radius: 0; }
+/* the ruled line an index card is printed with, under the date */
+:is(.post-card--cards, .post-card--grid) .post-card-meta {
+  padding-bottom: 0.5rem; margin-bottom: 0.7rem;
+  border-bottom: 1px solid var(--vit-edge);
+  font-variant-numeric: tabular-nums; letter-spacing: 0.015em;
+}
 .post-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px color-mix(in srgb, var(--color-text) 12%, transparent); }
-.about, .post.container, .archive.container {
+
+/* ── the page itself: lab-book paper, not a white box ───────── */
+.about, .post.container, .archive.container, .not-found.container {
   padding: clamp(1.25rem, 4vw, 2.5rem);
   width: min(100% - 1.5rem, var(--container));
   margin-block: 1.25rem;
   position: relative;
-  /* lab-book paper rather than a white box: a warm wash at the head of the
-     page, fading into the paper colour */
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 7%, var(--color-surface)), var(--color-surface) 18rem);
+  background: linear-gradient(180deg, var(--vit-wash), var(--vit-paper) 18rem);
+  border: 1px solid var(--vit-edge);
+  border-radius: calc(var(--radius) * 1.1);
+  box-shadow: var(--vit-shadow);
 }
+.not-found.container { padding-block: clamp(3rem, 8vw, 5rem); }
 /* the margin rule down the left of the page, as on any lined pad */
 @media (min-width: 700px) {
   .post.container, .archive.container { padding-left: clamp(3rem, 6vw, 4.4rem); }
   .post.container::before, .archive.container::before {
     content: ""; position: absolute; top: 0; bottom: 0;
     left: clamp(1.9rem, 4vw, 3rem); width: 1px;
-    background: color-mix(in srgb, var(--color-accent) 22%, transparent);
+    background: color-mix(in srgb, var(--color-accent) 30%, transparent);
   }
 }
 
@@ -346,10 +502,34 @@ body {
   content: ""; display: block; width: 4rem; height: 3px; margin-top: 0.7rem; border-radius: 2px;
   background: var(--color-primary);
 }
+/* byline, date and reading time as the strip along the top of a chart */
+.post-header .post-meta {
+  display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.3rem 0.9rem;
+  margin-block: 1rem 0.7rem; padding: 0.42em 0.95em; border-radius: 999px;
+  border: 1px solid var(--vit-edge); background: var(--vit-wash);
+  font-size: 0.88em; letter-spacing: 0.02em; font-variant-numeric: tabular-nums;
+}
+/* the cover photo, mounted like a scan pasted into the notes */
+.post-cover { border: 1px solid var(--vit-edge); box-shadow: var(--vit-shadow); }
+/* how far through a long set of notes you are — the trace fills as you scroll.
+   Scroll-driven animation only: browsers without it simply get no bar, and it
+   needs no script of its own. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .post.container::after {
+      content: ""; position: fixed; inset: 0 0 auto; height: 3px; z-index: 60;
+      transform: scaleX(0); transform-origin: 0 50%;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      animation: vit-read linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+@keyframes vit-read { to { transform: scaleX(1); } }
 
 /* revision marks: highlighter on bold, a clinical note for quotes */
 .post-content strong, .prose strong {
-  background: linear-gradient(transparent 38%, color-mix(in srgb, var(--color-accent) 22%, transparent) 38%, color-mix(in srgb, var(--color-accent) 22%, transparent) 94%, transparent 94%);
+  background: linear-gradient(transparent 38%, var(--vit-mark) 38%, var(--vit-mark) 94%, transparent 94%);
   padding: 0 0.12em;
 }
 .post-content blockquote {
@@ -359,16 +539,141 @@ body {
   border-radius: 0 var(--radius) var(--radius) 0;
   color: var(--color-text);
 }
+/* a hand-written <mark> reads as the same highlighter as bold does */
+.post-content mark, .prose mark {
+  background: var(--vit-mark); color: inherit; padding: 0 0.12em; border-radius: 2px;
+}
+/* the abbreviations clinical notes are full of, marked as hoverable */
+.post-content abbr[title], .prose abbr[title] {
+  text-decoration: underline dotted;
+  text-decoration-color: color-mix(in srgb, var(--color-primary) 55%, transparent);
+  text-underline-offset: 3px; cursor: help;
+}
+/* code sits on the paper, so the base surface colour would vanish into it */
+.post-content pre, .prose pre {
+  background: color-mix(in srgb, var(--color-primary) 7%, var(--color-surface));
+  border: 1px solid var(--vit-edge); border-radius: var(--radius);
+}
+.post-content :not(pre) > code, .prose :not(pre) > code {
+  background: color-mix(in srgb, var(--color-primary) 9%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+  border-radius: 4px;
+}
 .post-content :is(h2, h3) { border-bottom: 1px solid var(--vit-edge); padding-bottom: 0.25em; }
 .post-content :is(ul, ol) { padding-left: 1.3em; }
 .post-content li::marker { color: var(--color-primary); }
-.post-content table th { background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)); }
 
+/* each subject keeps its own colour, derived from the tag's own name */
 .tag, .tag-pill {
-  background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
-  border-color: color-mix(in srgb, var(--color-primary) 25%, transparent);
-  color: color-mix(in srgb, var(--color-primary) 70%, var(--color-text));
+  --tag-c: hsl(var(--tag-h, 175) var(--vit-tag-s) var(--vit-tag-l));
+  background: color-mix(in srgb, var(--tag-c) 12%, var(--color-surface));
+  border-color: color-mix(in srgb, var(--tag-c) 34%, transparent);
+  color: color-mix(in srgb, var(--tag-c) 80%, var(--color-text));
   font-weight: 600;
+}
+.tag:hover, .tag-pill:hover { border-color: var(--tag-c); background: color-mix(in srgb, var(--tag-c) 20%, var(--color-surface)); }
+.tag-pill.is-active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+
+/* ── the foot of a post ─────────────────────────────────────── */
+.post-share { margin-top: 2.6rem; padding-top: 1.4rem; border-top: 1px solid var(--vit-edge); }
+.post-share-label { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75em; }
+.share-btn { background: var(--vit-paper); border-color: var(--vit-edge); transition: transform 0.15s ease, color 0.15s ease, border-color 0.15s ease; }
+.share-btn:hover { transform: translateY(-1px); }
+/* the post before and after this one, as two more index cards */
+.post-adjacent { border-top: 0; margin-top: 2rem; padding-top: 0; }
+.post-adjacent-link {
+  position: relative; overflow: hidden; padding: 0.9rem 1.1rem;
+  border: 1px solid var(--vit-edge); border-radius: calc(var(--radius) * 1.1);
+  background: var(--vit-paper);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.post-adjacent-link::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 3px; background: var(--color-primary); }
+.post-adjacent-next::before { left: auto; right: 0; background: var(--color-accent); }
+.post-adjacent-link:hover { transform: translateY(-2px); box-shadow: 0 10px 24px color-mix(in srgb, var(--color-text) 12%, transparent); }
+.post-adjacent-link span {
+  text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72em; font-weight: 700;
+  color: color-mix(in srgb, var(--color-primary) 70%, var(--color-text));
+}
+.post-comments { border-top: 1px solid var(--vit-edge); }
+
+/* search results on the same paper as the rest */
+.search-results { background: var(--vit-paper); border-color: var(--vit-edge); }
+.search-result:hover { background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface)); }
+/* a focus ring in the theme's own colour, for anyone driving this by keyboard */
+:is(a, button, input, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-primary); outline-offset: 2px; border-radius: 3px;
+}
+
+/* ── the home page, in a warmer bedside manner ──────────────── */
+/* section headings on the home page are marked with a little heart instead
+   of the clinical tab the rest of the site uses */
+:is(.sec-posts, .sec-newsletter, .sec-about) .sec-title::before {
+  width: 0.95em; height: 0.95em; border-radius: 0;
+  background: var(--color-accent);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
+}
+/* cards round off a little more, and lift in their own colour */
+.post-card--cards, .post-card--grid { border-radius: clamp(0.8rem, 1.6vw, 1.1rem); }
+.post-card--cards .post-card-meta, .post-card--grid .post-card-meta { border-bottom-style: dashed; }
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 26px -14px color-mix(in srgb, var(--color-primary) 55%, transparent);
+}
+:is(.post-card--cards, .post-card--grid):nth-child(3n + 2):hover {
+  box-shadow: 0 14px 26px -14px color-mix(in srgb, var(--color-accent) 55%, transparent);
+}
+
+/* the sign-up block as a prescription pad: a tear-off strip along the top,
+   a dashed edge and the ℞ a pad is printed with */
+.sec-newsletter .newsletter {
+  position: relative; overflow: hidden;
+  padding-top: clamp(2.6rem, 5vw, 3.4rem);
+  border: 1px dashed color-mix(in srgb, var(--color-primary) 38%, transparent);
+  border-radius: clamp(0.9rem, 2vw, 1.4rem);
+  background:
+    var(--vit-motifs) repeat 0 0 / 164px 164px,
+    linear-gradient(180deg, var(--vit-wash), var(--vit-paper) 7rem);
+}
+.sec-newsletter .newsletter::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1.5rem;
+  background:
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--color-primary) 30%, transparent) 0 9px, transparent 9px 18px) left bottom / 100% 1px no-repeat,
+    color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
+}
+.sec-newsletter .newsletter::after {
+  content: "℞"; position: absolute; right: 1.2rem; top: 2rem;
+  font-family: var(--font-heading); font-size: clamp(2.2rem, 6vw, 3rem); line-height: 1;
+  color: var(--color-primary); opacity: var(--vit-rx); pointer-events: none;
+}
+.newsletter-form input { border-radius: 999px; border-color: var(--vit-edge); background: var(--color-surface); }
+.newsletter-form .btn { border-radius: 999px; padding-inline: 1.4rem; }
+
+/* a heartbeat of a different kind, beside the footer line */
+.footer-text { display: inline-flex; align-items: center; gap: 0.5rem; }
+.footer-text::before {
+  content: ""; flex: none; width: 0.95em; height: 0.95em;
+  background: var(--color-accent);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .footer-text::before { animation: vit-beat 2.4s ease-in-out infinite; }
+}
+@keyframes vit-beat {
+  0%, 58%, 100% { transform: scale(1); }
+  12% { transform: scale(1.22); }
+  24% { transform: scale(1); }
+  36% { transform: scale(1.14); }
+}
+
+/* a horizontal rule is a heartbeat between sections */
+.post-content hr, .prose hr {
+  height: 22px; border: 0; margin: 2.4em 0;
+  background: color-mix(in srgb, var(--color-accent) 75%, var(--color-text));
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x center / 220px 22px;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x center / 220px 22px;
+  opacity: 0.4;
 }
 
 /* ── callouts: the "don't miss this" blocks ─────────────────── */
@@ -405,14 +710,29 @@ body {
 .post-content li:has(input:checked) { color: var(--color-muted); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--color-muted) 50%, transparent); }
 
 /* ── tables: drug and value tables get read a lot ───────────── */
-.post-content table { border-collapse: separate; border-spacing: 0; border: 1px solid var(--vit-edge); border-radius: var(--radius); overflow: hidden; }
+.post-content table, .prose table {
+  border-collapse: separate; border-spacing: 0;
+  border: 1px solid var(--vit-edge); border-radius: var(--radius);
+}
+/* the base sheet lays tables out as a scrolling block so a wide one survives a
+   phone; from tablet up they are real tables again and fill the column, with
+   the header row staying put under the site header on a long table */
+@media (min-width: 640px) {
+  .post-content table, .prose table { display: table; width: 100%; }
+  .post-content th { position: sticky; top: 4.9rem; z-index: 1; }
+}
+/* on a phone the table is only as wide as its content, so a frame around the
+   full column would leave a box with a table stranded inside it */
+@media (max-width: 639.98px) {
+  .post-content table, .prose table { border: 0; border-radius: 0; }
+}
 .post-content th {
-  position: sticky; top: 0; z-index: 1;
-  background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
+  background: var(--vit-th);
   font-family: var(--font-heading); font-size: 0.92em; letter-spacing: 0.01em;
 }
+.post-content :is(th, td) { border: 0; border-bottom: 1px solid var(--vit-edge); }
+.post-content tr:last-child :is(th, td) { border-bottom: 0; }
 .post-content tbody tr:nth-child(even) { background: color-mix(in srgb, var(--color-primary) 4%, transparent); }
-.post-content :is(th, td) { border-color: var(--vit-edge); }
 
 /* ── figures ────────────────────────────────────────────────── */
 .post-content figure { margin: 1.8em 0; }
@@ -435,15 +755,19 @@ body {
   @page { margin: 16mm; }
   body { background: #fff !important; color: #000; }
   body::before, .weather-layer, .site-header, .site-footer, .post-share, .post-nav,
-  .post-comments, .nav-search, .dark-toggle, .newsletter, .heading-anchor { display: none !important; }
-  .post.container, .archive.container, .about {
+  .post-comments, .nav-search, .dark-toggle, .newsletter, .heading-anchor,
+  .post-adjacent { display: none !important; }
+  .post.container, .archive.container, .about, .not-found.container, .sec-hero .hero {
     background: #fff !important; border: 0 !important; box-shadow: none !important;
     width: auto; max-width: none; margin: 0; padding: 0;
   }
-  .post.container::before, .archive.container::before { display: none; }
+  .post.container::before, .post.container::after,
+  .archive.container::before, .sec-hero .hero::before, .sec-hero .hero::after { display: none; }
   .post-content, .prose { max-width: none; }
   .post-content strong { background: none; text-decoration: underline; }
+  .post-header .post-meta { border: 0; background: none; padding: 0; }
   .callout { border: 1px solid #999; border-left: 4px solid #333; background: none; }
+  .post-content hr { -webkit-mask: none; mask: none; height: 1px; background: #999; opacity: 1; }
   .post-content th { background: #eee !important; position: static; }
   /* spell out where a link went, since paper has no hover */
   .post-content a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.82em; color: #555; word-break: break-all; }
@@ -451,33 +775,52 @@ body {
   :is(blockquote, table, pre, figure, .callout, li) { break-inside: avoid; }
 }
 .btn { border-radius: calc(var(--radius) * 0.9); font-weight: 600; }
-/* the footer, in the same clinical language as the rest: a second heartbeat
-   closing the page, the notes paper continuing underneath */
+/* ── the footer ─────────────────────────────────────────────── */
+/* a short page used to leave the graph paper showing under the footer, which
+   made the end of the site look like a gap rather than a finish */
+.tpl-minimal { display: flex; flex-direction: column; min-height: 100dvh; }
+.tpl-minimal > .site-footer { margin-top: auto; }
+/* The footer is a strip, not a room. Stacked and centred it was three small
+   things adrift in a pale field, so everything sits on one line that wraps
+   when it has to, on the same patterned paper as the hero and the pad. */
 .site-footer {
   position: relative;
+  margin-top: calc(3rem * var(--space-scale));
   border-top: 1px solid var(--vit-edge);
-  background: linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 5%, transparent), transparent 70%);
+  /* a smaller tile than the hero's: on a strip this shallow the full-size
+     motifs are cropped in half and read as wallpaper */
+  background: var(--vit-motifs) repeat 0 center / 104px 104px, var(--vit-paper);
 }
 .site-footer::before {
   content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 22px; pointer-events: none;
   background: var(--color-accent);
   -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 260px 22px;
   mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 260px 22px;
-  opacity: 0.26;
+  opacity: calc(var(--vit-trace) * 0.52);
 }
-.site-footer-inner { padding-block: calc(2.6rem * var(--space-scale)) 2.2rem; }
-.footer-text { font-weight: 600; color: color-mix(in srgb, var(--color-text) 75%, var(--color-muted)); }
-.footer-links a { color: var(--color-muted); }
-.footer-links a:hover { color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
-.social-link {
-  padding: 0.32em 0.9em; border-radius: 999px; text-decoration: none;
-  border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
-  background: color-mix(in srgb, var(--color-primary) 7%, var(--color-surface));
-  color: color-mix(in srgb, var(--color-primary) 70%, var(--color-text));
-  font-weight: 600;
+.site-footer-inner {
+  flex-direction: row; flex-wrap: wrap;
+  justify-content: center; align-items: center;
+  gap: 0.55rem 1.5rem;
+  padding-block: 1.85rem 1.7rem;
+}
+.footer-text {
+  font-weight: 600; font-size: 0.92em;
+  color: color-mix(in srgb, var(--color-text) 72%, var(--color-muted));
+}
+.footer-links { gap: 0.5rem 0.6rem; justify-content: center; }
+.footer-social { gap: 0.5rem 0.6rem; justify-content: center; flex-wrap: wrap; }
+/* a footer link and a social link are the same kind of thing to a reader, so
+   they are drawn the same way rather than as grey text beside a pill */
+.footer-links a, .social-link {
+  padding: 0.3em 0.85em; border-radius: 999px; text-decoration: none;
+  font-size: 0.88em; font-weight: 600;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
+  background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface));
+  color: color-mix(in srgb, var(--color-primary) 72%, var(--color-text));
   transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
-.social-link:hover {
+.footer-links a:hover, .social-link:hover {
   border-color: var(--color-primary);
   background: color-mix(in srgb, var(--color-primary) 14%, var(--color-surface));
   color: var(--color-primary);

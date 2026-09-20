@@ -178,6 +178,9 @@
     }
   }
 
+  var printBtn = document.querySelector("[data-print]");
+  if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
+
   var searchInputs = document.querySelectorAll("[data-search-input]");
   if (searchInputs.length) {
     var searchDataPromise = fetch(root + "search.json").then(function (r) { return r.json(); }).catch(function () { return []; });
