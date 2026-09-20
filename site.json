@@ -96,7 +96,7 @@
       "slug": "bahha",
       "title": "bahha",
       "excerpt": "zhhs",
-      "content": "hzhz\n\n---\n\n---\ndfsd\n\n---\nsdfsdf\n\n---\nsdfsdfsdsdfsdfsdf\n\n---\n### sdf`sdfsdfsdsdfsdfsdfsdfsdsdfsdfssdfsdfsd`\n\n![EVL289791636](https://raw.githubusercontent.com/mrevaly-star/mrevaly-star.github.io/main/assets/images/1789808358398-EVL289791636.jpg)",
+      "content": "hzhz\n\n---\n\n---\ndfsd\n\n---\nsdfsdf\n\n---\nsdfsdfsdsdfsdfsdf\n\n---\n### sdf`sdfsdfsdsdfsdfsdfsdfsdsdfsdfssdfsdfsd`\n\n<img src=\"https://raw.githubusercontent.com/mrevaly-star/mrevaly-star.github.io/main/assets/images/1789808358398-EVL289791636.jpg\" alt=\"EVL289791636\" style=\"width: 10%\" data-align=\"left\">",
       "tags": [],
       "date": "2026-09-18T09:00:00.000Z",
       "draft": false,
@@ -145,6 +145,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-20T02:26:00.615Z",
-  "lastPublishedCommit": "b00a603abb3a99758195951f402abbbf7c5dbc1e"
+  "updatedAt": "2026-09-20T02:32:28.742Z",
+  "lastPublishedCommit": "7202d2ecb9dfe96d5a06c20655c7310641a06718"
 }

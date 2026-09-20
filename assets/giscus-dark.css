@@ -130,9 +130,11 @@ main {
 :is(#__next, html) main .gsc-comment-box-textarea-extras { display: none; }
 :is(#__next, html) main .gsc-comment-box-main { margin: 0; }
 :is(#__next, html) main .gsc-comment-box-write:focus-within { box-shadow: none; }
+/* giscus grows the box itself as you type (resizeTextArea), so the native drag
+   handle has nothing to do but poke through the rounded corner. */
 :is(#__next, html) main .gsc-comment-box-textarea {
   min-height: 46px; padding: 12px 18px; border: 1px solid rgba(255, 255, 255, 0.10); border-radius: 22px;
-  background: rgba(255, 255, 255, 0.07); color: #e8e9ee; font-size: 15px;
+  background: rgba(255, 255, 255, 0.07); color: #e8e9ee; font-size: 15px; resize: none;
 }
 :is(#__next, html) main .gsc-comment-box-textarea:focus { border-color: #7c3aed; background: rgba(255, 255, 255, 0.12); }
 :is(#__next, html) main .gsc-comment-box-bottom { margin: 8px 0 0; }
