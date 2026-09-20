@@ -156,6 +156,16 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .post-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.6rem; }
 .post-cover { width: 100%; border-radius: var(--radius); margin-bottom: 2rem; aspect-ratio: 16/8; object-fit: cover; }
 .post-content, .prose { max-width: 42rem; }
+/* task lists: a checkbox and its text are one row, so wrapped lines align with
+   the text rather than sliding back under the box */
+.post-content li[data-type="taskItem"], .post-content li:has(> input[type="checkbox"]) {
+  list-style: none; display: flex; align-items: flex-start; gap: 0.5em; margin-left: -1.35em;
+}
+.post-content li[data-type="taskItem"] > input[type="checkbox"],
+.post-content li > input[type="checkbox"] { flex: none; margin-top: 0.3em; }
+.post-content li[data-type="taskItem"] > label { flex: none; display: inline-flex; margin-top: 0.3em; }
+.post-content li[data-type="taskItem"] > div { flex: 1 1 auto; min-width: 0; }
+.post-content li[data-type="taskItem"] > div > p { margin: 0; }
 .post-content :is(h1,h2,h3) { margin-top: 2em; }
 .post-content p, .prose p { margin: 0 0 1.2em; }
 .post-content pre { background: var(--color-surface); padding: 1rem 1.1rem; border-radius: var(--radius); overflow: auto; position: relative; }
@@ -381,7 +391,6 @@ body {
 .callout--tip, .callout--example { --cal: color-mix(in srgb, var(--color-primary) 70%, #0ea5e9); }
 
 /* ── revision checklists ────────────────────────────────────── */
-.post-content li:has(input[type="checkbox"]) { list-style: none; margin-left: -1.2em; }
 .post-content input[type="checkbox"] {
   appearance: none; width: 1.05em; height: 1.05em; margin-right: 0.5em; vertical-align: -0.15em;
   border: 2px solid color-mix(in srgb, var(--color-primary) 45%, transparent);
