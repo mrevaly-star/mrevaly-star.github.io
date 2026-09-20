@@ -394,6 +394,36 @@ body {
 }
 @keyframes vit-quiet { to { opacity: 0.1; } }
 
+/* ── the menu, on a phone ───────────────────────────────────── */
+@media (max-width: 760px) {
+  /* the trace is a child of the header and paints after the nav, so it was
+     drawn straight across the open menu */
+  .site-header:has(.site-nav.is-open)::after { opacity: 0; }
+  .site-nav {
+    z-index: 2;
+    /* the page background is the same colour, so without paper of its own the
+       menu read as links floating on the graph paper */
+    /* the scrim keeps the pattern from competing with the link text, which it
+       does most in dark mode, where the motifs are drawn heavier */
+    background:
+      linear-gradient(color-mix(in srgb, var(--color-surface) 45%, transparent), color-mix(in srgb, var(--color-surface) 45%, transparent)),
+      var(--vit-motifs) repeat 0 center / 78px 78px,
+      var(--vit-paper);
+    border-bottom: 1px solid var(--vit-edge);
+    border-radius: 0 0 calc(var(--radius) * 1.3) calc(var(--radius) * 1.3);
+    box-shadow: 0 20px 34px -20px color-mix(in srgb, var(--color-text) 50%, transparent);
+    padding-block: 0.35rem 1rem;
+  }
+  .site-nav a {
+    padding-block: 0.8rem;
+    border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 22%, transparent);
+  }
+  .site-nav a:last-of-type { border-bottom: 0; }
+  .site-nav a[aria-current="page"] { color: var(--color-primary); font-weight: 700; }
+  .nav-search input { border-color: var(--vit-edge); background: var(--color-surface); }
+  .dark-toggle { margin-top: 0.75rem; }
+}
+
 /* ── the hero: a sheet clipped to a chart board ─────────────── */
 .sec-hero { padding-block: calc(2.4rem * var(--space-scale)); }
 .sec-hero .hero {
