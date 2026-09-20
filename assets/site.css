@@ -92,6 +92,8 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .hero--with-image .hero-image, .hero--with-image .hero-content { flex: 1 1 0; }
 .hero-image img { border-radius: var(--radius); }
 @media (max-width: 760px) { .hero--with-image { flex-direction: column; } }
+
+
 .hero--center:not(.hero--with-image) { text-align: center; align-items: center; }
 .hero-title { font-size: clamp(2.1rem, 1.6rem + 2.4vw, 3.6rem); }
 .hero-subtitle { font-size: clamp(1.05rem, 1rem + 0.4vw, 1.3rem); color: var(--color-muted); max-width: 42rem; }
@@ -204,6 +206,35 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .tpl-minimal .hero { text-align: center; align-items: center; padding-block: calc(4.5rem * var(--space-scale)); }
 .tpl-minimal .hero-title { letter-spacing: -0.02em; }
 .tpl-minimal .btn { border-radius: var(--radius); }
+
+/* ── phones and tablets ─────────────────────────────────────── */
+@media (max-width: 760px) {
+  /* The [class*="tpl-"] prefix matches the specificity of the per-structure
+     rules above (.tpl-minimal .hero and friends), which would otherwise win
+     whatever the source order. */
+  /* a sticky header 82px tall eats a tenth of a phone screen */
+  [class*="tpl-"] .site-header-inner { padding-block: 0.45rem; }
+  /* and the hero used to take over half the first screen before any content */
+  [class*="tpl-"] .sec-hero { padding-block: calc(1.2rem * var(--space-scale)); }
+  [class*="tpl-"] .hero { padding-block: calc(1.6rem * var(--space-scale)); gap: 1rem; }
+  [class*="tpl-"] .sec { padding-block: calc(2.2rem * var(--space-scale)); }
+}
+/* Touch devices and narrow windows: Apple and Google both ask for ~44px
+   targets, and several of ours were 24-34px — post titles, nav links and tag
+   pills especially. */
+@media (pointer: coarse), (max-width: 1024px) {
+  .site-nav a { display: flex; align-items: center; min-height: 44px; }
+  .post-card-title a { display: inline-block; padding-block: 0.35rem; }
+  .post-card-tags .tag, .tag-pill, .tag { min-height: 34px; display: inline-flex; align-items: center; }
+  .share-btn, .dark-toggle, .copy-btn, .nav-toggle { min-width: 44px; min-height: 44px; }
+  .post-nav a { display: inline-block; padding-block: 0.4rem; }
+  .site-footer a { display: inline-block; padding-block: 0.3rem; }
+}
+/* Long measures are tiring on a tablet held in two hands; 42rem at tablet type
+   sizes runs to ~79 characters, past the comfortable range. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .post-content, .prose { max-width: 38rem; }
+}
 
 /* cute */
 :root {
