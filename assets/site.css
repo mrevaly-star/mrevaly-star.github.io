@@ -1,9 +1,9 @@
 :root {
 
-    --color-primary: #9b56ae;
-    --color-accent: #2a66c6;
-    --color-bg: #4f9aba;
-    --color-surface: #fffdf4;
+    --color-primary: #e3350d;
+    --color-accent: #ffcb05;
+    --color-bg: #ffe259;
+    --color-surface: #fff8e0;
     --color-text: #2e1f08;
     --color-muted: #7a6438;
     --color-border: color-mix(in srgb, #2e1f08 12%, transparent);

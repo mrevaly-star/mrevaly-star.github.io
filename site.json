@@ -11,10 +11,10 @@
   },
   "template": "bolt",
   "theme": {
-    "primary": "#9b56ae",
-    "accent": "#2a66c6",
-    "background": "#4f9aba",
-    "surface": "#fffdf4",
+    "primary": "#e3350d",
+    "accent": "#ffcb05",
+    "background": "#ffe259",
+    "surface": "#fff8e0",
     "text": "#2e1f08",
     "muted": "#7a6438",
     "headingFont": "Fredoka",
@@ -156,6 +156,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-20T04:22:29.027Z",
-  "lastPublishedCommit": "c0e563140aaf4b551a34785145e36fbd7d0667d8"
+  "updatedAt": "2026-09-20T04:24:57.582Z",
+  "lastPublishedCommit": "b773580f960e92bd43fe39fbb98191d273f97c7c"
 }
