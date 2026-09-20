@@ -178,6 +178,33 @@
     }
   }
 
+  // {{today}}, written anywhere in a page's own text, becomes today's date.
+  // Text nodes only — nothing is parsed as HTML.
+  (function () {
+    var hosts = document.querySelectorAll(".prose, .post-content");
+    if (!hosts.length) return;
+    var label = new Date().toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short" });
+    hosts.forEach(function (host) {
+      var walker = document.createTreeWalker(host, NodeFilter.SHOW_TEXT, null);
+      var hits = [], node;
+      while ((node = walker.nextNode())) if (node.nodeValue.indexOf("{{today}}") > -1) hits.push(node);
+      hits.forEach(function (text) {
+        var parts = text.nodeValue.split("{{today}}");
+        var frag = document.createDocumentFragment();
+        parts.forEach(function (part, i) {
+          if (i) {
+            var span = document.createElement("span");
+            span.className = "today";
+            span.textContent = label;
+            frag.appendChild(span);
+          }
+          if (part) frag.appendChild(document.createTextNode(part));
+        });
+        text.parentNode.replaceChild(frag, text);
+      });
+    });
+  })();
+
   var printBtn = document.querySelector("[data-print]");
   if (printBtn) printBtn.addEventListener("click", function () { window.print(); });
 

@@ -1,24 +1,24 @@
 :root {
 
-    --color-primary: #0f766e;
-    --color-accent: #e11d48;
-    --color-bg: #eef6f4;
-    --color-surface: #fbfdfa;
-    --color-text: #12302e;
-    --color-muted: #5d7f7b;
-    --color-border: color-mix(in srgb, #12302e 12%, transparent);
+    --color-primary: #ff6b81;
+    --color-accent: #a855f7;
+    --color-bg: #fff5f7;
+    --color-surface: #fffdfa;
+    --color-text: #3b2b33;
+    --color-muted: #7a6672;
+    --color-border: color-mix(in srgb, #3b2b33 12%, transparent);
 
-    --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --radius: 10px;
-    --space-scale: 1;
-    --container: 62rem;
+    --font-heading: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius: 16px;
+    --space-scale: 1.25;
+    --container: 75rem;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
 
-    --color-primary: #0f766e;
-    --color-accent: #e11d48;
+    --color-primary: #ff6b81;
+    --color-accent: #a855f7;
     --color-bg: #171717;
     --color-surface: #242424;
     --color-text: #e8e9ee;
@@ -28,8 +28,8 @@
 }
 :root[data-theme="dark"] {
 
-    --color-primary: #0f766e;
-    --color-accent: #e11d48;
+    --color-primary: #ff6b81;
+    --color-accent: #a855f7;
     --color-bg: #171717;
     --color-surface: #242424;
     --color-text: #e8e9ee;
@@ -270,590 +270,450 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
   .post-content, .prose { max-width: 38rem; }
 }
 
-/* vitals */
+/* nook */
 :root {
-  --vit-line: color-mix(in srgb, var(--color-primary) 9%, transparent);
-  --vit-line-strong: color-mix(in srgb, var(--color-primary) 17%, transparent);
-  --vit-edge: color-mix(in srgb, var(--color-text) 12%, var(--color-surface));
-  /* card stock and the wash at the head of a page — never plain white */
-  --vit-paper: color-mix(in srgb, var(--color-primary) 4%, var(--color-surface));
-  --vit-wash: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
-  --vit-mark: color-mix(in srgb, var(--color-accent) 22%, transparent);
-  --vit-clip: color-mix(in srgb, var(--color-text) 22%, var(--color-surface));
-  --vit-th: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
-  /* tags take their hue from their own name; only the lightness changes here */
-  --vit-tag-s: 55%;
-  --vit-tag-l: 38%;
-  --vit-rx: 0.16;
-  --vit-tube: #0f766e;
-  --vit-scope: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='42' viewBox='0 0 31 42'><g fill='none' stroke='%230f766e' stroke-width='2.4' stroke-linecap='round'><path d='M8 6v5.5a7.7 7.7 0 0 0 15 0V6'/><path d='M15.5 19.5V24c0 2.6 1.6 4 4.2 4H31'/></g><g fill='%23e11d48'><circle cx='8' cy='4.8' r='2.4'/><circle cx='23' cy='4.8' r='2.4'/></g></svg>");
-  --vit-scope-end: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='29' height='42' viewBox='0 0 29 42'><path d='M0 28h9c3.4 0 5.6 1.3 6.4 3.6' fill='none' stroke='%230f766e' stroke-width='2.4' stroke-linecap='round'/><circle cx='18.6' cy='35' r='5' fill='none' stroke='%23e11d48' stroke-width='2.4'/><circle cx='18.6' cy='35' r='1.5' fill='%23e11d48'/></svg>");
-  --vit-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%230f766e' fill-opacity='0.05'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
-  --vit-motifs-alt: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%23e11d48' fill-opacity='0.05'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
-  --vit-trace: 0.5;
-  --vit-shadow: 0 1px 2px color-mix(in srgb, var(--color-text) 7%, transparent);
+  --nook-glass: rgba(255, 255, 255, 0.72);
+  --nook-edge: color-mix(in srgb, var(--color-primary) 16%, var(--color-surface));
+  --nook-card: var(--color-surface);
+  --nook-card-2: #ffffff;
+  --nook-wash-a: #f3e8ff;
+  --nook-wash-b: #e8f5e9;
+  --nook-wash-c: #fff1f4;
+  --nook-soft: color-mix(in srgb, var(--color-primary) 13%, var(--color-surface));
+  --nook-shadow: 0 10px 24px -12px color-mix(in srgb, var(--color-primary) 45%, transparent);
+  --nook-shadow-lg: 0 22px 44px -22px color-mix(in srgb, var(--color-primary) 50%, transparent);
+  --nook-glow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 15%, transparent);
+  --nook-doodles: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.05'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
+  --nook-tip-bg: #fff8e1; --nook-tip-edge: #ffe08a; --nook-tip-ink: #8a6100;
+  --nook-pearl-bg: #ffeef5; --nook-pearl-edge: #ffc2d8; --nook-pearl-ink: #a8285c;
+  --nook-warn-bg: #ffeeea; --nook-warn-edge: #ffb4a2; --nook-warn-ink: #b23b1f;
+  --nook-thumb-a: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M40 26c-11 0-19 7-19 16-7 2-11 8-11 15s5 13 12 15c0 10 8 17 19 17h18V26z' fill='%23c9a7f5'/><path d='M80 26c11 0 19 7 19 16 7 2 11 8 11 15s-5 13-12 15c0 10-8 17-19 17H61V26z' fill='%23c9a7f5' fill-opacity='0.82'/><circle cx='48' cy='60' r='3.4' fill='%23f3e8ff'/><circle cx='72' cy='60' r='3.4' fill='%23f3e8ff'/><path d='M52 72q8 7 16 0' stroke='%23f3e8ff' stroke-width='3.2' fill='none' stroke-linecap='round'/></svg>");
+  --nook-thumb-b: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><rect x='22' y='44' width='76' height='34' rx='17' fill='%23ffb3cd' fill-opacity='0.7'/><path d='M39 44h21v34H39a17 17 0 0 1 0-34z' fill='%23ffb3cd'/><circle cx='72' cy='58' r='3.2' fill='%23ffeef5'/><circle cx='86' cy='58' r='3.2' fill='%23ffeef5'/><path d='M73 67q6 5 12 0' stroke='%23ffeef5' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
+  --nook-thumb-c: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M60 94S22 70 22 46c0-12 9-20 19-20 8 0 15 5 19 12 4-7 11-12 19-12 10 0 19 8 19 20 0 24-38 48-38 48z' fill='%23ff8fa3'/><path d='M30 56h14l5-10 7 20 6-13 4 3h24' fill='none' stroke='%23e6f4ff' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  --nook-thumb-d: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M28 44h52v26a22 22 0 0 1-22 22H50a22 22 0 0 1-22-22z' fill='%23ffc48c'/><path d='M80 52h8a11 11 0 0 1 0 22h-8' fill='none' stroke='%23ffc48c' stroke-width='6'/><path d='M54 66c-2.6-3.2-7.4-2.4-8.4 1.6-1 4.2 5 8.6 8.4 10.8 3.4-2.2 9.4-6.6 8.4-10.8-1-4-5.8-4.8-8.4-1.6z' fill='%23fff1e6'/></svg>");
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --vit-line: color-mix(in srgb, var(--color-primary) 24%, transparent);
-    --vit-line-strong: color-mix(in srgb, var(--color-primary) 42%, transparent);
-    --vit-edge: color-mix(in srgb, var(--color-text) 22%, var(--color-surface));
-    --vit-paper: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
-    --vit-wash: color-mix(in srgb, var(--color-primary) 16%, var(--color-surface));
-    --vit-mark: color-mix(in srgb, var(--color-accent) 36%, transparent);
-    --vit-clip: color-mix(in srgb, var(--color-text) 34%, var(--color-surface));
-    --vit-th: color-mix(in srgb, var(--color-primary) 26%, var(--color-surface));
-    --vit-tag-s: 60%;
-    --vit-tag-l: 70%;
-    --vit-rx: 0.34;
-    --vit-tube: #7bb4af;
-    --vit-scope: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='42' viewBox='0 0 31 42'><g fill='none' stroke='%237bb4af' stroke-width='2.4' stroke-linecap='round'><path d='M8 6v5.5a7.7 7.7 0 0 0 15 0V6'/><path d='M15.5 19.5V24c0 2.6 1.6 4 4.2 4H31'/></g><g fill='%23e95676'><circle cx='8' cy='4.8' r='2.4'/><circle cx='23' cy='4.8' r='2.4'/></g></svg>");
-    --vit-scope-end: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='29' height='42' viewBox='0 0 29 42'><path d='M0 28h9c3.4 0 5.6 1.3 6.4 3.6' fill='none' stroke='%237bb4af' stroke-width='2.4' stroke-linecap='round'/><circle cx='18.6' cy='35' r='5' fill='none' stroke='%23e95676' stroke-width='2.4'/><circle cx='18.6' cy='35' r='1.5' fill='%23e95676'/></svg>");
-    --vit-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%230f766e' fill-opacity='0.16'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
-    --vit-motifs-alt: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%23e11d48' fill-opacity='0.13'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
-    --vit-trace: 0.62;
-    --vit-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); } }
-:root[data-theme="dark"] { --vit-line: color-mix(in srgb, var(--color-primary) 24%, transparent);
-    --vit-line-strong: color-mix(in srgb, var(--color-primary) 42%, transparent);
-    --vit-edge: color-mix(in srgb, var(--color-text) 22%, var(--color-surface));
-    --vit-paper: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
-    --vit-wash: color-mix(in srgb, var(--color-primary) 16%, var(--color-surface));
-    --vit-mark: color-mix(in srgb, var(--color-accent) 36%, transparent);
-    --vit-clip: color-mix(in srgb, var(--color-text) 34%, var(--color-surface));
-    --vit-th: color-mix(in srgb, var(--color-primary) 26%, var(--color-surface));
-    --vit-tag-s: 60%;
-    --vit-tag-l: 70%;
-    --vit-rx: 0.34;
-    --vit-tube: #7bb4af;
-    --vit-scope: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='42' viewBox='0 0 31 42'><g fill='none' stroke='%237bb4af' stroke-width='2.4' stroke-linecap='round'><path d='M8 6v5.5a7.7 7.7 0 0 0 15 0V6'/><path d='M15.5 19.5V24c0 2.6 1.6 4 4.2 4H31'/></g><g fill='%23e95676'><circle cx='8' cy='4.8' r='2.4'/><circle cx='23' cy='4.8' r='2.4'/></g></svg>");
-    --vit-scope-end: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='29' height='42' viewBox='0 0 29 42'><path d='M0 28h9c3.4 0 5.6 1.3 6.4 3.6' fill='none' stroke='%237bb4af' stroke-width='2.4' stroke-linecap='round'/><circle cx='18.6' cy='35' r='5' fill='none' stroke='%23e95676' stroke-width='2.4'/><circle cx='18.6' cy='35' r='1.5' fill='%23e95676'/></svg>");
-    --vit-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%230f766e' fill-opacity='0.16'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
-    --vit-motifs-alt: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%23e11d48' fill-opacity='0.13'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
-    --vit-trace: 0.62;
-    --vit-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
-/* graph paper, the fine grid with a heavier rule every fifth square */
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --nook-glass: rgba(36, 30, 53, 0.72);
+    --nook-edge: #3a3052;
+    --nook-card: #241e35;
+    --nook-card-2: #2b2340;
+    --nook-wash-a: rgba(168, 85, 247, 0.22);
+    --nook-wash-b: rgba(74, 222, 128, 0.14);
+    --nook-wash-c: rgba(255, 133, 162, 0.16);
+    --nook-soft: rgba(255, 133, 162, 0.16);
+    --nook-shadow: 0 12px 26px -14px rgba(0, 0, 0, 0.7);
+    --nook-shadow-lg: 0 24px 48px -24px rgba(0, 0, 0, 0.85);
+    --nook-glow: 0 0 0 4px rgba(255, 133, 162, 0.18);
+    --nook-doodles: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.1'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
+    --nook-tip-bg: #33291a; --nook-tip-edge: #8a6d2f; --nook-tip-ink: #ffd88a;
+    --nook-pearl-bg: #352031; --nook-pearl-edge: #a8558a; --nook-pearl-ink: #ffb3d1;
+    --nook-warn-bg: #3a2320; --nook-warn-edge: #b0614d; --nook-warn-ink: #ffb3a0;
+    --nook-thumb-a: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M40 26c-11 0-19 7-19 16-7 2-11 8-11 15s5 13 12 15c0 10 8 17 19 17h18V26z' fill='%23c9a7f5'/><path d='M80 26c11 0 19 7 19 16 7 2 11 8 11 15s-5 13-12 15c0 10-8 17-19 17H61V26z' fill='%23c9a7f5' fill-opacity='0.82'/><circle cx='48' cy='60' r='3.4' fill='%232f2748'/><circle cx='72' cy='60' r='3.4' fill='%232f2748'/><path d='M52 72q8 7 16 0' stroke='%232f2748' stroke-width='3.2' fill='none' stroke-linecap='round'/></svg>");
+    --nook-thumb-b: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><rect x='22' y='44' width='76' height='34' rx='17' fill='%23ffb3cd' fill-opacity='0.7'/><path d='M39 44h21v34H39a17 17 0 0 1 0-34z' fill='%23ffb3cd'/><circle cx='72' cy='58' r='3.2' fill='%233a2438'/><circle cx='86' cy='58' r='3.2' fill='%233a2438'/><path d='M73 67q6 5 12 0' stroke='%233a2438' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
+    --nook-thumb-c: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M60 94S22 70 22 46c0-12 9-20 19-20 8 0 15 5 19 12 4-7 11-12 19-12 10 0 19 8 19 20 0 24-38 48-38 48z' fill='%23ff8fa3'/><path d='M30 56h14l5-10 7 20 6-13 4 3h24' fill='none' stroke='%2325384a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    --nook-thumb-d: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M28 44h52v26a22 22 0 0 1-22 22H50a22 22 0 0 1-22-22z' fill='%23ffc48c'/><path d='M80 52h8a11 11 0 0 1 0 22h-8' fill='none' stroke='%23ffc48c' stroke-width='6'/><path d='M54 66c-2.6-3.2-7.4-2.4-8.4 1.6-1 4.2 5 8.6 8.4 10.8 3.4-2.2 9.4-6.6 8.4-10.8-1-4-5.8-4.8-8.4-1.6z' fill='%233b2e22'/></svg>"); } }
+:root[data-theme="dark"] { --nook-glass: rgba(36, 30, 53, 0.72);
+    --nook-edge: #3a3052;
+    --nook-card: #241e35;
+    --nook-card-2: #2b2340;
+    --nook-wash-a: rgba(168, 85, 247, 0.22);
+    --nook-wash-b: rgba(74, 222, 128, 0.14);
+    --nook-wash-c: rgba(255, 133, 162, 0.16);
+    --nook-soft: rgba(255, 133, 162, 0.16);
+    --nook-shadow: 0 12px 26px -14px rgba(0, 0, 0, 0.7);
+    --nook-shadow-lg: 0 24px 48px -24px rgba(0, 0, 0, 0.85);
+    --nook-glow: 0 0 0 4px rgba(255, 133, 162, 0.18);
+    --nook-doodles: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.1'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
+    --nook-tip-bg: #33291a; --nook-tip-edge: #8a6d2f; --nook-tip-ink: #ffd88a;
+    --nook-pearl-bg: #352031; --nook-pearl-edge: #a8558a; --nook-pearl-ink: #ffb3d1;
+    --nook-warn-bg: #3a2320; --nook-warn-edge: #b0614d; --nook-warn-ink: #ffb3a0;
+    --nook-thumb-a: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M40 26c-11 0-19 7-19 16-7 2-11 8-11 15s5 13 12 15c0 10 8 17 19 17h18V26z' fill='%23c9a7f5'/><path d='M80 26c11 0 19 7 19 16 7 2 11 8 11 15s-5 13-12 15c0 10-8 17-19 17H61V26z' fill='%23c9a7f5' fill-opacity='0.82'/><circle cx='48' cy='60' r='3.4' fill='%232f2748'/><circle cx='72' cy='60' r='3.4' fill='%232f2748'/><path d='M52 72q8 7 16 0' stroke='%232f2748' stroke-width='3.2' fill='none' stroke-linecap='round'/></svg>");
+    --nook-thumb-b: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><rect x='22' y='44' width='76' height='34' rx='17' fill='%23ffb3cd' fill-opacity='0.7'/><path d='M39 44h21v34H39a17 17 0 0 1 0-34z' fill='%23ffb3cd'/><circle cx='72' cy='58' r='3.2' fill='%233a2438'/><circle cx='86' cy='58' r='3.2' fill='%233a2438'/><path d='M73 67q6 5 12 0' stroke='%233a2438' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
+    --nook-thumb-c: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M60 94S22 70 22 46c0-12 9-20 19-20 8 0 15 5 19 12 4-7 11-12 19-12 10 0 19 8 19 20 0 24-38 48-38 48z' fill='%23ff8fa3'/><path d='M30 56h14l5-10 7 20 6-13 4 3h24' fill='none' stroke='%2325384a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    --nook-thumb-d: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M28 44h52v26a22 22 0 0 1-22 22H50a22 22 0 0 1-22-22z' fill='%23ffc48c'/><path d='M80 52h8a11 11 0 0 1 0 22h-8' fill='none' stroke='%23ffc48c' stroke-width='6'/><path d='M54 66c-2.6-3.2-7.4-2.4-8.4 1.6-1 4.2 5 8.6 8.4 10.8 3.4-2.2 9.4-6.6 8.4-10.8-1-4-5.8-4.8-8.4-1.6z' fill='%233b2e22'/></svg>"); }
+/* the mock-up's page: 16px body text, a 70rem measure and the gutter outside
+   the container rather than padded inside it. The blog's own body size scales
+   with the viewport, which made every em-based size downstream run larger. */
+body { font-size: 1rem; }
+.container {
+  width: min(100% - 2rem, min(var(--container), 70rem));
+  max-width: none; padding-inline: 0;
+}
+/* pastel washes, with the doodles drifting over them */
 body {
   background:
-    linear-gradient(var(--vit-line) 1px, transparent 1px) 0 0 / 100% 26px,
-    linear-gradient(90deg, var(--vit-line) 1px, transparent 1px) 0 0 / 26px 100%,
-    linear-gradient(var(--vit-line-strong) 1px, transparent 1px) 0 0 / 100% 130px,
-    linear-gradient(90deg, var(--vit-line-strong) 1px, transparent 1px) 0 0 / 130px 100%,
+    radial-gradient(60% 55% at 12% 0%, var(--nook-wash-a), transparent 70%),
+    radial-gradient(55% 50% at 92% 6%, var(--nook-wash-b), transparent 70%),
+    radial-gradient(70% 60% at 50% 100%, var(--nook-wash-c), transparent 70%),
     var(--color-bg);
   background-attachment: fixed;
 }
-/* ── the stethoscope that holds the blog's name ─────────────── */
-/* All three pieces — binaural, tube and bell — are background layers of one
-   box drawn around the name, on a shared 40-unit grid where the tube always
-   sits at y=28. That is what keeps the joins exact whatever the blog is
-   called: only the middle layer stretches, and it stretches along the line
-   the other two already end on. */
-.site-brand { position: relative; }
-/* a transparent flex item, so the name leaves room for the binaural */
-.site-brand::before { content: ""; flex: none; width: 1.75em; }
-/* a photo is a badge of its own: two of them in one corner is one too many */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: var(--nook-doodles) repeat 0 0 / 190px 190px;
+}
+/* the page's own wrapper is static, so without this the doodles are painted
+   over the cards rather than behind them */
+body > * { position: relative; z-index: 1; }
+
+/* ── the header floats, as a glass pill ─────────────────────── */
+.site-header { background: none; border-bottom: 0; top: 0.9rem; }
+.site-header::before { content: none; }
+/* .tpl-minimal .site-header-inner in the structure sheet outranks a bare
+   class here, which is why the bar sat taller than the mock-up's */
+[class*="tpl-"] .site-header-inner {
+  margin-block: 0.9rem;
+  padding: 0.7rem 0.8rem 0.7rem 1.15rem;
+  gap: 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--nook-edge);
+  background: var(--nook-glass);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: var(--nook-shadow);
+}
+.site-brand { font-size: 1.32rem; gap: 0.55rem; }
+/* the blog's name wears a little heart, and it beats */
+.site-brand::before {
+  content: ""; flex: none; width: 1.15em; height: 1.15em;
+  background: var(--color-primary);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-primary) 55%, transparent));
+}
 .site-brand:has(.site-brand-avatar)::before { display: none; }
-.site-brand:has(.site-brand-avatar) :is(span:not(.site-brand-text), .site-brand-text > span:first-child)::after { display: none; }
-:is(.site-brand > span:not(.site-brand-text), .site-brand-text > span:first-child) { position: relative; }
-:is(.site-brand > span:not(.site-brand-text), .site-brand-text > span:first-child)::after {
-  content: ""; position: absolute; pointer-events: none;
-  left: -2.05em; right: -1.25em; top: 0.04em; height: 2.2em;
-  background:
-    var(--vit-scope) no-repeat left top / auto 100%,
-    var(--vit-scope-end) no-repeat right top / auto 100%,
-    linear-gradient(var(--vit-tube), var(--vit-tube)) no-repeat left 1.6em top 1.4em / calc(100% - 3.02em) 0.132em;
-}
-/* where there is a tagline under the name, the tube needs the room */
-.site-brand-text > span:first-child { margin-bottom: 0.55em; }
-
-/* the heartbeat, running under the header */
-.site-header { border-bottom: 1px solid var(--vit-edge); }
-/* room for the tube and the bell, which hang below the name */
-.site-header-inner { padding-block: 1.05rem; }
-.site-header::after {
-  content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 22px; pointer-events: none;
-  background: var(--color-accent);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 260px 22px;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 260px 22px;
-  opacity: var(--vit-trace);
-}
 @media (prefers-reduced-motion: no-preference) {
-  .site-header::after { animation: vit-trace 7s linear infinite; }
+  .site-brand::before { animation: nook-beat 2.2s ease-in-out infinite; transform-origin: 50% 55%; }
 }
-@keyframes vit-trace {
-  from { -webkit-mask-position: 0 center; mask-position: 0 center; }
-  to { -webkit-mask-position: -260px center; mask-position: -260px center; }
+@keyframes nook-beat {
+  0%, 62%, 100% { transform: scale(1); }
+  14% { transform: scale(1.22); }
+  28% { transform: scale(1); }
+  40% { transform: scale(1.13); }
 }
-/* a heartbeat is company at the top of the page and a distraction three
-   screens into a chapter, so it fades out as you read down */
-@supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .site-header::after {
-      animation: vit-trace 7s linear infinite, vit-quiet linear both;
-      animation-timeline: auto, scroll(root block);
-      animation-range: normal, 0 340px;
-    }
-  }
+.site-nav { gap: 0.3rem; }
+.site-nav a {
+  padding: 0.45em 0.95em; border-radius: 999px; font-weight: 600;
+  color: var(--color-muted);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
-@keyframes vit-quiet { to { opacity: 0.1; } }
+.site-nav a:hover { background: var(--nook-soft); color: var(--color-primary); transform: translateY(-1px); }
+.site-nav a[aria-current="page"] { background: var(--color-primary); color: #fff; }
+/* the blog already ships a dark-mode button; here it says what it does */
+.dark-toggle {
+  width: auto; height: auto; gap: 0.45rem;
+  padding: 0.5em 1em; border-radius: 999px;
+  border: 1px solid var(--nook-edge); background: var(--nook-card-2);
+  font-family: var(--font-body); font-weight: 700; font-size: 0.85rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.dark-toggle { margin-left: 0.5rem; }
+.dark-toggle::after { content: "Night Shift"; }
+:root[data-theme="dark"] .dark-toggle::after { content: "Day Shift"; }
+.dark-toggle:hover { transform: translateY(-1px); box-shadow: var(--nook-glow); }
+.nav-search input { border-radius: 999px; border-color: var(--nook-edge); }
 
-/* ── the menu, on a phone ───────────────────────────────────── */
-@media (max-width: 760px) {
-  /* the trace is a child of the header and paints after the nav, so it was
-     drawn straight across the open menu */
-  .site-header:has(.site-nav.is-open)::after { opacity: 0; }
-  .site-nav {
-    z-index: 2;
-    /* the page background is the same colour, so without paper of its own the
-       menu read as links floating on the graph paper */
-    /* the scrim keeps the pattern from competing with the link text, which it
-       does most in dark mode, where the motifs are drawn heavier */
-    background:
-      linear-gradient(color-mix(in srgb, var(--color-surface) 45%, transparent), color-mix(in srgb, var(--color-surface) 45%, transparent)),
-      var(--vit-motifs) repeat 0 center / 78px 78px,
-      var(--vit-paper);
-    border-bottom: 1px solid var(--vit-edge);
-    border-radius: 0 0 calc(var(--radius) * 1.3) calc(var(--radius) * 1.3);
-    box-shadow: 0 20px 34px -20px color-mix(in srgb, var(--color-text) 50%, transparent);
-    padding-block: 0.35rem 1rem;
-  }
-  .site-nav a {
-    padding-block: 0.8rem;
-    border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 22%, transparent);
-  }
-  .site-nav a:last-of-type { border-bottom: 0; }
-  .site-nav a[aria-current="page"] { color: var(--color-primary); font-weight: 700; }
-  .nav-search input { border-color: var(--vit-edge); background: var(--color-surface); }
-  .dark-toggle { margin-top: 0.75rem; }
-}
-
-/* ── the hero: a sheet clipped to a chart board ─────────────── */
-.sec-hero { padding-block: calc(2.4rem * var(--space-scale)); }
+/* ── the hero is the greeting card ──────────────────────────── */
+.sec-hero { padding-block: clamp(1.6rem, 4vw, 2.8rem); }
 .sec-hero .hero {
   position: relative; overflow: hidden;
-  padding: clamp(2.8rem, 6vw, 3.8rem) clamp(1.3rem, 4vw, 3rem) clamp(2.8rem, 6vw, 3.6rem);
-  /* a sheet of notes on a warm wash, with two soft blooms of colour and a
-     scatter of plasters and hearts drifting behind the title */
+  padding: clamp(1.5rem, 4vw, 2.6rem);
+  border-radius: 28px;
+  border: 1px solid var(--nook-edge);
   background:
-    var(--vit-motifs) repeat 0 0 / 164px 164px,
-    var(--vit-motifs-alt) repeat 82px 82px / 164px 164px,
-    radial-gradient(42% 60% at 88% 8%, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 70%),
-    radial-gradient(46% 62% at 6% 92%, color-mix(in srgb, var(--color-primary) 16%, transparent), transparent 70%),
-    linear-gradient(180deg, var(--vit-wash), var(--vit-paper) 72%);
-  border: 1px solid var(--vit-edge);
-  border-radius: clamp(1.1rem, 2.6vw, 1.9rem);
-  box-shadow: var(--vit-shadow), 0 18px 36px -28px color-mix(in srgb, var(--color-text) 60%, transparent);
+    radial-gradient(70% 90% at 100% 0%, var(--nook-wash-a), transparent 70%),
+    radial-gradient(60% 80% at 0% 100%, var(--nook-wash-b), transparent 70%),
+    var(--nook-card);
+  box-shadow: var(--nook-shadow-lg);
 }
-/* the title and its subtitle sit on the paper, not in the pattern */
-.sec-hero .hero-content { position: relative; }
-.sec-hero .hero-subtitle { color: color-mix(in srgb, var(--color-text) 62%, var(--color-muted)); }
-/* a soft, friendly button rather than a clinical rectangle */
-.sec-hero .hero-cta {
-  border-radius: 999px; padding-inline: 1.7rem;
-  box-shadow: 0 8px 18px -8px color-mix(in srgb, var(--color-primary) 75%, transparent);
-  transition: transform 0.16s ease, box-shadow 0.16s ease;
+/* the structure sheet centres every hero with .tpl-minimal .hero, which
+   overrides the section's own alignment — this hands it back */
+[class*="tpl-"] .hero--left { text-align: left; align-items: flex-start; }
+[class*="tpl-"] .hero--left .hero-subtitle { margin-inline: 0; }
+/* the little chip over the greeting */
+.sec-hero .hero-content::before {
+  content: "🩺 Your cosy blog";
+  display: inline-flex; align-items: center;
+  margin-bottom: 0.9rem; padding: 0.35em 0.9em;
+  border-radius: 999px; background: var(--nook-soft);
+  color: color-mix(in srgb, var(--color-primary) 80%, var(--color-text));
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.01em;
 }
-.sec-hero .hero-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 22px -8px color-mix(in srgb, var(--color-primary) 75%, transparent);
+.hero-title { font-size: clamp(1.9rem, 1.3rem + 2.6vw, 3rem); letter-spacing: -0.01em; }
+/* whatever she calls the blog, it gets the greeting's little icons */
+.sec-hero .hero-title::after { content: " 🩺✨"; font-size: 0.78em; white-space: nowrap; }
+.hero-subtitle { color: var(--color-muted); max-width: 46ch; font-size: 1.05rem; }
+/* the structure sheet sets .tpl-minimal .btn, which outranks a bare .btn */
+[class*="tpl-"] .btn, .btn {
+  border-radius: 999px; font-weight: 700; font-size: 0.95rem; padding: 0.7em 1.4em;
 }
-/* the clip that holds the sheet */
-.sec-hero .hero::before {
-  content: ""; position: absolute; top: 0.75rem; left: 50%; transform: translateX(-50%);
-  width: clamp(4.5rem, 14vw, 6.5rem); height: 0.8rem; border-radius: 999px;
-  background: linear-gradient(180deg, var(--vit-clip), color-mix(in srgb, var(--vit-clip) 45%, var(--color-surface)));
-  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-surface) 70%, transparent);
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 55%, var(--color-accent)));
+  border-color: transparent; box-shadow: var(--nook-shadow);
 }
-/* a second, still trace along the foot of the sheet */
-.sec-hero .hero::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22px; pointer-events: none;
-  background: var(--color-primary);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 220px 22px;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 220px 22px;
-  opacity: 0.3;
-}
-.sec-hero .hero-title::after {
-  content: ""; display: block; width: 3.4rem; height: 3px; border-radius: 2px; margin-top: 0.9rem;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-}
-.sec-hero .hero--center .hero-title::after { margin-inline: auto; }
+.btn:hover { transform: translateY(-2px); box-shadow: var(--nook-shadow-lg); }
 
-/* ── posts as index cards, with a coloured spine ────────────── */
-.post-card--cards, .post-card--grid, .newsletter {
-  background: linear-gradient(180deg, var(--vit-wash), var(--vit-paper) 5rem);
-  border: 1px solid var(--vit-edge);
-  border-radius: calc(var(--radius) * 1.1);
-  box-shadow: var(--vit-shadow);
+/* ── the hero's companion card ──────────────────────────────── */
+/* The mock-up's Daily Pulse, rebuilt from something she can actually write:
+   a Text section placed straight after the hero becomes a card beside it,
+   its heading the card's title and each list item a little pastel panel.
+   She fills it with whatever she likes — what she is revising, a quote, a
+   note to herself. Any other section still spans the page. */
+.page.container > .sec-hero + .sec:not([class*="sec-"]) > .prose {
+  padding: 1.3rem 1.3rem 1.5rem;
+  border-radius: 28px;
+  border: 1px solid var(--nook-edge);
+  background: var(--nook-card);
+  box-shadow: var(--nook-shadow);
+  display: flex; flex-direction: column; gap: 1.05rem;
+  height: 100%;
 }
-.post-card { position: relative; overflow: hidden; transition: transform 0.18s ease, box-shadow 0.18s ease; }
-.post-card--cards::before, .post-card--grid::before {
-  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-  background: var(--color-primary);
+.page.container > .sec-hero + .sec:not([class*="sec-"]) > .prose > :is(h1, h2, h3) {
+  margin: 0; font-size: 1.12rem;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 0.6rem;
 }
-:is(.post-card--cards, .post-card--grid):nth-child(3n + 2)::before { background: var(--color-accent); }
-:is(.post-card--cards, .post-card--grid):nth-child(3n)::before { background: color-mix(in srgb, var(--color-primary) 50%, var(--color-accent)); }
-/* a grid card is drawn like the others, so it needs the same inner margin */
-.post-card--grid .post-card-body { padding: 1.2rem; }
-.post-card--grid .post-card-cover img { border-radius: 0; }
-/* the ruled line an index card is printed with, under the date */
-:is(.post-card--cards, .post-card--grid) .post-card-meta {
-  padding-bottom: 0.5rem; margin-bottom: 0.7rem;
-  border-bottom: 1px solid var(--vit-edge);
-  font-variant-numeric: tabular-nums; letter-spacing: 0.015em;
+/* today's date, written as {{today}} in the section and filled in by the page.
+   margin-left rather than space-between: the heading also carries its anchor
+   link, which would otherwise take the right-hand slot and shove the date in. */
+.today {
+  margin-left: auto;
+  font-family: var(--font-body); font-size: 0.68em; font-weight: 600;
+  color: var(--color-muted); white-space: nowrap;
 }
-.post-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px color-mix(in srgb, var(--color-text) 12%, transparent); }
+/* a section link belongs on an article, not on a card in the margin */
+.prose .heading-anchor { display: none; }
+.page.container > .sec-hero + .sec:not([class*="sec-"]) > .prose > p { margin: 0; color: var(--color-muted); font-size: 0.95em; }
+.page.container > .sec-hero + .sec:not([class*="sec-"]) > .prose > ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 0.55rem;
+}
+.page.container > .sec-hero + .sec:not([class*="sec-"]) > .prose > ul > li {
+  margin: 0; padding: 0.9rem 1rem;
+  border-radius: 20px; border: 1px solid var(--nook-edge);
+  background: var(--nook-card-2);
+  font-size: 1rem;
+}
+.page.container > .sec-hero + .sec:not([class*="sec-"]) > .prose > blockquote {
+  margin: 0; padding: 0.85em 1em; border-left: 0;
+  border-radius: 1rem; background: var(--nook-soft);
+  font-family: var(--font-heading); font-size: 0.98em;
+}
+@media (min-width: 960px) {
+  .page.container:has(> .sec-hero + .sec:not([class*="sec-"])) {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 1.4rem;
+    align-items: stretch;
+  }
+  .page.container > .sec { grid-column: 1 / -1; }
+  .page.container > .sec-hero { grid-column: 1; }
+  .page.container > .sec-hero + .sec:not([class*="sec-"]) {
+    grid-column: 2; padding-block: calc(1.8rem * var(--space-scale));
+  }
+  /* the two cards finish on the same line */
+  .page.container > .sec-hero > .hero { height: 100%; justify-content: center; }
+}
 
-/* ── the page itself: lab-book paper, not a white box ───────── */
+/* ── sections and cards ─────────────────────────────────────── */
+.sec-title { font-size: clamp(1.4rem, 1.1rem + 1.1vw, 1.9rem); }
+/* the mock-up's grid: 275px columns, 1.15rem apart */
+.post-list { gap: 1.15rem; }
+.post-list--grid, .post-list--cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 275px), 1fr)); }
+.post-card--grid, .post-card--cards, .newsletter, .about {
+  border-radius: clamp(1rem, 2.2vw, 1.75rem);
+  border: 1px solid var(--nook-edge);
+  background: var(--nook-card);
+  box-shadow: var(--nook-shadow);
+  overflow: hidden;
+}
+.post-card { transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+.post-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-primary);
+  box-shadow: var(--nook-shadow-lg), var(--nook-glow);
+}
+:is(.post-card--grid, .post-card--cards) .post-card-body {
+  padding: 1.05rem 1.15rem 1.25rem;
+  /* the body has to fill the card, or margin-top:auto on the meta below has
+     nothing to push against and the date lands wherever the excerpt ends */
+  flex: 1 1 auto;
+  display: flex; flex-direction: column; gap: 0.55rem;
+}
+.post-card-title { font-size: 1.12rem; }
+/* as in the mock-up: the date and the drink close the card, not open it */
+:is(.post-card--grid, .post-card--cards) .post-card-meta {
+  order: 9; margin: 0.4rem 0 0; margin-top: auto; padding-top: 0.6rem;
+  width: 100%; justify-content: space-between;
+  border-top: 1px solid var(--nook-edge);
+}
+:is(.post-card--grid, .post-card--cards) :is(.post-card-title, .post-card-excerpt, .post-card-tags) { margin: 0; }
+/* a post with no cover photo gets a doodle rather than a blank head */
+:is(.post-card--grid, .post-card--cards):not(:has(.post-card-cover))::before {
+  content: ""; display: block; aspect-ratio: 16 / 9;
+  background: var(--nook-thumb-a) no-repeat center / 88px 88px, var(--nook-wash-a);
+}
+:is(.post-card--grid, .post-card--cards):nth-child(4n + 2):not(:has(.post-card-cover))::before {
+  background: var(--nook-thumb-b) no-repeat center / 88px 88px, var(--nook-wash-c);
+}
+:is(.post-card--grid, .post-card--cards):nth-child(4n + 3):not(:has(.post-card-cover))::before {
+  background: var(--nook-thumb-c) no-repeat center / 88px 88px, var(--nook-wash-b);
+}
+:is(.post-card--grid, .post-card--cards):nth-child(4n + 4):not(:has(.post-card-cover))::before {
+  background: var(--nook-thumb-d) no-repeat center / 88px 88px, var(--nook-soft);
+}
+.post-card-title a:hover { color: var(--color-primary); }
+/* tags keep the hue the generator derives from their own name */
+.tag, .tag-pill {
+  --tag-c: hsl(var(--tag-h, 340) 70% 42%);
+  padding: 0.25em 0.75em; border-radius: 999px; font-weight: 700; font-size: 0.74rem;
+  background: color-mix(in srgb, var(--tag-c) 14%, var(--color-surface));
+  border-color: color-mix(in srgb, var(--tag-c) 26%, transparent);
+  color: color-mix(in srgb, var(--tag-c) 78%, var(--color-text));
+}
+:root[data-theme="dark"] .tag, :root[data-theme="dark"] .tag-pill { --tag-c: hsl(var(--tag-h, 340) 75% 72%); }
+.tag-pill.is-active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+/* the reading time, as a warm drink */
+.post-card-meta { gap: 0.4rem; font-size: 0.76em; }
+.post-meta-rt {
+  padding: 0.25em 0.75em; border-radius: 999px; font-weight: 700; font-size: 0.8rem;
+  background: var(--nook-soft); color: var(--color-primary);
+}
+.post-meta-rt::after { content: " ☕"; }
+
+/* ── the newsletter, and the page panels ────────────────────── */
+.newsletter { padding: clamp(1.4rem, 4vw, 2.6rem); }
+.newsletter-form { justify-content: center; }
+.newsletter-form input { border-radius: 999px; border-color: var(--nook-edge); background: var(--nook-card-2); }
 .about, .post.container, .archive.container, .not-found.container {
-  padding: clamp(1.25rem, 4vw, 2.5rem);
+  padding: clamp(1.3rem, 4vw, 2.6rem);
   width: min(100% - 1.5rem, var(--container));
   margin-block: 1.25rem;
-  position: relative;
-  background: linear-gradient(180deg, var(--vit-wash), var(--vit-paper) 18rem);
-  border: 1px solid var(--vit-edge);
-  border-radius: calc(var(--radius) * 1.1);
-  box-shadow: var(--vit-shadow);
+  border-radius: clamp(1rem, 2.2vw, 1.75rem);
+  border: 1px solid var(--nook-edge);
+  background: var(--nook-card);
+  box-shadow: var(--nook-shadow);
 }
-.not-found.container { padding-block: clamp(3rem, 8vw, 5rem); }
-/* the margin rule down the left of the page, as on any lined pad */
-@media (min-width: 700px) {
-  .post.container, .archive.container { padding-left: clamp(3rem, 6vw, 4.4rem); }
-  .post.container::before, .archive.container::before {
-    content: ""; position: absolute; top: 0; bottom: 0;
-    left: clamp(1.9rem, 4vw, 3rem); width: 1px;
-    background: color-mix(in srgb, var(--color-accent) 30%, transparent);
-  }
-}
-
-/* section headings get a short rule, like a ruled notebook margin */
-.sec-title { display: flex; align-items: center; gap: 0.6rem; }
-.sec-title::before {
-  content: ""; flex: none; width: 0.22em; height: 1em; border-radius: 2px;
-  background: var(--color-primary);
-}
-.post-title::after {
-  content: ""; display: block; width: 4rem; height: 3px; margin-top: 0.7rem; border-radius: 2px;
-  background: var(--color-primary);
-}
-/* byline, date and reading time as the strip along the top of a chart */
-.post-header .post-meta {
-  display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.3rem 0.9rem;
-  margin-block: 1rem 0.7rem; padding: 0.42em 0.95em; border-radius: 999px;
-  border: 1px solid var(--vit-edge); background: var(--vit-wash);
-  font-size: 0.88em; letter-spacing: 0.02em; font-variant-numeric: tabular-nums;
-}
-/* the cover photo, mounted like a scan pasted into the notes */
-.post-cover { border: 1px solid var(--vit-edge); box-shadow: var(--vit-shadow); }
-/* how far through a long set of notes you are — the trace fills as you scroll.
-   Scroll-driven animation only: browsers without it simply get no bar, and it
-   needs no script of its own. */
-@supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .post.container::after {
-      content: ""; position: fixed; inset: 0 0 auto; height: 3px; z-index: 60;
-      transform: scaleX(0); transform-origin: 0 50%;
-      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-      animation: vit-read linear both;
-      animation-timeline: scroll(root block);
-    }
-  }
-}
-@keyframes vit-read { to { transform: scaleX(1); } }
-
-/* revision marks: highlighter on bold, a clinical note for quotes */
-.post-content strong, .prose strong {
-  background: linear-gradient(transparent 38%, var(--vit-mark) 38%, var(--vit-mark) 94%, transparent 94%);
-  padding: 0 0.12em;
-}
+.post-cover { border-radius: clamp(0.8rem, 2vw, 1.25rem); }
+.post-content :is(h2, h3) { font-family: var(--font-heading); }
 .post-content blockquote {
-  margin: 1.5em 0; padding: 0.9em 1.1em;
-  border-left: 3px solid var(--color-accent);
-  background: color-mix(in srgb, var(--color-accent) 7%, var(--color-surface));
-  border-radius: 0 var(--radius) var(--radius) 0;
-  color: var(--color-text);
+  margin: 1.5em 0; padding: 0.95em 1.15em; border-left: 4px solid var(--color-primary);
+  border-radius: 0 1rem 1rem 0;
+  background: var(--nook-soft); color: var(--color-text);
 }
-/* a hand-written <mark> reads as the same highlighter as bold does */
-.post-content mark, .prose mark {
-  background: var(--vit-mark); color: inherit; padding: 0 0.12em; border-radius: 2px;
-}
-/* the abbreviations clinical notes are full of, marked as hoverable */
-.post-content abbr[title], .prose abbr[title] {
-  text-decoration: underline dotted;
-  text-decoration-color: color-mix(in srgb, var(--color-primary) 55%, transparent);
-  text-underline-offset: 3px; cursor: help;
-}
-/* code sits on the paper, so the base surface colour would vanish into it */
 .post-content pre, .prose pre {
-  background: color-mix(in srgb, var(--color-primary) 7%, var(--color-surface));
-  border: 1px solid var(--vit-edge); border-radius: var(--radius);
+  border-radius: 1rem; border: 1px solid var(--nook-edge);
+  background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface));
 }
 .post-content :not(pre) > code, .prose :not(pre) > code {
-  background: color-mix(in srgb, var(--color-primary) 9%, var(--color-surface));
-  border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
-  border-radius: 4px;
+  border-radius: 6px; background: var(--nook-soft);
 }
-.post-content :is(h2, h3) { border-bottom: 1px solid var(--vit-edge); padding-bottom: 0.25em; }
-.post-content :is(ul, ol) { padding-left: 1.3em; }
-.post-content li::marker { color: var(--color-primary); }
-
-/* each subject keeps its own colour, derived from the tag's own name */
-.tag, .tag-pill {
-  --tag-c: hsl(var(--tag-h, 175) var(--vit-tag-s) var(--vit-tag-l));
-  background: color-mix(in srgb, var(--tag-c) 12%, var(--color-surface));
-  border-color: color-mix(in srgb, var(--tag-c) 34%, transparent);
-  color: color-mix(in srgb, var(--tag-c) 80%, var(--color-text));
-  font-weight: 600;
+.post-content strong, .prose strong { color: color-mix(in srgb, var(--color-primary) 60%, var(--color-text)); }
+/* the section links are page furniture: they appear when you reach for them */
+.heading-anchor {
+  margin-left: 0.35em; text-decoration: none;
+  color: color-mix(in srgb, var(--color-primary) 45%, transparent);
+  opacity: 0; transition: opacity 0.15s ease;
 }
-.tag:hover, .tag-pill:hover { border-color: var(--tag-c); background: color-mix(in srgb, var(--tag-c) 20%, var(--color-surface)); }
-.tag-pill.is-active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
-
-/* ── the foot of a post ─────────────────────────────────────── */
-.post-share { margin-top: 2.6rem; padding-top: 1.4rem; border-top: 1px solid var(--vit-edge); }
-.post-share-label { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75em; }
-.share-btn { background: var(--vit-paper); border-color: var(--vit-edge); transition: transform 0.15s ease, color 0.15s ease, border-color 0.15s ease; }
-.share-btn:hover { transform: translateY(-1px); }
-/* the post before and after this one, as two more index cards */
-.post-adjacent { border-top: 0; margin-top: 2rem; padding-top: 0; }
-.post-adjacent-link {
-  position: relative; overflow: hidden; padding: 0.9rem 1.1rem;
-  border: 1px solid var(--vit-edge); border-radius: calc(var(--radius) * 1.1);
-  background: var(--vit-paper);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-.post-adjacent-link::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 3px; background: var(--color-primary); }
-.post-adjacent-next::before { left: auto; right: 0; background: var(--color-accent); }
-.post-adjacent-link:hover { transform: translateY(-2px); box-shadow: 0 10px 24px color-mix(in srgb, var(--color-text) 12%, transparent); }
-.post-adjacent-link span {
-  text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72em; font-weight: 700;
-  color: color-mix(in srgb, var(--color-primary) 70%, var(--color-text));
-}
-.post-comments { border-top: 1px solid var(--vit-edge); }
-
-/* search results on the same paper as the rest */
-.search-results { background: var(--vit-paper); border-color: var(--vit-edge); }
-.search-result:hover { background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface)); }
-/* a focus ring in the theme's own colour, for anyone driving this by keyboard */
-:is(a, button, input, summary, [tabindex]):focus-visible {
-  outline: 2px solid var(--color-primary); outline-offset: 2px; border-radius: 3px;
-}
-
-/* ── the home page, in a warmer bedside manner ──────────────── */
-/* section headings on the home page are marked with a little heart instead
-   of the clinical tab the rest of the site uses */
-:is(.sec-posts, .sec-newsletter, .sec-about) .sec-title::before {
-  width: 0.95em; height: 0.95em; border-radius: 0;
-  background: var(--color-accent);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
-}
-/* cards round off a little more, and lift in their own colour */
-.post-card--cards, .post-card--grid { border-radius: clamp(0.8rem, 1.6vw, 1.1rem); }
-.post-card--cards .post-card-meta, .post-card--grid .post-card-meta { border-bottom-style: dashed; }
-.post-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 26px -14px color-mix(in srgb, var(--color-primary) 55%, transparent);
-}
-:is(.post-card--cards, .post-card--grid):nth-child(3n + 2):hover {
-  box-shadow: 0 14px 26px -14px color-mix(in srgb, var(--color-accent) 55%, transparent);
-}
-
-/* the sign-up block as a prescription pad: a tear-off strip along the top,
-   a dashed edge and the ℞ a pad is printed with */
-.sec-newsletter .newsletter {
-  position: relative; overflow: hidden;
-  padding-top: clamp(2.6rem, 5vw, 3.4rem);
-  border: 1px dashed color-mix(in srgb, var(--color-primary) 38%, transparent);
-  border-radius: clamp(0.9rem, 2vw, 1.4rem);
-  background:
-    var(--vit-motifs) repeat 0 0 / 164px 164px,
-    linear-gradient(180deg, var(--vit-wash), var(--vit-paper) 7rem);
-}
-.sec-newsletter .newsletter::before {
-  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1.5rem;
-  background:
-    repeating-linear-gradient(90deg, color-mix(in srgb, var(--color-primary) 30%, transparent) 0 9px, transparent 9px 18px) left bottom / 100% 1px no-repeat,
-    color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
-}
-.sec-newsletter .newsletter::after {
-  content: "℞"; position: absolute; right: 1.2rem; top: 2rem;
-  font-family: var(--font-heading); font-size: clamp(2.2rem, 6vw, 3rem); line-height: 1;
-  color: var(--color-primary); opacity: var(--vit-rx); pointer-events: none;
-}
-.newsletter-form input { border-radius: 999px; border-color: var(--vit-edge); background: var(--color-surface); }
-.newsletter-form .btn { border-radius: 999px; padding-inline: 1.4rem; }
-
-/* a heartbeat of a different kind, beside the footer line */
-.footer-text { display: inline-flex; align-items: center; gap: 0.5rem; }
-.footer-text::before {
-  content: ""; flex: none; width: 0.95em; height: 0.95em;
-  background: var(--color-accent);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .footer-text::before { animation: vit-beat 2.4s ease-in-out infinite; }
-}
-@keyframes vit-beat {
-  0%, 58%, 100% { transform: scale(1); }
-  12% { transform: scale(1.22); }
-  24% { transform: scale(1); }
-  36% { transform: scale(1.14); }
-}
-
-/* a horizontal rule is a heartbeat between sections */
-.post-content hr, .prose hr {
-  height: 22px; border: 0; margin: 2.4em 0;
-  background: color-mix(in srgb, var(--color-accent) 75%, var(--color-text));
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x center / 220px 22px;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x center / 220px 22px;
-  opacity: 0.4;
-}
-
-/* ── callouts: the "don't miss this" blocks ─────────────────── */
-.callout {
-  margin: 1.6em 0; padding: 0.95em 1.15em;
-  border: 1px solid color-mix(in srgb, var(--cal, var(--color-primary)) 35%, transparent);
-  border-left: 4px solid var(--cal, var(--color-primary));
-  border-radius: 0 var(--radius) var(--radius) 0;
-  background: color-mix(in srgb, var(--cal, var(--color-primary)) 8%, var(--color-surface));
-}
-.callout > :last-child { margin-bottom: 0; }
-.callout-label {
-  margin: 0 0 0.35em; font-family: var(--font-heading); font-weight: 700;
-  font-size: 0.82em; letter-spacing: 0.07em; text-transform: uppercase;
-  color: color-mix(in srgb, var(--cal, var(--color-primary)) 75%, var(--color-text));
-}
-.callout--warning, .callout--caution { --cal: var(--color-accent); }
-.callout--mnemonic { --cal: #7c3aed; }
-.callout--dose { --cal: #b45309; }
-.callout--tip, .callout--example { --cal: color-mix(in srgb, var(--color-primary) 70%, #0ea5e9); }
-
-/* ── revision checklists ────────────────────────────────────── */
+:is(h2, h3, h4):hover .heading-anchor, .heading-anchor:focus { opacity: 1; }
+/* round, pastel tick boxes for a revision checklist */
 .post-content input[type="checkbox"] {
   appearance: none; width: 1.05em; height: 1.05em; margin-right: 0.5em; vertical-align: -0.15em;
-  border: 2px solid color-mix(in srgb, var(--color-primary) 45%, transparent);
-  border-radius: 4px; background: var(--color-surface);
+  border: 2px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
+  border-radius: 7px; background: var(--nook-card-2);
 }
 .post-content input[type="checkbox"]:checked {
   background: var(--color-primary); border-color: var(--color-primary);
-  /* a real tick: two crossed gradients read as an X, not a check */
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M3.5 8.5 L6.5 11.5 L12.5 4.5' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>");
   background-size: 90% 90%; background-position: center; background-repeat: no-repeat;
 }
-.post-content li:has(input:checked) { color: var(--color-muted); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--color-muted) 50%, transparent); }
+.post-content li:has(input:checked) { color: var(--color-muted); text-decoration: line-through; }
 
-/* ── tables: drug and value tables get read a lot ───────────── */
-.post-content table, .prose table {
-  border-collapse: separate; border-spacing: 0;
-  border: 1px solid var(--vit-edge); border-radius: var(--radius);
+/* ── the note blocks: soft yellow, pink and coral ───────────── */
+.callout {
+  --cal-bg: var(--nook-tip-bg); --cal-edge: var(--nook-tip-edge); --cal-ink: var(--nook-tip-ink);
+  margin: 1.7em 0; padding: 1em 1.15em;
+  border: 1.5px solid var(--cal-edge); border-radius: 1.1rem;
+  background: var(--cal-bg);
 }
-/* the base sheet lays tables out as a scrolling block so a wide one survives a
-   phone; from tablet up they are real tables again and fill the column, with
-   the header row staying put under the site header on a long table */
-@media (min-width: 640px) {
-  .post-content table, .prose table { display: table; width: 100%; }
-  .post-content th { position: sticky; top: 4.9rem; z-index: 1; }
+.callout > :last-child { margin-bottom: 0; }
+.callout-label {
+  margin: 0 0 0.3em; font-family: var(--font-heading); font-weight: 700;
+  font-size: 0.92em; color: var(--cal-ink);
 }
-/* on a phone the table is only as wide as its content, so a frame around the
-   full column would leave a box with a table stranded inside it */
-@media (max-width: 639.98px) {
-  .post-content table, .prose table { border: 0; border-radius: 0; }
+.callout--dose, .callout--mnemonic, .callout--remember {
+  --cal-bg: var(--nook-pearl-bg); --cal-edge: var(--nook-pearl-edge); --cal-ink: var(--nook-pearl-ink);
 }
-.post-content th {
-  background: var(--vit-th);
-  font-family: var(--font-heading); font-size: 0.92em; letter-spacing: 0.01em;
+.callout--warning, .callout--caution {
+  --cal-bg: var(--nook-warn-bg); --cal-edge: var(--nook-warn-edge); --cal-ink: var(--nook-warn-ink);
 }
-.post-content :is(th, td) { border: 0; border-bottom: 1px solid var(--vit-edge); }
+.post-content table { border-collapse: separate; border-spacing: 0; border: 1px solid var(--nook-edge); border-radius: 1rem; }
+@media (min-width: 640px) { .post-content table { display: table; width: 100%; } }
+@media (max-width: 639.98px) { .post-content table { border: 0; border-radius: 0; } }
+.post-content th { background: var(--nook-soft); font-family: var(--font-heading); }
+.post-content :is(th, td) { border: 0; border-bottom: 1px solid var(--nook-edge); }
 .post-content tr:last-child :is(th, td) { border-bottom: 0; }
-.post-content tbody tr:nth-child(even) { background: color-mix(in srgb, var(--color-primary) 4%, transparent); }
 
-/* ── figures ────────────────────────────────────────────────── */
-.post-content figure { margin: 1.8em 0; }
-.post-content figure img { display: block; width: 100%; border-radius: var(--radius); border: 1px solid var(--vit-edge); }
-.post-content figcaption {
-  margin-top: 0.55em; font-size: 0.88em; color: var(--color-muted); text-align: center;
-  padding-left: 1.6em; text-indent: -1.6em;
+/* ── the foot of a post, and the site's own ─────────────────── */
+.share-btn, .social-link, .footer-links a {
+  border-radius: 999px; border: 1px solid var(--nook-edge);
+  background: var(--nook-card-2); text-decoration: none; font-weight: 600;
 }
-.post-content figcaption::before { content: "Fig. "; font-weight: 600; color: color-mix(in srgb, var(--color-primary) 70%, var(--color-text)); }
-
-/* ── section links ──────────────────────────────────────────── */
-.heading-anchor {
-  margin-left: 0.4em; color: color-mix(in srgb, var(--color-primary) 45%, transparent);
-  text-decoration: none; opacity: 0; transition: opacity 0.15s ease;
+.social-link, .footer-links a { padding: 0.3em 0.9em; font-size: 0.88em; color: var(--color-primary); }
+.post-adjacent { border-top: 0; }
+.post-adjacent-link {
+  padding: 0.9rem 1.1rem; border-radius: 1.1rem;
+  border: 1px solid var(--nook-edge); background: var(--nook-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-:is(h2, h3, h4):hover .heading-anchor, .heading-anchor:focus { opacity: 1; }
+.post-adjacent-link:hover { transform: translateY(-3px); box-shadow: var(--nook-shadow); }
+.post-adjacent-link span { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72em; font-weight: 700; color: var(--color-primary); }
+.site-footer {
+  margin-top: calc(3rem * var(--space-scale));
+  /* a touch stronger than the card edges, or the line disappears on the wash */
+  border-top: 1px solid color-mix(in srgb, var(--color-primary) 24%, var(--color-surface));
+  background: none;
+}
+.site-footer-inner {
+  flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 0.5rem 1.2rem; padding-block: 1.6rem 2rem;
+  font-size: 0.9rem; color: var(--color-muted);
+}
+/* it is a <p>, and its bottom margin was making the strip a third taller */
+.footer-text { display: inline-flex; align-items: center; gap: 0.45rem; margin: 0; font-weight: 400; color: inherit; }
+.footer-text::before {
+  content: ""; flex: none; width: 0.95em; height: 0.95em;
+  background: var(--color-primary);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
+}
+.footer-links a, .social-link {
+  padding: 0; border: 0; background: none;
+  font-size: inherit; font-weight: 600; color: inherit;
+  transition: color 0.2s ease;
+}
+.footer-links a:hover, .social-link:hover { color: var(--color-primary); }
 
-/* ── printing: notes you can actually revise from ───────────── */
+/* ── the menu, on a phone ───────────────────────────────────── */
+@media (max-width: 760px) {
+  .site-nav {
+    z-index: 2; margin-top: 0.5rem; padding: 0.7rem;
+    border-radius: 1.4rem; border: 1px solid var(--nook-edge);
+    background: var(--nook-glass);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
+    box-shadow: var(--nook-shadow-lg);
+  }
+  .site-nav a { padding: 0.7em 0.9em; }
+  .dark-toggle { margin-top: 0.6rem; }
+}
+
 @media print {
-  @page { margin: 16mm; }
-  body { background: #fff !important; color: #000; }
-  body::before, .weather-layer, .site-header, .site-footer, .post-share, .post-nav,
-  .post-comments, .nav-search, .dark-toggle, .newsletter, .heading-anchor,
-  .post-adjacent { display: none !important; }
-  .post.container, .archive.container, .about, .not-found.container, .sec-hero .hero {
+  body::before { display: none; }
+  .site-header, .site-footer, .newsletter, .post-share, .post-adjacent { display: none !important; }
+  .post.container, .archive.container, .about {
     background: #fff !important; border: 0 !important; box-shadow: none !important;
     width: auto; max-width: none; margin: 0; padding: 0;
   }
-  .post.container::before, .post.container::after,
-  .archive.container::before, .sec-hero .hero::before, .sec-hero .hero::after { display: none; }
-  .post-content, .prose { max-width: none; }
-  .post-content strong { background: none; text-decoration: underline; }
-  .post-header .post-meta { border: 0; background: none; padding: 0; }
-  .callout { border: 1px solid #999; border-left: 4px solid #333; background: none; }
-  .post-content hr { -webkit-mask: none; mask: none; height: 1px; background: #999; opacity: 1; }
-  .post-content th { background: #eee !important; position: static; }
-  /* spell out where a link went, since paper has no hover */
-  .post-content a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.82em; color: #555; word-break: break-all; }
-  :is(h1, h2, h3) { break-after: avoid; }
-  :is(blockquote, table, pre, figure, .callout, li) { break-inside: avoid; }
-}
-.btn { border-radius: calc(var(--radius) * 0.9); font-weight: 600; }
-/* ── the footer ─────────────────────────────────────────────── */
-/* a short page used to leave the graph paper showing under the footer, which
-   made the end of the site look like a gap rather than a finish */
-.tpl-minimal { display: flex; flex-direction: column; min-height: 100dvh; }
-.tpl-minimal > .site-footer { margin-top: auto; }
-/* The footer is a strip, not a room. Stacked and centred it was three small
-   things adrift in a pale field, so everything sits on one line that wraps
-   when it has to, on the same patterned paper as the hero and the pad. */
-.site-footer {
-  position: relative;
-  margin-top: calc(3rem * var(--space-scale));
-  border-top: 1px solid var(--vit-edge);
-  /* a smaller tile than the hero's: on a strip this shallow the full-size
-     motifs are cropped in half and read as wallpaper */
-  background: var(--vit-motifs) repeat 0 center / 104px 104px, var(--vit-paper);
-}
-.site-footer::before {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 22px; pointer-events: none;
-  background: var(--color-accent);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 260px 22px;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 260px 22px;
-  opacity: calc(var(--vit-trace) * 0.52);
-}
-.site-footer-inner {
-  flex-direction: row; flex-wrap: wrap;
-  justify-content: center; align-items: center;
-  gap: 0.55rem 1.5rem;
-  padding-block: 1.85rem 1.7rem;
-}
-.footer-text {
-  font-weight: 600; font-size: 0.92em;
-  color: color-mix(in srgb, var(--color-text) 72%, var(--color-muted));
-}
-.footer-links { gap: 0.5rem 0.6rem; justify-content: center; }
-.footer-social { gap: 0.5rem 0.6rem; justify-content: center; flex-wrap: wrap; }
-/* a footer link and a social link are the same kind of thing to a reader, so
-   they are drawn the same way rather than as grey text beside a pill */
-.footer-links a, .social-link {
-  padding: 0.3em 0.85em; border-radius: 999px; text-decoration: none;
-  font-size: 0.88em; font-weight: 600;
-  border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
-  background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface));
-  color: color-mix(in srgb, var(--color-primary) 72%, var(--color-text));
-  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
-}
-.footer-links a:hover, .social-link:hover {
-  border-color: var(--color-primary);
-  background: color-mix(in srgb, var(--color-primary) 14%, var(--color-surface));
-  color: var(--color-primary);
+  .callout { border: 1px solid #999; background: none; }
 }
 
 /* weather */
