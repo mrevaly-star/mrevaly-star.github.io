@@ -356,12 +356,16 @@ body::before {
 body > * { position: relative; z-index: 1; }
 
 /* ── the header floats, as a glass pill ─────────────────────── */
-.site-header { background: none; border-bottom: 0; top: 0.9rem; }
+/* the gap above the bar has to live on the sticky element itself. With the
+   margin on the inner bar instead, the header starts flush to the top and
+   then drops to its sticky offset on the first scroll — which reads as the
+   navbar sliding about. */
+.site-header { background: none; border-bottom: 0; top: 0.9rem; margin-top: 0.9rem; }
 .site-header::before { content: none; }
 /* .tpl-minimal .site-header-inner in the structure sheet outranks a bare
    class here, which is why the bar sat taller than the mock-up's */
 [class*="tpl-"] .site-header-inner {
-  margin-block: 0.9rem;
+  margin-block: 0;
   padding: 0.7rem 0.8rem 0.7rem 1.15rem;
   gap: 1rem;
   border-radius: 999px;
