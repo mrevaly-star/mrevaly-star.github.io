@@ -277,15 +277,19 @@
       b.r = 1.4 + Math.pow(big, 1.45) * (heavy ? 12 : 10);
       // each bead sits on its own patch of glass — some collect water quickly,
       // many are nearly dry and stay small for good
-      b.grow = Math.random() * Math.random() * (heavy ? 1.5 : 0.95);
+      b.grow = Math.random() * Math.random() * (heavy ? 0.9 : 0.55);
       // a wide spread of thresholds, so some fat beads cling while smaller ones let go
       b.crit = (heavy ? 3.2 : 3.8) + Math.random() * Math.random() * 9;
       // Most patches eventually collect enough to let go; the rest stay damp
       // for good. Without guaranteeing the first group, every bead ends up
       // capped below its own threshold and the whole glass stops moving.
-      b.cap = Math.random() < 0.74
+      b.cap = Math.random() < 0.66
         ? b.crit + 0.4 + Math.random() * 4
         : b.r + Math.random() * Math.random() * 6;
+      // every bead starts clinging: a bead seeded already past its threshold
+      // would bolt immediately, and on the first frame that means the whole
+      // field runs at once
+      if (b.crit <= b.r) b.crit = b.r + 0.3 + Math.random() * 3;
       b.v = 0; b.run = false; b.trail = 0;
       b.o = (0.32 + big * 0.5).toFixed(2);
       b.el.style.setProperty("--o", b.o);
