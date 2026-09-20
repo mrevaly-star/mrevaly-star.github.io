@@ -12,8 +12,8 @@
   "template": "bolt",
   "theme": {
     "primary": "#e3350d",
-    "accent": "#ffcb05",
-    "background": "#ffe259",
+    "accent": "#514edf",
+    "background": "#36a1ce",
     "surface": "#fff8e0",
     "text": "#2e1f08",
     "muted": "#7a6438",
@@ -24,7 +24,7 @@
     "spacing": "roomy",
     "layout": "cards",
     "containerWidth": "normal",
-    "effect": "spark",
+    "effect": "cute",
     "structure": "classic"
   },
   "nav": [
@@ -162,6 +162,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-20T04:46:33.026Z",
-  "lastPublishedCommit": "45e898f8a6a3a805b02b10b0ee61b08b7b9255a7"
+  "updatedAt": "2026-09-20T04:49:02.983Z",
+  "lastPublishedCommit": "0bc70ad73d6f2d15f3976f039f064649bfeb80a1"
 }
