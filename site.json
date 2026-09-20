@@ -96,7 +96,7 @@
       "slug": "test",
       "title": "test",
       "excerpt": "sdf asdf asdf asdf WARNING EXAMPLE Hello Hello",
-      "content": "- [ ] sdf\n- [ ] asdf\n- [ ] asdf\n- [ ] asdf\n\n> [!EXAMPLE]\n>\n\n> [!EXAMPLE]\n> Hello Hello",
+      "content": "- [ ] sdf\n- [ ] asdf\n- [ ] asdf\n- [x] asdf\n\n> [!EXAMPLE]\n>\n\n> [!EXAMPLE]\n> Hello Hello\n\n---\n- [x] `jkhkj`",
       "tags": [],
       "date": "2026-09-20T09:00:00.000Z",
       "draft": false,
@@ -173,6 +173,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-20T07:51:27.223Z",
-  "lastPublishedCommit": "8d5da208b2d2206c7640fbe21727771e99ad6033"
+  "updatedAt": "2026-09-20T07:59:58.659Z",
+  "lastPublishedCommit": "a28efe627b12ca7643bf6c114b10c1588b9e5f8c"
 }
