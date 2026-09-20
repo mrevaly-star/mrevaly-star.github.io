@@ -234,12 +234,55 @@
     var html = document.documentElement;
     html.setAttribute("data-weather", kind);
     html.setAttribute("data-daylight", isDay ? "day" : "night");
-    if (!document.querySelector(".weather-layer")) {
-      var layer = document.createElement("div");
+    var layer = document.querySelector(".weather-layer");
+    if (!layer) {
+      layer = document.createElement("div");
       layer.className = "weather-layer";
       layer.setAttribute("aria-hidden", "true");
       document.body.insertBefore(layer, document.body.firstChild);
     }
+    if (kind === "rain" || kind === "storm") drops(layer, kind === "storm");
+  }
+
+  // Real rain is irregular, so every drop gets its own position, length, speed
+  // and opacity. Still pages (reduced motion) get none of this.
+  function drops(layer, heavy) {
+    if (layer.querySelector(".wx-drop")) return;
+    try {
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    } catch (e) {}
+    var wide = Math.max(320, window.innerWidth || 1024);
+    var count = Math.min(heavy ? 240 : 180, Math.round(wide / (heavy ? 5 : 7)));
+    var tilt = heavy ? 15 : 11;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < count; i++) {
+      var near = Math.random();                       // 0 = far away, 1 = close
+      var dur = (heavy ? 0.42 : 0.62) + (1 - near) * (heavy ? 0.5 : 0.75);
+      var d = document.createElement("i");
+      d.className = "wx-drop";
+      d.style.setProperty("--x", (Math.random() * 108 - 4).toFixed(2) + "vw");
+      d.style.setProperty("--len", (14 + near * (heavy ? 58 : 40)).toFixed(0) + "px");
+      d.style.setProperty("--w", (0.9 + near * 0.9).toFixed(2) + "px");
+      d.style.setProperty("--o", (0.16 + near * (heavy ? 0.46 : 0.34)).toFixed(2));
+      d.style.setProperty("--dur", dur.toFixed(2) + "s");
+      d.style.setProperty("--delay", (-Math.random() * dur).toFixed(2) + "s");
+      // a couple of degrees either way, so the drops aren't all on one rail
+      d.style.setProperty("--tilt", (tilt + (Math.random() * 4 - 2)).toFixed(1) + "deg");
+      d.style.setProperty("--drift", (8 + near * 14).toFixed(0) + "vh");
+      frag.appendChild(d);
+    }
+    // a few splashes where the drops land
+    var splashes = heavy ? 16 : 10;
+    for (var j = 0; j < splashes; j++) {
+      var sp = document.createElement("i");
+      sp.className = "wx-splash";
+      sp.style.left = (Math.random() * 96 + 2).toFixed(2) + "vw";
+      sp.style.setProperty("--w", (9 + Math.random() * 13).toFixed(0) + "px");
+      sp.style.setProperty("--dur", (1.1 + Math.random() * 1.1).toFixed(2) + "s");
+      sp.style.setProperty("--delay", (-Math.random() * 2).toFixed(2) + "s");
+      frag.appendChild(sp);
+    }
+    layer.appendChild(frag);
   }
 
   function cached() {
