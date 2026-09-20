@@ -265,30 +265,33 @@
     var SLIP = 0.5;              // once moving, the contact line holds far less
                                  // back than it did at rest (stick-slip)
     var SHED = 0.0035;           // radius lost per px travelled, leaves the trail
-    var GROW = heavy ? 0.5 : 0.28;   // radius gained per second from condensation
     var list = [];
     var frag = document.createDocumentFragment();
     var count = Math.min(heavy ? 150 : 110, Math.round(Math.max(320, W()) / (heavy ? 8 : 11)));
 
-    for (var i = 0; i < count; i++) {
+    // The spread of sizes is the whole look, and it has to survive: condensation
+    // otherwise walks every bead up to its own critical radius and the whole
+    // population ends up the same size.
+    function seed(b, fresh) {
       var big = Math.random();
-      var r = 1.6 + big * big * (heavy ? 9 : 7);
+      b.r = 1.4 + Math.pow(big, 1.45) * (heavy ? 12 : 10);
+      // each bead sits on its own patch of glass — some collect water quickly,
+      // many are nearly dry and stay small for good
+      b.grow = Math.random() * Math.random() * (heavy ? 0.85 : 0.5);
+      b.cap = b.r + Math.random() * Math.random() * 11;  // as fat as this one can get
+      // a wide spread of thresholds, so some fat beads cling while smaller ones let go
+      b.crit = (heavy ? 3.2 : 3.8) + Math.random() * Math.random() * 9;
+      b.v = 0; b.run = false; b.trail = 0;
+      b.el.style.setProperty("--o", (0.32 + big * 0.5).toFixed(2));
+      if (fresh) { b.x = Math.random() * W(); b.y = -20 - Math.random() * H() * 0.4; }
+    }
+
+    for (var i = 0; i < count; i++) {
       var el = document.createElement("i");
       el.className = "wx-bead";
-      var b = {
-        el: el,
-        x: Math.random() * W(),
-        y: Math.random() * H(),
-        r: r,
-        v: 0,
-        run: false,
-        // contact-angle hysteresis differs bead to bead, so each has its own
-        // critical radius rather than one shared threshold
-        crit: (heavy ? 3.4 : 4.2) + Math.random() * 2.2,
-        trail: 0,
-      };
+      var b = { el: el, x: Math.random() * W(), y: Math.random() * H(), r: 2, v: 0, run: false, crit: 6, grow: 0, cap: 8, trail: 0 };
+      seed(b, false);
       size(b);
-      el.style.setProperty("--o", (0.35 + big * 0.5).toFixed(2));
       place(b);
       list.push(b);
       frag.appendChild(el);
@@ -318,7 +321,7 @@
         var b = list[i];
 
         if (!b.run) {
-          b.r += GROW * dt * (0.4 + Math.random());    // condensation
+          b.r = Math.min(b.r + b.grow * dt, b.cap);    // condensation, up to this bead's own ceiling
           if (b.r > b.crit) { b.run = true; } else { if (Math.random() < 0.02) size(b); continue; }
         }
 
@@ -339,13 +342,13 @@
           if (o === b || o.run) continue;
           if (Math.abs(o.x - b.x) < b.r + o.r && o.y > b.y - step - o.r && o.y < b.y + b.r) {
             b.r = Math.cbrt(b.r * b.r * b.r + o.r * o.r * o.r);
-            o.r = 0.8; o.y = -Math.random() * h * 0.5; o.x = Math.random() * W(); o.trail = 0;
+            seed(o, true);
             size(o); place(o);
           }
         }
 
         if (b.r < b.crit * SLIP * 0.92) { b.run = false; b.v = 0; b.trail *= 0.4; }   // dries out and re-pins
-        if (b.y > h + 40) { b.y = -20 - Math.random() * h * 0.3; b.x = Math.random() * W(); b.r = 1.6 + Math.random() * 2; b.v = 0; b.run = false; b.trail = 0; }
+        if (b.y > h + 40) { seed(b, true); }
 
         size(b);
         place(b);
