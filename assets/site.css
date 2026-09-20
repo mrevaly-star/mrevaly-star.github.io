@@ -432,10 +432,14 @@ body > * { position: relative; z-index: 1; }
     var(--nook-card);
   box-shadow: var(--nook-shadow-lg);
 }
-/* the structure sheet centres every hero with .tpl-minimal .hero, which
-   overrides the section's own alignment — this hands it back */
-[class*="tpl-"] .hero--left { text-align: left; align-items: flex-start; }
-[class*="tpl-"] .hero--left .hero-subtitle { margin-inline: 0; }
+/* The greeting always reads from the left, like a note written by hand, and
+   whatever the section itself says: a centred block leaves the chip, the name
+   and the button on three different axes, and it fights the card beside it.
+   The structure sheet centres every hero with .tpl-minimal .hero, so this has
+   to out-reach that as well as the section's own .hero--center.
+   A hero with a photo keeps its row, where the two halves line up centred. */
+.sec-hero .hero:not(.hero--with-image) { text-align: left; align-items: flex-start; }
+.sec-hero .hero:not(.hero--with-image) .hero-subtitle { margin-inline: 0; }
 /* the little chip over the greeting */
 .sec-hero .hero-content::before {
   content: "🩺 Your cosy blog";

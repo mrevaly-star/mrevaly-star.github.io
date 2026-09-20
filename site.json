@@ -75,6 +75,13 @@
             "count": 6,
             "showExcerpt": true
           }
+        },
+        {
+          "id": "sec_9b0fc205",
+          "type": "text",
+          "props": {
+            "text": ""
+          }
         }
       ]
     },
@@ -180,6 +187,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-20T11:49:29.468Z",
-  "lastPublishedCommit": "dd2ac8926903f867eeb5ea4abbdbca2def425bf6"
+  "updatedAt": "2026-09-20T11:55:39.021Z",
+  "lastPublishedCommit": "22e1b9e58b31c8203584ad1180cb8aaaeff1cf15"
 }
