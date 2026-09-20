@@ -9,14 +9,14 @@
     "name": "mrevaly-star",
     "bio": "Writer of this blog."
   },
-  "template": "bolt",
+  "template": "pocket",
   "theme": {
-    "primary": "#e3350d",
-    "accent": "#514edf",
-    "background": "#36a1ce",
-    "surface": "#fff8e0",
-    "text": "#2e1f08",
-    "muted": "#7a6438",
+    "primary": "#00a0e9",
+    "accent": "#ffc800",
+    "background": "#eaf7ff",
+    "surface": "#f7fcff",
+    "text": "#10395c",
+    "muted": "#6a8aa6",
     "headingFont": "Fredoka",
     "bodyFont": "Nunito",
     "radius": "lg",
@@ -162,6 +162,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-20T04:49:02.983Z",
-  "lastPublishedCommit": "0bc70ad73d6f2d15f3976f039f064649bfeb80a1"
+  "updatedAt": "2026-09-20T04:52:09.624Z",
+  "lastPublishedCommit": "18439dca97a9edaab4d69395af72679f15a4a819"
 }

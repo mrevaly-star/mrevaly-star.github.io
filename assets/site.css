@@ -1,12 +1,12 @@
 :root {
 
-    --color-primary: #e3350d;
-    --color-accent: #514edf;
-    --color-bg: #36a1ce;
-    --color-surface: #fff8e0;
-    --color-text: #2e1f08;
-    --color-muted: #7a6438;
-    --color-border: color-mix(in srgb, #2e1f08 12%, transparent);
+    --color-primary: #00a0e9;
+    --color-accent: #ffc800;
+    --color-bg: #eaf7ff;
+    --color-surface: #f7fcff;
+    --color-text: #10395c;
+    --color-muted: #6a8aa6;
+    --color-border: color-mix(in srgb, #10395c 12%, transparent);
 
     --font-heading: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
