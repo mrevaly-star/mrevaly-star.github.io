@@ -61,26 +61,12 @@
           }
         },
         {
-          "id": "sec_b64e6abc",
-          "type": "text",
-          "props": {
-            "text": ""
-          }
-        },
-        {
           "id": "sec_f657d0b6",
           "type": "posts",
           "props": {
             "title": "Latest posts",
             "count": 6,
             "showExcerpt": true
-          }
-        },
-        {
-          "id": "sec_9b0fc205",
-          "type": "text",
-          "props": {
-            "text": ""
           }
         }
       ]
@@ -187,6 +173,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-20T12:54:16.198Z",
-  "lastPublishedCommit": "ad980281247eb55cb80720d54b3079bcc5dc17ce"
+  "updatedAt": "2026-09-20T13:04:29.602Z",
+  "lastPublishedCommit": "844c0527ecf6560f25626bd2b6655ab75fbdc094"
 }
