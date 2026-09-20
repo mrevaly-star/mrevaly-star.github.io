@@ -83,8 +83,12 @@ main {
 :is(#__next, html) main .gsc-comment-header { padding: 0; }
 :is(#__next, html) main .gsc-comment-author-avatar img { width: 36px; height: 36px; margin-right: 10px; }
 :is(#__next, html) main .gsc-comment-author-avatar span { font-weight: 700; color: #e8e9ee; }
+/* the timestamp is a link to the comment on GitHub; keep the time, drop the trip out */
 :is(#__next, html) main .gsc-comment-author .link-secondary,
-:is(#__next, html) main .gsc-reply-author .link-secondary { font-size: 12px; color: #a0abbb; text-decoration: none; }
+:is(#__next, html) main .gsc-reply-author .link-secondary {
+  font-size: 12px; color: #a0abbb; text-decoration: none;
+  pointer-events: none; cursor: default;
+}
 :is(#__next, html) main .gsc-comment-author-avatar img,
 :is(#__next, html) main .gsc-reply-author-avatar img { border-radius: 50%; }
 :is(#__next, html) main .gsc-comment-content {
