@@ -418,33 +418,49 @@ body::before {
     linear-gradient(180deg, color-mix(in srgb, var(--color-text) 16%, transparent), transparent 55%),
     radial-gradient(60% 14vmax at 50% 100%, color-mix(in srgb, var(--color-text) 10%, transparent), transparent 70%);
 }
-.wx-drop {
-  position: absolute; top: -14vh; left: 0;
-  width: var(--w, 1.4px); height: var(--len, 54px);
-  background: linear-gradient(to bottom, transparent, currentColor 78%, currentColor);
-  border-radius: 0 0 40% 40%;
-  opacity: var(--o, 0.4);
-  transform: translate3d(var(--x, 0), 0, 0) rotate(var(--tilt, 12deg));
-  will-change: transform;
+/* Beads of water on the glass: most just cling and catch the light, a few run
+   down and leave a trail. They draw in currentColor, the water colour set above. */
+.wx-bead {
+  position: absolute;
+  width: var(--d, 10px); height: calc(var(--d, 10px) * 1.12);
+  border-radius: 50% 50% 54% 54% / 46% 46% 58% 58%;
+  background:
+    radial-gradient(58% 42% at 34% 26%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.14) 62%, transparent 72%),
+    linear-gradient(180deg, color-mix(in srgb, currentColor 10%, transparent), color-mix(in srgb, currentColor 26%, transparent));
+  box-shadow:
+    inset 0 -1px 2px color-mix(in srgb, currentColor 30%, transparent),
+    0 1px 2px color-mix(in srgb, currentColor 16%, transparent);
+  opacity: var(--o, 0.75);
 }
-.wx-splash {
-  position: absolute; bottom: 0;
-  width: var(--w, 14px); height: calc(var(--w, 14px) / 2.6);
-  border: 1px solid currentColor; border-top: 0;
-  border-radius: 0 0 999px 999px;
-  opacity: 0; color: inherit;
+/* the lens: only the bigger beads refract, so the page isn't covered in
+   backdrop filters */
+.wx-bead--lens {
+  -webkit-backdrop-filter: blur(1.4px) brightness(1.05);
+  backdrop-filter: blur(1.4px) brightness(1.05);
+}
+/* the wet track a running bead leaves above itself */
+.wx-bead::before {
+  content: ""; position: absolute; left: 50%; bottom: 52%;
+  width: calc(var(--d, 10px) * 0.34); height: 0;
+  transform: translateX(-50%);
+  background: linear-gradient(to top, color-mix(in srgb, currentColor 24%, transparent), transparent);
+  border-radius: 999px;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .wx-drop { animation: wx-drop-fall var(--dur, 0.9s) linear var(--delay, 0s) infinite; }
-  .wx-splash { animation: wx-splash-pop var(--dur, 1.4s) ease-out var(--delay, 0s) infinite; }
+  .wx-bead--run { animation: wx-bead-run var(--dur, 18s) cubic-bezier(0.45, 0, 0.55, 1) var(--delay, 0s) infinite; }
+  .wx-bead--run::before { animation: wx-bead-trail var(--dur, 18s) cubic-bezier(0.45, 0, 0.55, 1) var(--delay, 0s) infinite; }
 }
-@keyframes wx-drop-fall {
-  to { transform: translate3d(calc(var(--x, 0) + var(--drift, 3vh)), 118vh, 0) rotate(var(--tilt, 12deg)); }
+@keyframes wx-bead-run {
+  0%, 46% { transform: translateY(0); }
+  64% { transform: translateY(16vh); }
+  86% { transform: translateY(44vh); opacity: var(--o, 0.75); }
+  100% { transform: translateY(62vh); opacity: 0; }
 }
-@keyframes wx-splash-pop {
-  0%, 72% { opacity: 0; transform: scale(0.35); }
-  78% { opacity: 0.5; transform: scale(0.8); }
-  100% { opacity: 0; transform: scale(1.5); }
+@keyframes wx-bead-trail {
+  0%, 46% { height: 0; opacity: 0.9; }
+  64% { height: 9vh; }
+  86% { height: 13vh; opacity: 0.55; }
+  100% { height: 4vh; opacity: 0; }
 }
 
 /* ── snow: two sizes of flake, drifting ─────────────────────── */
