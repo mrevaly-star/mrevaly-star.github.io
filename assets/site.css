@@ -263,6 +263,8 @@ body::before {
 .post-card:hover { transform: translateY(-6px) rotate(-0.8deg); box-shadow: 0 14px 0 var(--cute-drop); }
 .post-card-cover img, .hero-image img { border-radius: calc(var(--radius) * 1.2); }
 .newsletter { background: linear-gradient(160deg, color-mix(in srgb, var(--color-accent) 18%, var(--color-surface)), var(--color-surface) 70%); }
+/* .about has no padding of its own — without this the text sits on the border */
+.about { padding: clamp(1.25rem, 4vw, 2.5rem); }
 .sec-title { display: flex; align-items: center; gap: 0.5rem; }
 .sec-title::before {
   content: ""; flex: none; width: 0.62em; height: 0.62em; border-radius: 999px;
