@@ -11,14 +11,14 @@
   },
   "template": "bolt",
   "theme": {
-    "primary": "#e3350d",
-    "accent": "#ffcb05",
-    "background": "#fffdf2",
-    "surface": "#ffffff",
-    "text": "#2b2118",
-    "muted": "#7d6c58",
+    "primary": "#9b56ae",
+    "accent": "#2a66c6",
+    "background": "#4f9aba",
+    "surface": "#fffdf4",
+    "text": "#2e1f08",
+    "muted": "#7a6438",
     "headingFont": "Fredoka",
-    "bodyFont": "Poppins",
+    "bodyFont": "Nunito",
     "radius": "lg",
     "mode": "light",
     "spacing": "roomy",
@@ -156,6 +156,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-20T04:09:01.474Z",
-  "lastPublishedCommit": "a4bfa80ca7fa199ade392920f34f504c295028bc"
+  "updatedAt": "2026-09-20T04:22:29.027Z",
+  "lastPublishedCommit": "c0e563140aaf4b551a34785145e36fbd7d0667d8"
 }
