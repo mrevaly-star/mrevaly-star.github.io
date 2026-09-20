@@ -1,40 +1,18 @@
 :root {
 
-    --color-primary: #1d3fd1;
-    --color-accent: #facc15;
-    --color-bg: #ffffff;
-    --color-surface: #f3f4f8;
-    --color-text: #0b0d17;
-    --color-muted: #5b6072;
-    --color-border: color-mix(in srgb, #0b0d17 12%, transparent);
+    --color-primary: #00a0e9;
+    --color-accent: #ffc800;
+    --color-bg: #eaf7ff;
+    --color-surface: #ffffff;
+    --color-text: #10395c;
+    --color-muted: #6a8aa6;
+    --color-border: color-mix(in srgb, #10395c 12%, transparent);
 
-    --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --radius: 6px;
+    --font-heading: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius: 16px;
     --space-scale: 1.25;
     --container: 62rem;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-
-    --color-primary: #1d3fd1;
-    --color-accent: #facc15;
-    --color-bg: #171717;
-    --color-surface: #242424;
-    --color-text: #e8e9ee;
-    --color-muted: #a0abbb;
-    --color-border: color-mix(in srgb, #e8e9ee 12%, transparent);
-  }
-}
-:root[data-theme="dark"] {
-
-    --color-primary: #1d3fd1;
-    --color-accent: #facc15;
-    --color-bg: #171717;
-    --color-surface: #242424;
-    --color-text: #e8e9ee;
-    --color-muted: #a0abbb;
-    --color-border: color-mix(in srgb, #e8e9ee 12%, transparent);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -227,34 +205,98 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 .tpl-minimal .hero-title { letter-spacing: -0.02em; }
 .tpl-minimal .btn { border-radius: var(--radius); }
 
-/* structure: poster */
-.tpl-poster { overflow-x: clip; }
-.tpl-poster .site-header { background: var(--color-primary); border-bottom: 0; color: #fff; }
-.tpl-poster .site-header::before { display: none; }
-.tpl-poster .site-brand { color: #fff; text-transform: uppercase; letter-spacing: 0.05em; }
-.tpl-poster .site-nav a { color: #fff; }
-.tpl-poster .site-nav a[aria-current="page"] { color: var(--color-accent); }
-.tpl-poster .nav-toggle span { background: #fff; }
-.tpl-poster .dark-toggle { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.4); }
-.tpl-poster .nav-search input { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.35); color: #fff; }
-.tpl-poster .nav-search input::placeholder { color: rgba(255, 255, 255, 0.75); }
-.tpl-poster .search-results { color: var(--color-text); }
-@media (max-width: 760px) { .tpl-poster .site-nav { background: var(--color-primary); border-bottom: 0; } }
-/* the hero bleeds to the screen edges and joins the header into one colour band */
-.tpl-poster .container.page > .sec-hero { margin-inline: calc(50% - 50vw); padding-block: 0; background: var(--color-primary); color: #fff; }
-.tpl-poster .sec-hero .hero { max-width: var(--container); margin-inline: auto; padding: calc(4rem * var(--space-scale)) clamp(1rem, 4vw, 2.5rem) calc(5rem * var(--space-scale)); }
-.tpl-poster .hero-title { font-size: clamp(2.8rem, 1.6rem + 5.5vw, 6.2rem); line-height: 0.95; letter-spacing: -0.03em; }
-.tpl-poster .hero-subtitle { color: rgba(255, 255, 255, 0.85); }
-.tpl-poster .sec-hero .btn-primary { background: var(--color-accent); color: #111; }
-.tpl-poster .sec-title { font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem); letter-spacing: -0.02em; }
-.post-list--index { counter-reset: post; grid-template-columns: minmax(0, 1fr); gap: 0; border-top: 2px solid var(--color-text); }
-.post-card--index { counter-increment: post; flex-direction: row; align-items: flex-start; gap: 1.25rem; padding-block: 1.4rem; border-bottom: 1px solid var(--color-border); }
-.post-card--index::before { content: counter(post, decimal-leading-zero); min-width: 2.2ch; font-family: var(--font-heading); font-weight: 700; font-size: clamp(2rem, 1.5rem + 2vw, 3.2rem); line-height: 1; color: var(--color-primary); }
-.post-card--index .post-card-body { flex: 1 1 auto; min-width: 0; }
-.post-card--index .post-card-cover { order: 2; width: 8rem; flex-shrink: 0; }
-.post-card--index .post-card-title { font-size: clamp(1.3rem, 1.1rem + 1vw, 1.8rem); }
-@media (max-width: 600px) { .post-card--index { gap: 0.9rem; } .post-card--index .post-card-cover { width: 4.5rem; } .post-card--index .post-card-cover img { aspect-ratio: 1; } }
-.tpl-poster .post-title { font-size: clamp(2.2rem, 1.5rem + 3vw, 4rem); line-height: 1; letter-spacing: -0.03em; }
-.tpl-poster .site-footer { background: var(--color-text); border-top: 0; }
-.tpl-poster .site-footer-inner, .tpl-poster .social-link { color: color-mix(in srgb, var(--color-bg) 75%, transparent); }
-.tpl-poster .site-footer a:hover { color: var(--color-bg); }
+/* cute */
+:root {
+  --cute-cloud: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  --cute-line: color-mix(in srgb, var(--color-primary) 38%, var(--color-bg));
+  --cute-drop: color-mix(in srgb, var(--color-primary) 26%, transparent);
+  --cute-press: color-mix(in srgb, var(--color-primary) 55%, var(--color-text));
+}
+
+body {
+  background:
+    radial-gradient(30vmax 18vmax at 50% 104%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 68%),
+    linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 16%, var(--color-bg)), var(--color-bg) 46%);
+  background-attachment: fixed;
+}
+/* clouds: overlapping puffs on their own fixed layer, drifting very slowly */
+body::before {
+  content: ""; position: fixed; z-index: -1; pointer-events: none;
+  inset: 0 -12vmax auto -12vmax; height: 46vmax;
+  background:
+    radial-gradient(9vmax 6vmax at 8% 8%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(12vmax 8vmax at 15% 6%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(8vmax 5vmax at 23% 9%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(10vmax 6vmax at 70% 5%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(13vmax 8vmax at 78% 8%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(8vmax 5vmax at 86% 5%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(11vmax 7vmax at 45% 16%, var(--cute-cloud) 0 52%, transparent 76%);
+  animation: cute-drift 80s ease-in-out infinite alternate;
+}
+@keyframes cute-drift { from { transform: translateX(-2.5vmax); } to { transform: translateX(2.5vmax); } }
+@media (prefers-reduced-motion: reduce) { body::before { animation: none; } }
+.hero-title { text-shadow: 0 4px 0 color-mix(in srgb, var(--color-primary) 16%, transparent); }
+.post-card, .newsletter, .about, .post.container, .archive.container {
+  background: var(--color-surface);
+  border: 2px solid var(--cute-line);
+  border-radius: calc(var(--radius) * 1.6);
+  box-shadow: 0 6px 0 var(--cute-drop);
+}
+.post.container, .archive.container {
+  width: min(100% - 1.5rem, var(--container));
+  margin-block: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+}
+/* a little colour variety across the grid, mixed from the theme's own two colours */
+.post-card--cards:nth-child(3n + 1) { background: linear-gradient(170deg, color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)), var(--color-surface) 62%); }
+.post-card--cards:nth-child(3n + 2) { background: linear-gradient(170deg, color-mix(in srgb, var(--color-accent) 14%, var(--color-surface)), var(--color-surface) 62%); }
+.post-card--cards:nth-child(3n) { background: linear-gradient(170deg, color-mix(in srgb, var(--color-primary) 6%, var(--color-surface)), color-mix(in srgb, var(--color-accent) 8%, var(--color-surface)) 90%); }
+.post-card { transition: transform 0.22s cubic-bezier(.2,.9,.3,1.2), box-shadow 0.22s ease; overflow: hidden; }
+.post-card:hover { transform: translateY(-6px) rotate(-0.8deg); box-shadow: 0 14px 0 var(--cute-drop); }
+.post-card-cover img, .hero-image img { border-radius: calc(var(--radius) * 1.2); }
+.newsletter { background: linear-gradient(160deg, color-mix(in srgb, var(--color-accent) 18%, var(--color-surface)), var(--color-surface) 70%); }
+.sec-title { display: flex; align-items: center; gap: 0.5rem; }
+.sec-title::before {
+  content: ""; flex: none; width: 0.62em; height: 0.62em; border-radius: 999px;
+  background: var(--color-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 28%, transparent);
+}
+/* the hero gets a warm glow behind the title and a scatter of sparkles */
+.sec-hero { position: relative; isolation: isolate; }
+.sec-hero::before {
+  content: ""; position: absolute; z-index: -1; left: 50%; top: 4%; width: min(52rem, 94vw); aspect-ratio: 5 / 3;
+  transform: translateX(-50%);
+  /* a soft white halo, like the title is resting on a cloud */
+  background: radial-gradient(closest-side, var(--color-surface) 0 34%, color-mix(in srgb, var(--color-surface) 55%, transparent) 58%, transparent 78%);
+  opacity: 0.75;
+}
+.sec-hero::after {
+  content: ""; position: absolute; z-index: -1; inset: 6% 6% 16%;
+  /* three bubbles rather than a scatter of specks */
+  background:
+    radial-gradient(0.55rem 0.55rem at 9% 26%, color-mix(in srgb, var(--color-accent) 85%, var(--color-surface)) 0 58%, transparent 60%),
+    radial-gradient(0.34rem 0.34rem at 17% 62%, color-mix(in srgb, var(--color-primary) 55%, var(--color-surface)) 0 58%, transparent 60%),
+    radial-gradient(0.48rem 0.48rem at 90% 36%, color-mix(in srgb, var(--color-accent) 75%, var(--color-surface)) 0 58%, transparent 60%);
+}
+.hero-title { text-shadow: 0 4px 0 color-mix(in srgb, var(--color-primary) 16%, transparent); }
+.btn { border-radius: 999px; font-weight: 700; }
+.btn-primary { box-shadow: 0 5px 0 var(--cute-press); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--cute-press); }
+.btn-primary:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--cute-press); }
+.tag, .tag-pill {
+  border: 2px solid var(--cute-line); font-weight: 600;
+  background: color-mix(in srgb, var(--color-accent) 16%, var(--color-bg)); color: var(--color-text);
+}
+/* a row of cloud bumps hanging off the header, and again above the footer */
+.site-header { border-bottom: 3px solid var(--cute-line); }
+.site-header::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 13px; pointer-events: none;
+  background: radial-gradient(circle at 11px -2px, var(--color-surface) 11px, transparent 12px) repeat-x;
+  background-size: 22px 13px;
+}
+.dark-toggle, .nav-search input, .share-btn, .copy-btn { border: 2px solid var(--cute-line); border-radius: 999px; }
+.site-footer { border-top: 3px solid var(--cute-line); position: relative; }
+.site-footer::before {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 13px; pointer-events: none;
+  background: radial-gradient(circle at 11px 15px, var(--color-surface) 11px, transparent 12px) repeat-x;
+  background-size: 22px 13px;
+}
