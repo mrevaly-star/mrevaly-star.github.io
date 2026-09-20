@@ -244,33 +244,120 @@
     if (kind === "rain" || kind === "storm") beads(layer, kind === "storm");
   }
 
-  // Rain seen through a window: beads cling to the glass, and every so often
-  // one gets heavy enough to run down and leave a trail. Sizes, positions,
-  // timings and which beads run are all random, because a regular pattern
-  // reads as wallpaper. Still pages (reduced motion) get beads but no running.
+  // Rain on a window, simulated rather than scripted.
+  //
+  // A bead is held by surface tension along its contact line, which grows with
+  // radius, while gravity grows with volume. So there is a critical radius
+  // above which it lets go — small beads cling forever, fat ones run. A runner
+  // sheds water as it goes (that is the trail), shrinks, and re-pins when it
+  // drops back under the threshold. If it passes over a clinging bead it
+  // absorbs it, jumps in size and speeds up. Condensation slowly fattens the
+  // clinging beads, so the glass keeps producing new runners.
   function beads(layer, heavy) {
     if (layer.querySelector(".wx-bead")) return;
-    var wide = Math.max(320, window.innerWidth || 1024);
-    var count = Math.min(heavy ? 150 : 110, Math.round(wide / (heavy ? 8 : 11)));
+    var still = false;
+    try { still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+
+    var H = function () { return window.innerHeight || 800; };
+    var W = function () { return window.innerWidth || 1024; };
+    var GRAVITY = 1400;          // px/s², tuned so a run reads at screen scale
+    var DRAG = 3.2;              // viscous resistance, per second
+    var SLIP = 0.5;              // once moving, the contact line holds far less
+                                 // back than it did at rest (stick-slip)
+    var SHED = 0.0035;           // radius lost per px travelled, leaves the trail
+    var GROW = heavy ? 0.5 : 0.28;   // radius gained per second from condensation
+    var list = [];
     var frag = document.createDocumentFragment();
+    var count = Math.min(heavy ? 150 : 110, Math.round(Math.max(320, W()) / (heavy ? 8 : 11)));
+
     for (var i = 0; i < count; i++) {
       var big = Math.random();
-      var size = 3 + big * big * (heavy ? 17 : 13);   // mostly small, a few fat ones
-      var runs = Math.random() < (heavy ? 0.32 : 0.2) && size > 6;
-      var b = document.createElement("i");
-      b.className = "wx-bead" + (size > 9 ? " wx-bead--lens" : "") + (runs ? " wx-bead--run" : "");
-      b.style.left = (Math.random() * 98).toFixed(2) + "vw";
-      b.style.top = (Math.random() * 96).toFixed(2) + "vh";
-      b.style.setProperty("--d", size.toFixed(1) + "px");
-      b.style.setProperty("--o", (0.35 + big * 0.5).toFixed(2));
-      if (runs) {
-        var dur = (heavy ? 9 : 16) + Math.random() * (heavy ? 10 : 16);
-        b.style.setProperty("--dur", dur.toFixed(1) + "s");
-        b.style.setProperty("--delay", (-Math.random() * dur).toFixed(1) + "s");
-      }
-      frag.appendChild(b);
+      var r = 1.6 + big * big * (heavy ? 9 : 7);
+      var el = document.createElement("i");
+      el.className = "wx-bead";
+      var b = {
+        el: el,
+        x: Math.random() * W(),
+        y: Math.random() * H(),
+        r: r,
+        v: 0,
+        run: false,
+        // contact-angle hysteresis differs bead to bead, so each has its own
+        // critical radius rather than one shared threshold
+        crit: (heavy ? 3.4 : 4.2) + Math.random() * 2.2,
+        trail: 0,
+      };
+      size(b);
+      el.style.setProperty("--o", (0.35 + big * 0.5).toFixed(2));
+      place(b);
+      list.push(b);
+      frag.appendChild(el);
     }
     layer.appendChild(frag);
+    if (still) return;           // beads cling, nothing runs
+
+    function size(b) {
+      b.el.style.setProperty("--d", b.r.toFixed(2) + "px");
+      if (b.r > 4.5) b.el.classList.add("wx-bead--lens"); else b.el.classList.remove("wx-bead--lens");
+    }
+    function place(b) {
+      b.el.style.transform = "translate3d(" + b.x.toFixed(1) + "px," + b.y.toFixed(1) + "px,0)";
+      b.el.style.setProperty("--trail", b.trail.toFixed(1) + "px");
+    }
+
+    var last = 0;
+    var frame = 0;
+    function tick(now) {
+      frame = requestAnimationFrame(tick);
+      if (!last) { last = now; return; }
+      var dt = Math.min(0.05, (now - last) / 1000);   // cap, so a backgrounded tab doesn't jump
+      last = now;
+      var h = H();
+
+      for (var i = 0; i < list.length; i++) {
+        var b = list[i];
+
+        if (!b.run) {
+          b.r += GROW * dt * (0.4 + Math.random());    // condensation
+          if (b.r > b.crit) { b.run = true; } else { if (Math.random() < 0.02) size(b); continue; }
+        }
+
+        // gravity, less what surface tension still holds back, less drag.
+        // The moving threshold is lower than the one that pinned it, which is
+        // why a bead sits still for ages and then goes all at once.
+        var hold = b.crit * SLIP;
+        var accel = GRAVITY * (1 - hold / b.r) - DRAG * b.v;
+        b.v = Math.max(0, b.v + accel * dt);
+        var step = b.v * dt;
+        b.y += step;
+        b.trail = Math.min(b.trail + step, h * 0.55);
+        b.r -= SHED * step;                            // water left on the glass
+
+        // swallow anything it runs over
+        for (var j = 0; j < list.length; j++) {
+          var o = list[j];
+          if (o === b || o.run) continue;
+          if (Math.abs(o.x - b.x) < b.r + o.r && o.y > b.y - step - o.r && o.y < b.y + b.r) {
+            b.r = Math.cbrt(b.r * b.r * b.r + o.r * o.r * o.r);
+            o.r = 0.8; o.y = -Math.random() * h * 0.5; o.x = Math.random() * W(); o.trail = 0;
+            size(o); place(o);
+          }
+        }
+
+        if (b.r < b.crit * SLIP * 0.92) { b.run = false; b.v = 0; b.trail *= 0.4; }   // dries out and re-pins
+        if (b.y > h + 40) { b.y = -20 - Math.random() * h * 0.3; b.x = Math.random() * W(); b.r = 1.6 + Math.random() * 2; b.v = 0; b.run = false; b.trail = 0; }
+
+        size(b);
+        place(b);
+      }
+    }
+    frame = requestAnimationFrame(tick);
+
+    // don't simulate a page nobody is looking at
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) { cancelAnimationFrame(frame); frame = 0; }
+      else if (!frame) { last = 0; frame = requestAnimationFrame(tick); }
+    });
   }
 
   function cached() {
