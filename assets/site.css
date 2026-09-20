@@ -218,26 +218,43 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 /* the page's own content keeps its place above the layer */
 .site-header, .site-main, main, .site-footer { position: relative; z-index: 1; }
 
-/* ── rain: short streaks falling on two planes ──────────────── */
+/* ── rain ───────────────────────────────────────────────────
+   Streaks are thin columns cut by a sliding mask (a vertical gradient tiled
+   sideways would paint every column and give solid bands). The mask fades in
+   and out along each dash so drops taper instead of being hard dashes, and the
+   two planes differ in length, spacing, speed and blur to give depth.
+   The colour is mostly the text colour with a little of the theme's primary —
+   rain mixed from primary alone comes out red on a red-accented theme. */
 [data-weather="rain"] .weather-layer, [data-weather="storm"] .weather-layer {
-  background: linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 7%, transparent), transparent 55%);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--color-text) 8%, transparent), transparent 45%),
+    radial-gradient(60% 14vmax at 50% 100%, color-mix(in srgb, var(--color-text) 7%, transparent), transparent 70%);
 }
-/* thin columns, cut into streaks by a mask that slides down — a vertical
-   gradient tiled sideways would paint every column and give solid bands */
 [data-weather="rain"] .weather-layer::before, [data-weather="storm"] .weather-layer::before {
-  background-image: repeating-linear-gradient(to right, color-mix(in srgb, var(--color-primary) 60%, transparent) 0 1.5px, transparent 1.5px 26px);
-  -webkit-mask-image: repeating-linear-gradient(to bottom, #000 0 15px, transparent 15px 46px);
-  mask-image: repeating-linear-gradient(to bottom, #000 0 15px, transparent 15px 46px);
-  transform: rotate(13deg); opacity: 0.5;
+  background-image: repeating-linear-gradient(to right,
+    color-mix(in srgb, var(--color-text) 62%, var(--color-primary)) 0 1.4px, transparent 1.4px 21px);
+  -webkit-mask-image: repeating-linear-gradient(to bottom,
+    transparent 0 24px, rgba(0, 0, 0, 0.18) 27px, rgba(0, 0, 0, 0.9) 38px, rgba(0, 0, 0, 0.35) 43px, transparent 45px);
+  mask-image: repeating-linear-gradient(to bottom,
+    transparent 0 24px, rgba(0, 0, 0, 0.18) 27px, rgba(0, 0, 0, 0.9) 38px, rgba(0, 0, 0, 0.35) 43px, transparent 45px);
+  transform: rotate(12deg); opacity: 0.42;
 }
 [data-weather="rain"] .weather-layer::after, [data-weather="storm"] .weather-layer::after {
-  background-image: repeating-linear-gradient(to right, color-mix(in srgb, var(--color-primary) 38%, transparent) 0 1px, transparent 1px 41px);
-  -webkit-mask-image: repeating-linear-gradient(to bottom, #000 0 11px, transparent 11px 74px);
-  mask-image: repeating-linear-gradient(to bottom, #000 0 11px, transparent 11px 74px);
-  transform: rotate(11deg); opacity: 0.34;
+  background-image: repeating-linear-gradient(to right,
+    color-mix(in srgb, var(--color-text) 55%, var(--color-primary)) 0 1px, transparent 1px 34px);
+  -webkit-mask-image: repeating-linear-gradient(to bottom,
+    transparent 0 46px, rgba(0, 0, 0, 0.12) 50px, rgba(0, 0, 0, 0.55) 62px, transparent 68px);
+  mask-image: repeating-linear-gradient(to bottom,
+    transparent 0 46px, rgba(0, 0, 0, 0.12) 50px, rgba(0, 0, 0, 0.55) 62px, transparent 68px);
+  transform: rotate(10deg); filter: blur(0.7px); opacity: 0.26;
 }
-[data-weather="storm"] .weather-layer::before { opacity: 0.66; }
-[data-weather="storm"] .weather-layer { background: linear-gradient(180deg, color-mix(in srgb, var(--color-text) 12%, transparent), transparent 60%); }
+[data-weather="storm"] .weather-layer::before { opacity: 0.6; }
+[data-weather="storm"] .weather-layer::after { opacity: 0.4; }
+[data-weather="storm"] .weather-layer {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--color-text) 16%, transparent), transparent 55%),
+    radial-gradient(60% 14vmax at 50% 100%, color-mix(in srgb, var(--color-text) 10%, transparent), transparent 70%);
+}
 
 /* ── snow: two sizes of flake, drifting ─────────────────────── */
 [data-weather="snow"] .weather-layer::before {
@@ -296,8 +313,8 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  [data-weather="rain"] .weather-layer::before, [data-weather="storm"] .weather-layer::before { animation: wx-fall-near 0.5s linear infinite; }
-  [data-weather="rain"] .weather-layer::after, [data-weather="storm"] .weather-layer::after { animation: wx-fall-far 0.85s linear infinite; }
+  [data-weather="rain"] .weather-layer::before, [data-weather="storm"] .weather-layer::before { animation: wx-fall-near 0.42s linear infinite; }
+  [data-weather="rain"] .weather-layer::after, [data-weather="storm"] .weather-layer::after { animation: wx-fall-far 0.95s linear infinite; }
   [data-weather="snow"] .weather-layer::before { animation: wx-snow-near 11s linear infinite; }
   [data-weather="snow"] .weather-layer::after { animation: wx-snow-far 19s linear infinite; }
   [data-weather="cloud"] .weather-layer::before, [data-weather="fog"] .weather-layer::before { animation: wx-drift-near 90s linear infinite; }
@@ -306,8 +323,8 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
   [data-weather="clear"][data-daylight="night"] .weather-layer::before { animation: wx-twinkle 7s ease-in-out infinite; }
   [data-weather="storm"] .weather-layer { animation: wx-flash 13s steps(1, end) infinite; }
 }
-@keyframes wx-fall-near { to { -webkit-mask-position: 0 46px; mask-position: 0 46px; } }
-@keyframes wx-fall-far { to { -webkit-mask-position: 0 74px; mask-position: 0 74px; } }
+@keyframes wx-fall-near { to { -webkit-mask-position: -4px 45px; mask-position: -4px 45px; } }
+@keyframes wx-fall-far { to { -webkit-mask-position: -2px 68px; mask-position: -2px 68px; } }
 @keyframes wx-snow-near { to { background-position: 26px 660px, -18px 540px; } }
 @keyframes wx-snow-far { to { background-position: -30px 760px; } }
 @keyframes wx-drift-near { to { transform: translateX(14vw); } }
