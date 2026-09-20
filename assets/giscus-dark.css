@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap");
 
 main {
   color-scheme: dark;
   color: #e8e9ee;
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --color-btn-text: #e8e9ee;
   --color-btn-bg: color-mix(in srgb, #e8e9ee 10%, #242424);
   --color-btn-border: transparent;
@@ -15,16 +15,16 @@ main {
   --color-btn-active-border: transparent;
   --color-btn-selected-bg: color-mix(in srgb, #e8e9ee 16%, #242424);
   --color-btn-primary-text: #ffffff;
-  --color-btn-primary-bg: #ff6b81;
+  --color-btn-primary-bg: #0f766e;
   --color-btn-primary-border: transparent;
   --color-btn-primary-shadow: none;
   --color-btn-primary-inset-shadow: none;
-  --color-btn-primary-hover-bg: color-mix(in srgb, #ff6b81 85%, #ffffff);
+  --color-btn-primary-hover-bg: color-mix(in srgb, #0f766e 85%, #ffffff);
   --color-btn-primary-hover-border: transparent;
-  --color-btn-primary-selected-bg: #ff6b81;
+  --color-btn-primary-selected-bg: #0f766e;
   --color-btn-primary-selected-shadow: none;
   --color-btn-primary-disabled-text: color-mix(in srgb, #ffffff 70%, transparent);
-  --color-btn-primary-disabled-bg: color-mix(in srgb, #ff6b81 45%, #242424);
+  --color-btn-primary-disabled-bg: color-mix(in srgb, #0f766e 45%, #242424);
   --color-btn-primary-disabled-border: transparent;
   --color-action-list-item-default-hover-bg: color-mix(in srgb, #e8e9ee 16%, #242424);
   --color-segmented-control-bg: color-mix(in srgb, #e8e9ee 10%, #242424);
@@ -40,10 +40,10 @@ main {
   --color-border-default: color-mix(in srgb, #e8e9ee 14%, #242424);
   --color-border-muted: color-mix(in srgb, #e8e9ee 14%, #242424);
   --color-neutral-muted: color-mix(in srgb, #e8e9ee 10%, #242424);
-  --color-accent-fg: #ff6b81;
-  --color-accent-emphasis: #ff6b81;
-  --color-accent-muted: color-mix(in srgb, #ff6b81 40%, transparent);
-  --color-accent-subtle: color-mix(in srgb, #ff6b81 16%, #242424);
+  --color-accent-fg: #0f766e;
+  --color-accent-emphasis: #0f766e;
+  --color-accent-muted: color-mix(in srgb, #0f766e 40%, transparent);
+  --color-accent-subtle: color-mix(in srgb, #0f766e 16%, #242424);
   --color-success-fg: #3fb950;
   --color-attention-fg: #d29922;
   --color-attention-muted: rgb(212 167 44 / 40%);
@@ -53,9 +53,9 @@ main {
   --color-danger-subtle: rgb(248 81 73 / 15%);
   --color-primer-shadow-inset: none;
   --color-scale-gray-1: color-mix(in srgb, #e8e9ee 16%, #242424);
-  --color-scale-blue-1: color-mix(in srgb, #ff6b81 16%, #242424);
+  --color-scale-blue-1: color-mix(in srgb, #0f766e 16%, #242424);
   --color-social-reaction-bg-hover: color-mix(in srgb, #e8e9ee 16%, #242424);
-  --color-social-reaction-bg-reacted-hover: color-mix(in srgb, #ff6b81 16%, #242424);
+  --color-social-reaction-bg-reacted-hover: color-mix(in srgb, #0f766e 16%, #242424);
 }
 :is(#__next, html) main .gsc-loading-image { background-image: url("https://github.githubassets.com/images/mona-loading-default.gif"); }
 
@@ -68,7 +68,7 @@ main {
 }
 :is(#__next, html) main .gsc-social-reaction-summary-item.has-reacted,
 :is(#__next, html) main .gsc-direct-reaction-button.has-reacted {
-  background: color-mix(in srgb, #ff6b81 16%, #242424); color: color-mix(in srgb, #ff6b81 60%, #ffffff); border: 1px solid transparent;
+  background: color-mix(in srgb, #0f766e 16%, #242424); color: color-mix(in srgb, #0f766e 60%, #ffffff); border: 1px solid transparent;
 }
 :is(#__next, html) main .gsc-reactions-button { border-radius: 999px; }
 
@@ -136,6 +136,6 @@ main {
   min-height: 46px; padding: 12px 18px; border: 1px solid transparent; border-radius: 22px;
   background: color-mix(in srgb, #e8e9ee 10%, #242424); color: #e8e9ee; font-size: 15px; resize: none;
 }
-:is(#__next, html) main .gsc-comment-box-textarea:focus { border-color: #ff6b81; background: #242424; }
+:is(#__next, html) main .gsc-comment-box-textarea:focus { border-color: #0f766e; background: #242424; }
 :is(#__next, html) main .gsc-comment-box-bottom { margin: 8px 0 0; }
 :is(#__next, html) main .btn { border-radius: 999px; font-weight: 600; }

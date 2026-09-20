@@ -9,22 +9,22 @@
     "name": "mrevaly-star",
     "bio": "Writer of this blog."
   },
-  "template": "nook",
+  "template": "vitals",
   "theme": {
-    "primary": "#ff6b81",
-    "accent": "#a855f7",
-    "background": "#fff5f7",
-    "surface": "#fffdfa",
-    "text": "#3b2b33",
-    "muted": "#7a6672",
-    "headingFont": "Fredoka",
-    "bodyFont": "Plus Jakarta Sans",
-    "radius": "lg",
+    "primary": "#0f766e",
+    "accent": "#e11d48",
+    "background": "#eef6f4",
+    "surface": "#fbfdfa",
+    "text": "#12302e",
+    "muted": "#5d7f7b",
+    "headingFont": "Manrope",
+    "bodyFont": "Source Sans 3",
+    "radius": "md",
     "mode": "auto",
-    "spacing": "roomy",
-    "layout": "grid",
-    "containerWidth": "wide",
-    "effect": "nook",
+    "spacing": "normal",
+    "layout": "cards",
+    "containerWidth": "normal",
+    "effect": "vitals",
     "structure": "classic"
   },
   "nav": [
@@ -173,6 +173,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-20T13:04:29.602Z",
-  "lastPublishedCommit": "844c0527ecf6560f25626bd2b6655ab75fbdc094"
+  "updatedAt": "2026-09-20T13:39:20.508Z",
+  "lastPublishedCommit": "59ec606b78ad3f8a508ec4159950a47793bb54c4"
 }
