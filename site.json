@@ -9,21 +9,21 @@
     "name": "mrevaly-star",
     "bio": "Writer of this blog."
   },
-  "template": "vitals",
+  "template": "nook",
   "theme": {
-    "primary": "#0f766e",
-    "accent": "#e11d48",
-    "background": "#eef6f4",
-    "surface": "#fbfdfa",
-    "text": "#12302e",
-    "muted": "#5d7f7b",
-    "headingFont": "Manrope",
-    "bodyFont": "Source Sans 3",
-    "radius": "md",
+    "primary": "#ff6b81",
+    "accent": "#a855f7",
+    "background": "#fff5f7",
+    "surface": "#fffdfa",
+    "text": "#3b2b33",
+    "muted": "#7a6672",
+    "headingFont": "Fredoka",
+    "bodyFont": "Plus Jakarta Sans",
+    "radius": "lg",
     "mode": "auto",
-    "spacing": "normal",
-    "layout": "cards",
-    "containerWidth": "normal",
+    "spacing": "roomy",
+    "layout": "grid",
+    "containerWidth": "wide",
     "effect": "vitals",
     "structure": "classic"
   },
@@ -58,6 +58,13 @@
             "ctaLabel": "Read the blog",
             "ctaHref": "/posts/",
             "align": "center"
+          }
+        },
+        {
+          "id": "sec_d73bb5c2",
+          "type": "text",
+          "props": {
+            "text": "## Daily Pulse 💓 {{today}}\n\n- ☕ **Today:** the block I am on, and how it is going\n- 📌 **Revising:** the topic that keeps coming back\n- 🌙 **Tonight:** a few flashcards, then lights out\n\n> One chapter at a time. 🌷"
           }
         },
         {
@@ -173,6 +180,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-20T13:39:20.508Z",
-  "lastPublishedCommit": "59ec606b78ad3f8a508ec4159950a47793bb54c4"
+  "updatedAt": "2026-09-20T16:29:56.847Z",
+  "lastPublishedCommit": "32a5cc6ceaf7e9d4bbdcb36391c31353efaf84d7"
 }
