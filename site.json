@@ -24,7 +24,7 @@
     "spacing": "roomy",
     "layout": "cards",
     "containerWidth": "normal",
-    "effect": "cute",
+    "effect": "glass",
     "structure": "classic"
   },
   "nav": [
@@ -156,6 +156,6 @@
   },
   "images": {},
   "createdAt": "2026-09-11T07:59:24.640Z",
-  "updatedAt": "2026-09-20T03:28:37.105Z",
-  "lastPublishedCommit": "4bd34921a5cd837e5994d463575096bd0d03c836"
+  "updatedAt": "2026-09-20T03:59:28.330Z",
+  "lastPublishedCommit": "3f361e8e9f9bfd5f80c2a6edfcf778b58df56fbc"
 }
