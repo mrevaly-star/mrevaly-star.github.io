@@ -1,40 +1,18 @@
 :root {
 
-    --color-primary: #ff6b81;
-    --color-accent: #a855f7;
-    --color-bg: #fff5f7;
-    --color-surface: #fffdfa;
-    --color-text: #3b2b33;
-    --color-muted: #7a6672;
-    --color-border: color-mix(in srgb, #3b2b33 12%, transparent);
+    --color-primary: #00a0e9;
+    --color-accent: #ffc800;
+    --color-bg: #eaf7ff;
+    --color-surface: #f7fcff;
+    --color-text: #10395c;
+    --color-muted: #6a8aa6;
+    --color-border: color-mix(in srgb, #10395c 12%, transparent);
 
     --font-heading: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --radius: 16px;
     --space-scale: 1.25;
-    --container: 75rem;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-
-    --color-primary: #ff6b81;
-    --color-accent: #a855f7;
-    --color-bg: #171717;
-    --color-surface: #242424;
-    --color-text: #e8e9ee;
-    --color-muted: #a0abbb;
-    --color-border: color-mix(in srgb, #e8e9ee 12%, transparent);
-  }
-}
-:root[data-theme="dark"] {
-
-    --color-primary: #ff6b81;
-    --color-accent: #a855f7;
-    --color-bg: #171717;
-    --color-surface: #242424;
-    --color-text: #e8e9ee;
-    --color-muted: #a0abbb;
-    --color-border: color-mix(in srgb, #e8e9ee 12%, transparent);
+    --container: 62rem;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -270,465 +248,187 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
   .post-content, .prose { max-width: 38rem; }
 }
 
-/* nook */
+/* cute */
 :root {
-  --nook-glass: rgba(255, 255, 255, 0.72);
-  --nook-edge: color-mix(in srgb, var(--color-primary) 16%, var(--color-surface));
-  --nook-card: var(--color-surface);
-  --nook-card-2: #ffffff;
-  --nook-wash-a: #f3e8ff;
-  --nook-wash-b: #e8f5e9;
-  --nook-wash-c: #fff1f4;
-  --nook-soft: color-mix(in srgb, var(--color-primary) 13%, var(--color-surface));
-  --nook-shadow: 0 10px 24px -12px color-mix(in srgb, var(--color-primary) 45%, transparent);
-  --nook-shadow-lg: 0 22px 44px -22px color-mix(in srgb, var(--color-primary) 50%, transparent);
-  --nook-glow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 15%, transparent);
-  --nook-doodles: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.05'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
-  --nook-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.05'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
-  --nook-tip-bg: #fff8e1; --nook-tip-edge: #ffe08a; --nook-tip-ink: #8a6100;
-  --nook-pearl-bg: #ffeef5; --nook-pearl-edge: #ffc2d8; --nook-pearl-ink: #a8285c;
-  --nook-warn-bg: #ffeeea; --nook-warn-edge: #ffb4a2; --nook-warn-ink: #b23b1f;
-  --nook-thumb-a: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M40 26c-11 0-19 7-19 16-7 2-11 8-11 15s5 13 12 15c0 10 8 17 19 17h18V26z' fill='%23c9a7f5'/><path d='M80 26c11 0 19 7 19 16 7 2 11 8 11 15s-5 13-12 15c0 10-8 17-19 17H61V26z' fill='%23c9a7f5' fill-opacity='0.82'/><circle cx='48' cy='60' r='3.4' fill='%23f3e8ff'/><circle cx='72' cy='60' r='3.4' fill='%23f3e8ff'/><path d='M52 72q8 7 16 0' stroke='%23f3e8ff' stroke-width='3.2' fill='none' stroke-linecap='round'/></svg>");
-  --nook-thumb-b: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><rect x='22' y='44' width='76' height='34' rx='17' fill='%23ffb3cd' fill-opacity='0.7'/><path d='M39 44h21v34H39a17 17 0 0 1 0-34z' fill='%23ffb3cd'/><circle cx='72' cy='58' r='3.2' fill='%23ffeef5'/><circle cx='86' cy='58' r='3.2' fill='%23ffeef5'/><path d='M73 67q6 5 12 0' stroke='%23ffeef5' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
-  --nook-thumb-c: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M60 94S22 70 22 46c0-12 9-20 19-20 8 0 15 5 19 12 4-7 11-12 19-12 10 0 19 8 19 20 0 24-38 48-38 48z' fill='%23ff8fa3'/><path d='M30 56h14l5-10 7 20 6-13 4 3h24' fill='none' stroke='%23e6f4ff' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-  --nook-thumb-d: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M28 44h52v26a22 22 0 0 1-22 22H50a22 22 0 0 1-22-22z' fill='%23ffc48c'/><path d='M80 52h8a11 11 0 0 1 0 22h-8' fill='none' stroke='%23ffc48c' stroke-width='6'/><path d='M54 66c-2.6-3.2-7.4-2.4-8.4 1.6-1 4.2 5 8.6 8.4 10.8 3.4-2.2 9.4-6.6 8.4-10.8-1-4-5.8-4.8-8.4-1.6z' fill='%23fff1e6'/></svg>");
+  --cute-cloud: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  --cute-line: color-mix(in srgb, var(--color-primary) 38%, var(--color-bg));
+  --cute-drop: color-mix(in srgb, var(--color-primary) 26%, transparent);
+  --cute-press: color-mix(in srgb, var(--color-primary) 55%, var(--color-text));
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --nook-glass: rgba(36, 30, 53, 0.72);
-    --nook-edge: #3a3052;
-    --nook-card: #241e35;
-    --nook-card-2: #2b2340;
-    --nook-wash-a: rgba(168, 85, 247, 0.22);
-    --nook-wash-b: rgba(74, 222, 128, 0.14);
-    --nook-wash-c: rgba(255, 133, 162, 0.16);
-    --nook-soft: rgba(255, 133, 162, 0.16);
-    --nook-shadow: 0 12px 26px -14px rgba(0, 0, 0, 0.7);
-    --nook-shadow-lg: 0 24px 48px -24px rgba(0, 0, 0, 0.85);
-    --nook-glow: 0 0 0 4px rgba(255, 133, 162, 0.18);
-    --nook-doodles: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.1'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
-    --nook-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.1'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
-    --nook-tip-bg: #33291a; --nook-tip-edge: #8a6d2f; --nook-tip-ink: #ffd88a;
-    --nook-pearl-bg: #352031; --nook-pearl-edge: #a8558a; --nook-pearl-ink: #ffb3d1;
-    --nook-warn-bg: #3a2320; --nook-warn-edge: #b0614d; --nook-warn-ink: #ffb3a0;
-    --nook-thumb-a: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M40 26c-11 0-19 7-19 16-7 2-11 8-11 15s5 13 12 15c0 10 8 17 19 17h18V26z' fill='%23c9a7f5'/><path d='M80 26c11 0 19 7 19 16 7 2 11 8 11 15s-5 13-12 15c0 10-8 17-19 17H61V26z' fill='%23c9a7f5' fill-opacity='0.82'/><circle cx='48' cy='60' r='3.4' fill='%232f2748'/><circle cx='72' cy='60' r='3.4' fill='%232f2748'/><path d='M52 72q8 7 16 0' stroke='%232f2748' stroke-width='3.2' fill='none' stroke-linecap='round'/></svg>");
-    --nook-thumb-b: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><rect x='22' y='44' width='76' height='34' rx='17' fill='%23ffb3cd' fill-opacity='0.7'/><path d='M39 44h21v34H39a17 17 0 0 1 0-34z' fill='%23ffb3cd'/><circle cx='72' cy='58' r='3.2' fill='%233a2438'/><circle cx='86' cy='58' r='3.2' fill='%233a2438'/><path d='M73 67q6 5 12 0' stroke='%233a2438' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
-    --nook-thumb-c: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M60 94S22 70 22 46c0-12 9-20 19-20 8 0 15 5 19 12 4-7 11-12 19-12 10 0 19 8 19 20 0 24-38 48-38 48z' fill='%23ff8fa3'/><path d='M30 56h14l5-10 7 20 6-13 4 3h24' fill='none' stroke='%2325384a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-    --nook-thumb-d: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M28 44h52v26a22 22 0 0 1-22 22H50a22 22 0 0 1-22-22z' fill='%23ffc48c'/><path d='M80 52h8a11 11 0 0 1 0 22h-8' fill='none' stroke='%23ffc48c' stroke-width='6'/><path d='M54 66c-2.6-3.2-7.4-2.4-8.4 1.6-1 4.2 5 8.6 8.4 10.8 3.4-2.2 9.4-6.6 8.4-10.8-1-4-5.8-4.8-8.4-1.6z' fill='%233b2e22'/></svg>"); } }
-:root[data-theme="dark"] { --nook-glass: rgba(36, 30, 53, 0.72);
-    --nook-edge: #3a3052;
-    --nook-card: #241e35;
-    --nook-card-2: #2b2340;
-    --nook-wash-a: rgba(168, 85, 247, 0.22);
-    --nook-wash-b: rgba(74, 222, 128, 0.14);
-    --nook-wash-c: rgba(255, 133, 162, 0.16);
-    --nook-soft: rgba(255, 133, 162, 0.16);
-    --nook-shadow: 0 12px 26px -14px rgba(0, 0, 0, 0.7);
-    --nook-shadow-lg: 0 24px 48px -24px rgba(0, 0, 0, 0.85);
-    --nook-glow: 0 0 0 4px rgba(255, 133, 162, 0.18);
-    --nook-doodles: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.1'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
-    --nook-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'><g fill='%23ff6b81' fill-opacity='0.1'><path d='M26 12h10v11h11v10H36v11H26V33H15V23h11z'/><path d='M150 120h8v9h9v8h-9v9h-8v-9h-9v-8h9z'/><path d='M128 36c-4-5-11-3.6-12.4 2.3-1.4 6.2 7.4 12.6 12.4 16 5-3.4 13.8-9.8 12.4-16-1.4-5.9-8.4-7.3-12.4-2.3z'/><path d='M52 136c-2.8-3.4-7.9-2.6-8.8 1.6-1 4.4 5.2 9 8.8 11.4 3.6-2.4 9.8-7 8.8-11.4-.9-4.2-6-5-8.8-1.6z'/><rect x='72' y='66' width='40' height='17' rx='8.5' transform='rotate(-20 92 74)'/><circle cx='168' cy='52' r='5.5'/><circle cx='18' cy='86' r='4.5'/><circle cx='104' cy='164' r='5'/></g></svg>");
-    --nook-tip-bg: #33291a; --nook-tip-edge: #8a6d2f; --nook-tip-ink: #ffd88a;
-    --nook-pearl-bg: #352031; --nook-pearl-edge: #a8558a; --nook-pearl-ink: #ffb3d1;
-    --nook-warn-bg: #3a2320; --nook-warn-edge: #b0614d; --nook-warn-ink: #ffb3a0;
-    --nook-thumb-a: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M40 26c-11 0-19 7-19 16-7 2-11 8-11 15s5 13 12 15c0 10 8 17 19 17h18V26z' fill='%23c9a7f5'/><path d='M80 26c11 0 19 7 19 16 7 2 11 8 11 15s-5 13-12 15c0 10-8 17-19 17H61V26z' fill='%23c9a7f5' fill-opacity='0.82'/><circle cx='48' cy='60' r='3.4' fill='%232f2748'/><circle cx='72' cy='60' r='3.4' fill='%232f2748'/><path d='M52 72q8 7 16 0' stroke='%232f2748' stroke-width='3.2' fill='none' stroke-linecap='round'/></svg>");
-    --nook-thumb-b: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><rect x='22' y='44' width='76' height='34' rx='17' fill='%23ffb3cd' fill-opacity='0.7'/><path d='M39 44h21v34H39a17 17 0 0 1 0-34z' fill='%23ffb3cd'/><circle cx='72' cy='58' r='3.2' fill='%233a2438'/><circle cx='86' cy='58' r='3.2' fill='%233a2438'/><path d='M73 67q6 5 12 0' stroke='%233a2438' stroke-width='3' fill='none' stroke-linecap='round'/></svg>");
-    --nook-thumb-c: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M60 94S22 70 22 46c0-12 9-20 19-20 8 0 15 5 19 12 4-7 11-12 19-12 10 0 19 8 19 20 0 24-38 48-38 48z' fill='%23ff8fa3'/><path d='M30 56h14l5-10 7 20 6-13 4 3h24' fill='none' stroke='%2325384a' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-    --nook-thumb-d: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><path d='M28 44h52v26a22 22 0 0 1-22 22H50a22 22 0 0 1-22-22z' fill='%23ffc48c'/><path d='M80 52h8a11 11 0 0 1 0 22h-8' fill='none' stroke='%23ffc48c' stroke-width='6'/><path d='M54 66c-2.6-3.2-7.4-2.4-8.4 1.6-1 4.2 5 8.6 8.4 10.8 3.4-2.2 9.4-6.6 8.4-10.8-1-4-5.8-4.8-8.4-1.6z' fill='%233b2e22'/></svg>"); }
-/* the mock-up's page: 16px body text, a 70rem measure and the gutter outside
-   the container rather than padded inside it. The blog's own body size scales
-   with the viewport, which made every em-based size downstream run larger. */
-body { font-size: 1rem; }
-.container {
-  width: min(100% - 2rem, min(var(--container), 70rem));
-  max-width: none; padding-inline: 0;
-}
-/* pastel washes, with the doodles drifting over them */
+
 body {
   background:
-    radial-gradient(60% 55% at 12% 0%, var(--nook-wash-a), transparent 70%),
-    radial-gradient(55% 50% at 92% 6%, var(--nook-wash-b), transparent 70%),
-    radial-gradient(70% 60% at 50% 100%, var(--nook-wash-c), transparent 70%),
-    var(--color-bg);
+    radial-gradient(30vmax 18vmax at 50% 104%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 68%),
+    linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 16%, var(--color-bg)), var(--color-bg) 46%);
   background-attachment: fixed;
 }
+/* clouds: overlapping puffs on their own fixed layer, drifting very slowly */
 body::before {
-  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background: var(--nook-doodles) repeat 0 0 / 190px 190px;
-}
-/* the page's own wrapper is static, so without this the doodles are painted
-   over the cards rather than behind them */
-body > * { position: relative; z-index: 1; }
-
-/* ── the header floats, as a glass pill ─────────────────────── */
-/* the gap above the bar has to live on the sticky element itself. With the
-   margin on the inner bar instead, the header starts flush to the top and
-   then drops to its sticky offset on the first scroll — which reads as the
-   navbar sliding about. */
-.site-header { background: none; border-bottom: 0; top: 0.9rem; margin-top: 0.9rem; }
-.site-header::before { content: none; }
-/* .tpl-minimal .site-header-inner in the structure sheet outranks a bare
-   class here, which is why the bar sat taller than the mock-up's */
-[class*="tpl-"] .site-header-inner {
-  margin-block: 0;
-  padding: 0.7rem 0.8rem 0.7rem 1.15rem;
-  gap: 1rem;
-  border-radius: 999px;
-  border: 1px solid var(--nook-edge);
-  background: var(--nook-glass);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  backdrop-filter: blur(14px) saturate(140%);
-  box-shadow: var(--nook-shadow);
-}
-.site-brand { font-size: 1.32rem; gap: 0.55rem; }
-/* the blog's name wears a little heart, and it beats */
-.site-brand::before {
-  content: ""; flex: none; width: 1.15em; height: 1.15em;
-  background: var(--color-primary);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
-  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-primary) 55%, transparent));
-}
-.site-brand:has(.site-brand-avatar)::before { display: none; }
-@media (prefers-reduced-motion: no-preference) {
-  .site-brand::before { animation: nook-beat 2.2s ease-in-out infinite; transform-origin: 50% 55%; }
-}
-@keyframes nook-beat {
-  0%, 62%, 100% { transform: scale(1); }
-  14% { transform: scale(1.22); }
-  28% { transform: scale(1); }
-  40% { transform: scale(1.13); }
-}
-.site-nav { gap: 0.3rem; }
-.site-nav a {
-  padding: 0.45em 0.95em; border-radius: 999px; font-weight: 600;
-  color: var(--color-muted);
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
-.site-nav a:hover { background: var(--nook-soft); color: var(--color-primary); transform: translateY(-1px); }
-.site-nav a[aria-current="page"] { background: var(--color-primary); color: #fff; }
-/* the blog already ships a dark-mode button; here it says what it does */
-.dark-toggle {
-  width: auto; height: auto; gap: 0.45rem;
-  padding: 0.5em 1em; border-radius: 999px;
-  border: 1px solid var(--nook-edge); background: var(--nook-card-2);
-  font-family: var(--font-body); font-weight: 700; font-size: 0.85rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.dark-toggle { margin-left: 0.5rem; }
-.dark-toggle::after { content: "Night Shift"; }
-:root[data-theme="dark"] .dark-toggle::after { content: "Day Shift"; }
-.dark-toggle:hover { transform: translateY(-1px); box-shadow: var(--nook-glow); }
-.nav-search input { border-radius: 999px; border-color: var(--nook-edge); }
-
-/* ── the hero is the greeting card ──────────────────────────── */
-.sec-hero { padding-block: clamp(1.6rem, 4vw, 2.8rem); }
-.sec-hero .hero {
-  position: relative; overflow: hidden;
-  padding: clamp(1.5rem, 4vw, 2.6rem);
-  border-radius: 28px;
-  border: 1px solid var(--nook-edge);
+  content: ""; position: fixed; z-index: -1; pointer-events: none;
+  inset: 0 -12vmax auto -12vmax; height: 46vmax;
   background:
-    radial-gradient(70% 90% at 100% 0%, var(--nook-wash-a), transparent 70%),
-    radial-gradient(60% 80% at 0% 100%, var(--nook-wash-b), transparent 70%),
-    var(--nook-card);
-  box-shadow: var(--nook-shadow-lg);
+    radial-gradient(9vmax 6vmax at 8% 8%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(12vmax 8vmax at 15% 6%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(8vmax 5vmax at 23% 9%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(10vmax 6vmax at 70% 5%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(13vmax 8vmax at 78% 8%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(8vmax 5vmax at 86% 5%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(11vmax 7vmax at 45% 16%, var(--cute-cloud) 0 52%, transparent 76%);
+  animation: cute-drift 80s ease-in-out infinite alternate;
 }
-/* The greeting always reads from the left, like a note written by hand, and
-   whatever the section itself says: a centred block leaves the chip, the name
-   and the button on three different axes, and it fights the card beside it.
-   The structure sheet centres every hero with .tpl-minimal .hero, so this has
-   to out-reach that as well as the section's own .hero--center.
-   A hero with a photo keeps its row, where the two halves line up centred. */
-.sec-hero .hero:not(.hero--with-image) { text-align: left; align-items: flex-start; }
-.sec-hero .hero:not(.hero--with-image) .hero-subtitle { margin-inline: 0; }
-/* the little chip over the greeting */
-.sec-hero .hero-content::before {
-  content: "🩺 Your cosy blog";
-  display: inline-flex; align-items: center;
-  margin-bottom: 0.9rem; padding: 0.35em 0.9em;
-  border-radius: 999px; background: var(--nook-soft);
-  color: color-mix(in srgb, var(--color-primary) 80%, var(--color-text));
-  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.01em;
+@keyframes cute-drift { from { transform: translateX(-2.5vmax); } to { transform: translateX(2.5vmax); } }
+@media (prefers-reduced-motion: reduce) { body::before { animation: none; } }
+.hero-title { text-shadow: 0 4px 0 color-mix(in srgb, var(--color-primary) 16%, transparent); }
+.post-card, .newsletter, .about, .post.container, .archive.container {
+  background: var(--color-surface);
+  border: 2px solid var(--cute-line);
+  border-radius: calc(var(--radius) * 1.6);
+  box-shadow: 0 6px 0 var(--cute-drop);
 }
-.hero-title { font-size: clamp(1.9rem, 1.3rem + 2.6vw, 3rem); letter-spacing: -0.01em; }
-/* whatever she calls the blog, it gets the greeting's little icons */
-.sec-hero .hero-title::after { content: " 🩺✨"; font-size: 0.78em; white-space: nowrap; }
-.hero-subtitle { color: var(--color-muted); max-width: 46ch; font-size: 1.05rem; }
-/* the structure sheet sets .tpl-minimal .btn, which outranks a bare .btn */
-[class*="tpl-"] .btn, .btn {
-  border-radius: 999px; font-weight: 700; font-size: 0.95rem; padding: 0.7em 1.4em;
+.post.container, .archive.container {
+  /* inset a little further than flat themes so the sky frames the page even on a phone */
+  width: min(100% - 2.2rem, var(--container));
+  margin-block: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  /* a wash of sky at the top so a long article is not one white slab */
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 13%, var(--color-surface)), var(--color-surface) 26%);
 }
-.btn-primary {
-  background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 55%, var(--color-accent)));
-  border-color: transparent; box-shadow: var(--nook-shadow);
+.post-title { position: relative; }
+.post-title::after {
+  content: ""; display: block; width: 3.2rem; height: 0.42rem; margin-top: 0.6rem; border-radius: 999px;
+  background: var(--color-accent);
 }
-.btn:hover { transform: translateY(-2px); box-shadow: var(--nook-shadow-lg); }
-
-/* ── the hero's companion card ──────────────────────────────── */
-/* The mock-up's Daily Pulse, rebuilt from something she can actually write:
-   a Text section placed straight after the hero becomes a card beside it,
-   its heading the card's title and each list item a little pastel panel.
-   She fills it with whatever she likes — what she is revising, a quote, a
-   note to herself. Any other section still spans the page. */
-.page.container > .sec-hero + .sec:not([class*="sec-"]) > .prose {
-  padding: 1.3rem 1.3rem 1.5rem;
-  border-radius: 28px;
-  border: 1px solid var(--nook-edge);
-  background: var(--nook-card);
-  box-shadow: var(--nook-shadow);
-  display: flex; flex-direction: column; gap: 1.05rem;
-  height: 100%;
+/* a little colour variety across the grid, mixed from the theme's own two colours */
+.post-card--cards:nth-child(3n + 1) { background: linear-gradient(170deg, color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)), var(--color-surface) 62%); }
+.post-card--cards:nth-child(3n + 2) { background: linear-gradient(170deg, color-mix(in srgb, var(--color-accent) 14%, var(--color-surface)), var(--color-surface) 62%); }
+.post-card--cards:nth-child(3n) { background: linear-gradient(170deg, color-mix(in srgb, var(--color-primary) 6%, var(--color-surface)), color-mix(in srgb, var(--color-accent) 8%, var(--color-surface)) 90%); }
+.post-card { transition: transform 0.22s cubic-bezier(.2,.9,.3,1.2), box-shadow 0.22s ease; overflow: hidden; }
+.post-card:hover { transform: translateY(-6px) rotate(-0.8deg); box-shadow: 0 14px 0 var(--cute-drop); }
+.post-card-cover img, .hero-image img { border-radius: calc(var(--radius) * 1.2); }
+.newsletter { background: linear-gradient(160deg, color-mix(in srgb, var(--color-accent) 18%, var(--color-surface)), var(--color-surface) 70%); }
+/* .about has no padding of its own — without this the text sits on the border */
+.about { padding: clamp(1.25rem, 4vw, 2.5rem); }
+.sec-title { display: flex; align-items: center; gap: 0.5rem; }
+.sec-title::before {
+  content: ""; flex: none; width: 0.62em; height: 0.62em; border-radius: 999px;
+  background: var(--color-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 28%, transparent);
 }
-.page.container > .sec-hero + .sec:not([class*="sec-"]) > .prose > :is(h1, h2, h3) {
-  margin: 0; font-size: 1.12rem;
-  display: flex; align-items: baseline; justify-content: space-between; gap: 0.6rem;
+/* ── the hero, as a little paper scene ──────────────────────── */
+.sec-hero { position: relative; isolation: isolate; overflow: hidden; }
+/* a soft halo under the title, with a pastel rainbow arching over it */
+.sec-hero::before {
+  content: ""; position: absolute; z-index: -2; left: 50%; top: 2%; width: min(54rem, 96vw); aspect-ratio: 5 / 3;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, var(--color-surface) 0 34%, color-mix(in srgb, var(--color-surface) 55%, transparent) 58%, transparent 78%);
+  opacity: 0.8;
 }
-/* today's date, written as {{today}} in the section and filled in by the page.
-   margin-left rather than space-between: the heading also carries its anchor
-   link, which would otherwise take the right-hand slot and shove the date in. */
-.today {
-  margin-left: auto;
-  font-family: var(--font-body); font-size: 0.68em; font-weight: 600;
-  color: var(--color-muted); white-space: nowrap;
+/* a pastel rainbow arching over the title, pinned to the title so it tracks it.
+   The radius is explicit: closest-side collapses when the centre sits on an edge. */
+.hero-title { position: relative; }
+.hero-title::before {
+  content: ""; position: absolute; z-index: -1; left: 50%; bottom: 34%;
+  width: min(32rem, 86vw); aspect-ratio: 2 / 1; transform: translateX(-50%);
+  background: radial-gradient(16rem 8rem at 50% 100%,
+    transparent 0 66%,
+    color-mix(in srgb, var(--color-primary) 32%, transparent) 66% 73%,
+    color-mix(in srgb, var(--color-surface) 75%, transparent) 73% 77%,
+    color-mix(in srgb, var(--color-accent) 66%, transparent) 77% 84%,
+    transparent 84.5%);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 16%, #000 84%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 16%, #000 84%, transparent);
 }
-/* a section link belongs on an article, not on a card in the margin */
-.prose .heading-anchor { display: none; }
-.page.container > .sec-hero + .sec:not([class*="sec-"]) > .prose > p { margin: 0; color: var(--color-muted); font-size: 0.95em; }
-.page.container > .sec-hero + .sec:not([class*="sec-"]) > .prose > ul {
-  list-style: none; margin: 0; padding: 0;
-  display: flex; flex-direction: column; gap: 0.55rem;
+.hero--left .hero-title::before { display: none; }
+/* a big friendly bell hanging into the scene */
+.sec-hero::after {
+  content: ""; position: absolute; z-index: -1; right: 2vw; top: 8%;
+  width: min(17vw, 9.5rem); aspect-ratio: 4 / 5;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--color-accent) 92%, #fff), var(--color-accent) 62%);
+  clip-path: polygon(
+    44% 2%, 56% 2%, 60% 9%, 72% 17%, 79% 32%, 82% 52%, 85% 66%, 93% 76%, 95% 83%,
+    56% 83%, 57% 92%, 53% 96%, 47% 96%, 43% 92%, 44% 83%,
+    5% 83%, 7% 76%, 15% 66%, 18% 52%, 21% 32%, 28% 17%, 40% 9%);
+  filter: drop-shadow(0 7px 0 color-mix(in srgb, var(--color-primary) 20%, transparent));
 }
-.page.container > .sec-hero + .sec:not([class*="sec-"]) > .prose > ul > li {
-  margin: 0; padding: 0.9rem 1rem;
-  border-radius: 20px; border: 1px solid var(--nook-edge);
-  background: var(--nook-card-2);
-  font-size: 1rem;
+.hero { position: relative; }
+/* three bubbles drifting around the title */
+.hero::after {
+  content: ""; position: absolute; z-index: -1; inset: 6% 6% 16%; pointer-events: none;
+  background:
+    radial-gradient(0.55rem 0.55rem at 9% 26%, color-mix(in srgb, var(--color-accent) 85%, var(--color-surface)) 0 58%, transparent 60%),
+    radial-gradient(0.34rem 0.34rem at 17% 62%, color-mix(in srgb, var(--color-primary) 55%, var(--color-surface)) 0 58%, transparent 60%),
+    radial-gradient(0.48rem 0.48rem at 90% 36%, color-mix(in srgb, var(--color-accent) 75%, var(--color-surface)) 0 58%, transparent 60%);
 }
-.page.container > .sec-hero + .sec:not([class*="sec-"]) > .prose > blockquote {
-  margin: 0; padding: 0.85em 1em; border-left: 0;
-  border-radius: 1rem; background: var(--nook-soft);
-  font-family: var(--font-heading); font-size: 0.98em;
+/* a few soft puffs settling along the bottom of the scene */
+.hero::before {
+  content: ""; position: absolute; z-index: -1; left: -10vw; right: -10vw; bottom: -2.5rem; height: 9rem;
+  background:
+    radial-gradient(7rem 3.4rem at 14% 100%, var(--cute-cloud) 0 52%, transparent 76%),
+    radial-gradient(9rem 4rem at 30% 104%, var(--cute-cloud) 0 52%, transparent 76%),
+    radial-gradient(8rem 3.6rem at 62% 102%, var(--cute-cloud) 0 52%, transparent 76%),
+    radial-gradient(10rem 4.2rem at 84% 106%, var(--cute-cloud) 0 52%, transparent 76%);
 }
-@media (min-width: 960px) {
-  .page.container:has(> .sec-hero + .sec:not([class*="sec-"])) {
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-    gap: 1.4rem;
-    align-items: stretch;
-  }
-  .page.container > .sec { grid-column: 1 / -1; }
-  .page.container > .sec-hero { grid-column: 1; }
-  .page.container > .sec-hero + .sec:not([class*="sec-"]) {
-    grid-column: 2; padding-block: calc(1.8rem * var(--space-scale));
-  }
-  /* the two cards finish on the same line */
-  .page.container > .sec-hero > .hero { height: 100%; justify-content: center; }
+@media (prefers-reduced-motion: no-preference) {
+  .sec-hero::after { animation: cute-bob 6s ease-in-out infinite; }
 }
-
-/* ── sections and cards ─────────────────────────────────────── */
-.sec-title { font-size: clamp(1.4rem, 1.1rem + 1.1vw, 1.9rem); }
-/* the mock-up's grid: 275px columns, 1.15rem apart */
-.post-list { gap: 1.15rem; }
-.post-list--grid, .post-list--cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 275px), 1fr)); }
-.post-card--grid, .post-card--cards, .newsletter, .about {
-  border-radius: clamp(1rem, 2.2vw, 1.75rem);
-  border: 1px solid var(--nook-edge);
-  background: var(--nook-card);
-  box-shadow: var(--nook-shadow);
-  overflow: hidden;
+@keyframes cute-bob {
+  0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+  50% { transform: translateY(7px) rotate(1.5deg); }
 }
-.post-card { transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
-.post-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--color-primary);
-  box-shadow: var(--nook-shadow-lg), var(--nook-glow);
+@media (max-width: 860px) {
+  /* smaller and higher, so it stops crowding the rainbow and the title */
+  .sec-hero::after { width: 19vw; right: -2vw; top: 2%; opacity: 0.75; }
 }
-:is(.post-card--grid, .post-card--cards) .post-card-body {
-  padding: 1.05rem 1.15rem 1.25rem;
-  /* the body has to fill the card, or margin-top:auto on the meta below has
-     nothing to push against and the date lands wherever the excerpt ends */
-  flex: 1 1 auto;
-  display: flex; flex-direction: column; gap: 0.55rem;
-}
-.post-card-title { font-size: 1.12rem; }
-/* as in the mock-up: the date and the drink close the card, not open it */
-:is(.post-card--grid, .post-card--cards) .post-card-meta {
-  order: 9; margin: 0.4rem 0 0; margin-top: auto; padding-top: 0.6rem;
-  width: 100%; justify-content: space-between;
-  border-top: 1px solid var(--nook-edge);
-}
-:is(.post-card--grid, .post-card--cards) :is(.post-card-title, .post-card-excerpt, .post-card-tags) { margin: 0; }
-/* a post with no cover photo gets a doodle rather than a blank head */
-:is(.post-card--grid, .post-card--cards):not(:has(.post-card-cover))::before {
-  content: ""; display: block; aspect-ratio: 16 / 9;
-  background: var(--nook-thumb-a) no-repeat center / 88px 88px, var(--nook-wash-a);
-}
-:is(.post-card--grid, .post-card--cards):nth-child(4n + 2):not(:has(.post-card-cover))::before {
-  background: var(--nook-thumb-b) no-repeat center / 88px 88px, var(--nook-wash-c);
-}
-:is(.post-card--grid, .post-card--cards):nth-child(4n + 3):not(:has(.post-card-cover))::before {
-  background: var(--nook-thumb-c) no-repeat center / 88px 88px, var(--nook-wash-b);
-}
-:is(.post-card--grid, .post-card--cards):nth-child(4n + 4):not(:has(.post-card-cover))::before {
-  background: var(--nook-thumb-d) no-repeat center / 88px 88px, var(--nook-soft);
-}
-.post-card-title a:hover { color: var(--color-primary); }
-/* tags keep the hue the generator derives from their own name */
+.hero-title { text-shadow: 0 4px 0 color-mix(in srgb, var(--color-primary) 16%, transparent); }
+.btn { border-radius: 999px; font-weight: 700; }
+.btn-primary { box-shadow: 0 5px 0 var(--cute-press); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--cute-press); }
+.btn-primary:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--cute-press); }
 .tag, .tag-pill {
-  --tag-c: hsl(var(--tag-h, 340) 70% 42%);
-  padding: 0.25em 0.75em; border-radius: 999px; font-weight: 700; font-size: 0.74rem;
-  background: color-mix(in srgb, var(--tag-c) 14%, var(--color-surface));
-  border-color: color-mix(in srgb, var(--tag-c) 26%, transparent);
-  color: color-mix(in srgb, var(--tag-c) 78%, var(--color-text));
+  border: 2px solid var(--cute-line); font-weight: 600;
+  background: color-mix(in srgb, var(--color-accent) 16%, var(--color-bg)); color: var(--color-text);
 }
-:root[data-theme="dark"] .tag, :root[data-theme="dark"] .tag-pill { --tag-c: hsl(var(--tag-h, 340) 75% 72%); }
-.tag-pill.is-active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
-/* the reading time, as a warm drink */
-.post-card-meta { gap: 0.4rem; font-size: 0.76em; }
-.post-meta-rt {
-  padding: 0.25em 0.75em; border-radius: 999px; font-weight: 700; font-size: 0.8rem;
-  background: var(--nook-soft); color: var(--color-primary);
+/* a row of cloud bumps hanging off the header, and again above the footer */
+.site-header { border-bottom: 3px solid var(--cute-line); }
+.site-header::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 13px; pointer-events: none;
+  background: radial-gradient(circle at 11px -2px, var(--color-surface) 11px, transparent 12px) repeat-x;
+  background-size: 22px 13px;
 }
-.post-meta-rt::after { content: " ☕"; }
-
-/* ── the newsletter, and the page panels ────────────────────── */
-.newsletter { padding: clamp(1.4rem, 4vw, 2.6rem); }
-.newsletter-form { justify-content: center; }
-.newsletter-form input { border-radius: 999px; border-color: var(--nook-edge); background: var(--nook-card-2); }
-/* these are .container elements already: setting a second width here made
-   the archive panel 1200px wide against the header's 1120 */
-.about, .post.container, .archive.container, .not-found.container {
-  padding: clamp(1.3rem, 4vw, 2.6rem);
-  margin-block: 1.25rem;
-  border-radius: clamp(1rem, 2.2vw, 1.75rem);
-  border: 1px solid var(--nook-edge);
-  background: var(--nook-card);
-  box-shadow: var(--nook-shadow);
+.dark-toggle, .nav-search input, .share-btn, .copy-btn { border: 2px solid var(--cute-line); border-radius: 999px; }
+/* nav links as little pills */
+.site-nav a { padding: 0.3em 0.75em; border-radius: 999px; transition: background 0.16s ease; }
+.site-nav a:hover { background: color-mix(in srgb, var(--color-primary) 12%, transparent); }
+.site-nav a[aria-current="page"] { background: color-mix(in srgb, var(--color-accent) 30%, transparent); color: var(--color-text); }
+/* a bell dot on every heading inside an article, matching the section titles */
+.post-content :is(h2, h3) { position: relative; }
+.post-content :is(h2, h3)::before {
+  content: ""; position: absolute; left: -0.95em; top: 0.52em; width: 0.4em; height: 0.4em; border-radius: 999px;
+  background: color-mix(in srgb, var(--color-accent) 90%, var(--color-surface));
 }
-.post-cover { border-radius: clamp(0.8rem, 2vw, 1.25rem); }
-.post-content :is(h2, h3) { font-family: var(--font-heading); }
+/* quotes become speech bubbles with a little tail */
 .post-content blockquote {
-  margin: 1.5em 0; padding: 0.95em 1.15em; border-left: 4px solid var(--color-primary);
-  border-radius: 0 1rem 1rem 0;
-  background: var(--nook-soft); color: var(--color-text);
+  position: relative; margin: 1.6em 0; padding: 1em 1.2em; border-left: 0; border-radius: calc(var(--radius) * 1.4);
+  background: color-mix(in srgb, var(--color-primary) 9%, var(--color-surface));
+  border: 2px solid var(--cute-line); color: var(--color-text);
 }
-.post-content pre, .prose pre {
-  border-radius: 1rem; border: 1px solid var(--nook-edge);
-  background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface));
+.post-content blockquote::after {
+  content: ""; position: absolute; left: 1.8em; top: 100%; width: 0.9rem; height: 0.9rem; margin-top: -2px;
+  background: inherit; border-right: 2px solid var(--cute-line); border-bottom: 2px solid var(--cute-line);
+  transform: rotate(45deg) translate(-35%, -35%); border-bottom-right-radius: 4px;
 }
-.post-content :not(pre) > code, .prose :not(pre) > code {
-  border-radius: 6px; background: var(--nook-soft);
+.post-content img { border-radius: calc(var(--radius) * 1.3); border: 2px solid var(--cute-line); }
+.post-content pre { border: 2px solid var(--cute-line); border-radius: calc(var(--radius) * 1.2); }
+/* a card with no cover photo gets a pastel band instead of dead space */
+.post-card--cards:not(:has(.post-card-cover))::before {
+  content: ""; display: block; height: 0.55rem; margin: -0.1rem -0.1rem 0.9rem; border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  opacity: 0.75;
 }
-.post-content strong, .prose strong { color: color-mix(in srgb, var(--color-primary) 60%, var(--color-text)); }
-/* the section links are page furniture: they appear when you reach for them */
-.heading-anchor {
-  margin-left: 0.35em; text-decoration: none;
-  color: color-mix(in srgb, var(--color-primary) 45%, transparent);
-  opacity: 0; transition: opacity 0.15s ease;
-}
-:is(h2, h3, h4):hover .heading-anchor, .heading-anchor:focus { opacity: 1; }
-/* round, pastel tick boxes for a revision checklist */
-.post-content input[type="checkbox"] {
-  appearance: none; width: 1.05em; height: 1.05em; margin-right: 0.5em; vertical-align: -0.15em;
-  border: 2px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
-  border-radius: 7px; background: var(--nook-card-2);
-}
-.post-content input[type="checkbox"]:checked {
-  background: var(--color-primary); border-color: var(--color-primary);
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M3.5 8.5 L6.5 11.5 L12.5 4.5' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-  background-size: 90% 90%; background-position: center; background-repeat: no-repeat;
-}
-.post-content li:has(input:checked) { color: var(--color-muted); text-decoration: line-through; }
-
-/* ── the note blocks: soft yellow, pink and coral ───────────── */
-.callout {
-  --cal-bg: var(--nook-tip-bg); --cal-edge: var(--nook-tip-edge); --cal-ink: var(--nook-tip-ink);
-  margin: 1.7em 0; padding: 1em 1.15em;
-  border: 1.5px solid var(--cal-edge); border-radius: 1.1rem;
-  background: var(--cal-bg);
-}
-.callout > :last-child { margin-bottom: 0; }
-.callout-label {
-  margin: 0 0 0.3em; font-family: var(--font-heading); font-weight: 700;
-  font-size: 0.92em; color: var(--cal-ink);
-}
-.callout--dose, .callout--mnemonic, .callout--remember {
-  --cal-bg: var(--nook-pearl-bg); --cal-edge: var(--nook-pearl-edge); --cal-ink: var(--nook-pearl-ink);
-}
-.callout--warning, .callout--caution {
-  --cal-bg: var(--nook-warn-bg); --cal-edge: var(--nook-warn-edge); --cal-ink: var(--nook-warn-ink);
-}
-.post-content table { border-collapse: separate; border-spacing: 0; border: 1px solid var(--nook-edge); border-radius: 1rem; }
-@media (min-width: 640px) { .post-content table { display: table; width: 100%; } }
-@media (max-width: 639.98px) { .post-content table { border: 0; border-radius: 0; } }
-.post-content th { background: var(--nook-soft); font-family: var(--font-heading); }
-.post-content :is(th, td) { border: 0; border-bottom: 1px solid var(--nook-edge); }
-.post-content tr:last-child :is(th, td) { border-bottom: 0; }
-
-/* ── the foot of a post, and the site's own ─────────────────── */
-.share-btn, .social-link, .footer-links a {
-  border-radius: 999px; border: 1px solid var(--nook-edge);
-  background: var(--nook-card-2); text-decoration: none; font-weight: 600;
-}
-.social-link, .footer-links a { padding: 0.3em 0.9em; font-size: 0.88em; color: var(--color-primary); }
-.post-adjacent { border-top: 0; }
-.post-adjacent-link {
-  padding: 0.9rem 1.1rem; border-radius: 1.1rem;
-  border: 1px solid var(--nook-edge); background: var(--nook-card);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.post-adjacent-link:hover { transform: translateY(-3px); box-shadow: var(--nook-shadow); }
-.post-adjacent-link span { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72em; font-weight: 700; color: var(--color-primary); }
-.site-footer {
-  margin-top: calc(3rem * var(--space-scale));
-  /* a touch stronger than the card edges, or the line disappears on the wash */
-  border-top: 1px solid color-mix(in srgb, var(--color-primary) 24%, var(--color-surface));
-  background: none;
-}
-.site-footer-inner {
-  flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center;
-  gap: 0.5rem 1.2rem; padding-block: 1.6rem 2rem;
-  font-size: 0.9rem; color: var(--color-muted);
-}
-/* it is a <p>, and its bottom margin was making the strip a third taller */
-.footer-text { display: inline-flex; align-items: center; gap: 0.45rem; margin: 0; font-weight: 400; color: inherit; }
-.footer-text::before {
-  content: ""; flex: none; width: 0.95em; height: 0.95em;
-  background: var(--color-primary);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
-}
-.footer-links a, .social-link {
-  padding: 0; border: 0; background: none;
-  font-size: inherit; font-weight: 600; color: inherit;
-  transition: color 0.2s ease;
-}
-.footer-links a:hover, .social-link:hover { color: var(--color-primary); }
-
-/* ── the menu, on a phone ───────────────────────────────────── */
-@media (max-width: 760px) {
-  /* Opaque, not glass: the header bar above has its own backdrop-filter, which
-     makes it a backdrop root, so a blur on this menu has nothing to work with
-     and the page reads straight through the panel. */
-  .site-nav {
-    z-index: 2; margin-top: 0.5rem; padding: 0.7rem;
-    border-radius: 1.4rem; border: 1px solid var(--nook-edge);
-    background: var(--nook-motifs, none) repeat 0 center / 78px 78px, var(--nook-card);
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-    box-shadow: var(--nook-shadow-lg);
-  }
-  .site-nav a { padding: 0.7em 0.9em; }
-  .dark-toggle { margin-top: 0.6rem; }
-}
-
-@media print {
-  body::before { display: none; }
-  .site-header, .site-footer, .newsletter, .post-share, .post-adjacent { display: none !important; }
-  .post.container, .archive.container, .about {
-    background: #fff !important; border: 0 !important; box-shadow: none !important;
-    width: auto; max-width: none; margin: 0; padding: 0;
-  }
-  .callout { border: 1px solid #999; background: none; }
+.site-footer { border-top: 3px solid var(--cute-line); position: relative; }
+.site-footer::before {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 13px; pointer-events: none;
+  background: radial-gradient(circle at 11px 15px, var(--color-surface) 11px, transparent 12px) repeat-x;
+  background-size: 22px 13px;
 }
 
 /* weather */
