@@ -77,6 +77,9 @@ main {
    and its "powered by giscus" credit. The page already has a Comments heading;
    the sort buttons in .gsc-right-header stay. */
 :is(#__next, html) main .gsc-left-header { display: none; }
+/* with the left header gone the header row is empty until there are comments to
+   sort, and .gsc-comments still spaces it like a child — so drop it entirely. */
+:is(#__next, html) main .gsc-header:not(:has(.gsc-right-header)) { display: none; }
 :is(#__next, html) main .gsc-comments { gap: 18px; }
 :is(#__next, html) main .gsc-timeline { gap: 18px; }
 :is(#__next, html) main .gsc-comment > div { border: 0 !important; background: transparent !important; border-radius: 0 !important; }
