@@ -277,13 +277,25 @@
       b.r = 1.4 + Math.pow(big, 1.45) * (heavy ? 12 : 10);
       // each bead sits on its own patch of glass — some collect water quickly,
       // many are nearly dry and stay small for good
-      b.grow = Math.random() * Math.random() * (heavy ? 0.85 : 0.5);
-      b.cap = b.r + Math.random() * Math.random() * 11;  // as fat as this one can get
+      b.grow = Math.random() * Math.random() * (heavy ? 1.5 : 0.95);
       // a wide spread of thresholds, so some fat beads cling while smaller ones let go
       b.crit = (heavy ? 3.2 : 3.8) + Math.random() * Math.random() * 9;
+      // Most patches eventually collect enough to let go; the rest stay damp
+      // for good. Without guaranteeing the first group, every bead ends up
+      // capped below its own threshold and the whole glass stops moving.
+      b.cap = Math.random() < 0.74
+        ? b.crit + 0.4 + Math.random() * 4
+        : b.r + Math.random() * Math.random() * 6;
       b.v = 0; b.run = false; b.trail = 0;
-      b.el.style.setProperty("--o", (0.32 + big * 0.5).toFixed(2));
-      if (fresh) { b.x = Math.random() * W(); b.y = -20 - Math.random() * H() * 0.4; }
+      b.o = (0.32 + big * 0.5).toFixed(2);
+      b.el.style.setProperty("--o", b.o);
+      if (fresh) {
+        b.x = Math.random() * W();
+        b.y = Math.random() * H();     // condensation forms across the glass
+        b.o = b.o || 0;
+        b.fade = true;                 // ease it in so it doesn't pop into view
+        b.el.style.setProperty("--o", "0");
+      }
     }
 
     for (var i = 0; i < count; i++) {
@@ -310,19 +322,25 @@
 
     var last = 0;
     var frame = 0;
+    var quiet = 0;
     function tick(now) {
       frame = requestAnimationFrame(tick);
       if (!last) { last = now; return; }
       var dt = Math.min(0.05, (now - last) / 1000);   // cap, so a backgrounded tab doesn't jump
       last = now;
       var h = H();
+      var running = 0;
 
       for (var i = 0; i < list.length; i++) {
         var b = list[i];
 
         if (!b.run) {
           b.r = Math.min(b.r + b.grow * dt, b.cap);    // condensation, up to this bead's own ceiling
+          if (b.fade) { b.fade = false; b.el.style.setProperty("--o", b.o); }
+          if (b.trail > 0.4) { b.trail *= Math.max(0, 1 - dt * 0.6); place(b); }   // the track dries
           if (b.r > b.crit) { b.run = true; } else { if (Math.random() < 0.02) size(b); continue; }
+        }
+        if (b.run) { running++;
         }
 
         // gravity, less what surface tension still holds back, less drag.
@@ -352,6 +370,21 @@
 
         size(b);
         place(b);
+      }
+
+      // A real window is never completely still for long: a gust, a passing
+      // lorry, someone closing a door. If nothing has moved for a few seconds,
+      // the bead closest to letting go gets the nudge it needed.
+      quiet = running ? 0 : quiet + dt;
+      if (quiet > 3.5) {
+        quiet = 0;
+        var best = null;
+        for (var k = 0; k < list.length; k++) {
+          var c = list[k];
+          if (c.run) continue;
+          if (!best || c.r - c.crit > best.r - best.crit) best = c;
+        }
+        if (best) { best.crit = best.r * 0.98; best.run = true; }
       }
     }
     frame = requestAnimationFrame(tick);
