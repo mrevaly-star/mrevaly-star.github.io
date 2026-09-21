@@ -1,40 +1,18 @@
 :root {
 
-    --color-primary: #ff6b81;
-    --color-accent: #a855f7;
-    --color-bg: #fff5f7;
-    --color-surface: #fffdfa;
-    --color-text: #3b2b33;
-    --color-muted: #7a6672;
-    --color-border: color-mix(in srgb, #3b2b33 12%, transparent);
+    --color-primary: #00a0e9;
+    --color-accent: #ffc800;
+    --color-bg: #eaf7ff;
+    --color-surface: #f7fcff;
+    --color-text: #10395c;
+    --color-muted: #6a8aa6;
+    --color-border: color-mix(in srgb, #10395c 12%, transparent);
 
     --font-heading: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --radius: 16px;
     --space-scale: 1.25;
-    --container: 75rem;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-
-    --color-primary: #ff6b81;
-    --color-accent: #a855f7;
-    --color-bg: #171717;
-    --color-surface: #242424;
-    --color-text: #e8e9ee;
-    --color-muted: #a0abbb;
-    --color-border: color-mix(in srgb, #e8e9ee 12%, transparent);
-  }
-}
-:root[data-theme="dark"] {
-
-    --color-primary: #ff6b81;
-    --color-accent: #a855f7;
-    --color-bg: #171717;
-    --color-surface: #242424;
-    --color-text: #e8e9ee;
-    --color-muted: #a0abbb;
-    --color-border: color-mix(in srgb, #e8e9ee 12%, transparent);
+    --container: 62rem;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -270,590 +248,187 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.15; ma
   .post-content, .prose { max-width: 38rem; }
 }
 
-/* vitals */
+/* cute */
 :root {
-  --vit-line: color-mix(in srgb, var(--color-primary) 9%, transparent);
-  --vit-line-strong: color-mix(in srgb, var(--color-primary) 17%, transparent);
-  --vit-edge: color-mix(in srgb, var(--color-text) 12%, var(--color-surface));
-  /* card stock and the wash at the head of a page — never plain white */
-  --vit-paper: color-mix(in srgb, var(--color-primary) 4%, var(--color-surface));
-  --vit-wash: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
-  --vit-mark: color-mix(in srgb, var(--color-accent) 22%, transparent);
-  --vit-clip: color-mix(in srgb, var(--color-text) 22%, var(--color-surface));
-  --vit-th: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
-  /* tags take their hue from their own name; only the lightness changes here */
-  --vit-tag-s: 55%;
-  --vit-tag-l: 38%;
-  --vit-rx: 0.16;
-  --vit-tube: #ff6b81;
-  --vit-scope: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='42' viewBox='0 0 31 42'><g fill='none' stroke='%23ff6b81' stroke-width='2.4' stroke-linecap='round'><path d='M8 6v5.5a7.7 7.7 0 0 0 15 0V6'/><path d='M15.5 19.5V24c0 2.6 1.6 4 4.2 4H31'/></g><g fill='%23a855f7'><circle cx='8' cy='4.8' r='2.4'/><circle cx='23' cy='4.8' r='2.4'/></g></svg>");
-  --vit-scope-end: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='29' height='42' viewBox='0 0 29 42'><path d='M0 28h9c3.4 0 5.6 1.3 6.4 3.6' fill='none' stroke='%23ff6b81' stroke-width='2.4' stroke-linecap='round'/><circle cx='18.6' cy='35' r='5' fill='none' stroke='%23a855f7' stroke-width='2.4'/><circle cx='18.6' cy='35' r='1.5' fill='%23a855f7'/></svg>");
-  --vit-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%23ff6b81' fill-opacity='0.05'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
-  --vit-motifs-alt: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%23a855f7' fill-opacity='0.05'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
-  --vit-trace: 0.5;
-  --vit-shadow: 0 1px 2px color-mix(in srgb, var(--color-text) 7%, transparent);
+  --cute-cloud: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  --cute-line: color-mix(in srgb, var(--color-primary) 38%, var(--color-bg));
+  --cute-drop: color-mix(in srgb, var(--color-primary) 26%, transparent);
+  --cute-press: color-mix(in srgb, var(--color-primary) 55%, var(--color-text));
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --vit-line: color-mix(in srgb, var(--color-primary) 24%, transparent);
-    --vit-line-strong: color-mix(in srgb, var(--color-primary) 42%, transparent);
-    --vit-edge: color-mix(in srgb, var(--color-text) 22%, var(--color-surface));
-    --vit-paper: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
-    --vit-wash: color-mix(in srgb, var(--color-primary) 16%, var(--color-surface));
-    --vit-mark: color-mix(in srgb, var(--color-accent) 36%, transparent);
-    --vit-clip: color-mix(in srgb, var(--color-text) 34%, var(--color-surface));
-    --vit-th: color-mix(in srgb, var(--color-primary) 26%, var(--color-surface));
-    --vit-tag-s: 60%;
-    --vit-tag-l: 70%;
-    --vit-rx: 0.34;
-    --vit-tube: #ffaeba;
-    --vit-scope: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='42' viewBox='0 0 31 42'><g fill='none' stroke='%23ffaeba' stroke-width='2.4' stroke-linecap='round'><path d='M8 6v5.5a7.7 7.7 0 0 0 15 0V6'/><path d='M15.5 19.5V24c0 2.6 1.6 4 4.2 4H31'/></g><g fill='%23be80f9'><circle cx='8' cy='4.8' r='2.4'/><circle cx='23' cy='4.8' r='2.4'/></g></svg>");
-    --vit-scope-end: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='29' height='42' viewBox='0 0 29 42'><path d='M0 28h9c3.4 0 5.6 1.3 6.4 3.6' fill='none' stroke='%23ffaeba' stroke-width='2.4' stroke-linecap='round'/><circle cx='18.6' cy='35' r='5' fill='none' stroke='%23be80f9' stroke-width='2.4'/><circle cx='18.6' cy='35' r='1.5' fill='%23be80f9'/></svg>");
-    --vit-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%23ff6b81' fill-opacity='0.16'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
-    --vit-motifs-alt: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%23a855f7' fill-opacity='0.13'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
-    --vit-trace: 0.62;
-    --vit-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); } }
-:root[data-theme="dark"] { --vit-line: color-mix(in srgb, var(--color-primary) 24%, transparent);
-    --vit-line-strong: color-mix(in srgb, var(--color-primary) 42%, transparent);
-    --vit-edge: color-mix(in srgb, var(--color-text) 22%, var(--color-surface));
-    --vit-paper: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
-    --vit-wash: color-mix(in srgb, var(--color-primary) 16%, var(--color-surface));
-    --vit-mark: color-mix(in srgb, var(--color-accent) 36%, transparent);
-    --vit-clip: color-mix(in srgb, var(--color-text) 34%, var(--color-surface));
-    --vit-th: color-mix(in srgb, var(--color-primary) 26%, var(--color-surface));
-    --vit-tag-s: 60%;
-    --vit-tag-l: 70%;
-    --vit-rx: 0.34;
-    --vit-tube: #ffaeba;
-    --vit-scope: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='31' height='42' viewBox='0 0 31 42'><g fill='none' stroke='%23ffaeba' stroke-width='2.4' stroke-linecap='round'><path d='M8 6v5.5a7.7 7.7 0 0 0 15 0V6'/><path d='M15.5 19.5V24c0 2.6 1.6 4 4.2 4H31'/></g><g fill='%23be80f9'><circle cx='8' cy='4.8' r='2.4'/><circle cx='23' cy='4.8' r='2.4'/></g></svg>");
-    --vit-scope-end: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='29' height='42' viewBox='0 0 29 42'><path d='M0 28h9c3.4 0 5.6 1.3 6.4 3.6' fill='none' stroke='%23ffaeba' stroke-width='2.4' stroke-linecap='round'/><circle cx='18.6' cy='35' r='5' fill='none' stroke='%23be80f9' stroke-width='2.4'/><circle cx='18.6' cy='35' r='1.5' fill='%23be80f9'/></svg>");
-    --vit-motifs: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%23ff6b81' fill-opacity='0.16'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
-    --vit-motifs-alt: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='164' height='164' viewBox='0 0 164 164'><g fill='%23a855f7' fill-opacity='0.13'><path d='M22 10h9v10h10v9H31v10h-9V29H12v-9h10z'/><path d='M132 104h7v8h8v7h-8v8h-7v-8h-8v-7h8z'/><path d='M112 30c-3.4-4.2-9.6-3.2-10.8 2-1.2 5.4 6.4 11 10.8 14 4.4-3 12-8.6 10.8-14-1.2-5.2-7.4-6.2-10.8-2z'/><path d='M44 118c-2.4-3-6.9-2.3-7.7 1.4-.9 3.9 4.5 7.9 7.7 10 3.2-2.1 8.6-6.1 7.7-10-.8-3.7-5.3-4.4-7.7-1.4z'/><rect x='64' y='58' width='34' height='15' rx='7.5' transform='rotate(-22 81 65)'/><circle cx='146' cy='44' r='5'/><circle cx='16' cy='74' r='4'/><circle cx='92' cy='142' r='4.5'/></g></svg>");
-    --vit-trace: 0.62;
-    --vit-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
-/* graph paper, the fine grid with a heavier rule every fifth square */
+
 body {
   background:
-    linear-gradient(var(--vit-line) 1px, transparent 1px) 0 0 / 100% 26px,
-    linear-gradient(90deg, var(--vit-line) 1px, transparent 1px) 0 0 / 26px 100%,
-    linear-gradient(var(--vit-line-strong) 1px, transparent 1px) 0 0 / 100% 130px,
-    linear-gradient(90deg, var(--vit-line-strong) 1px, transparent 1px) 0 0 / 130px 100%,
-    var(--color-bg);
+    radial-gradient(30vmax 18vmax at 50% 104%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 68%),
+    linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 16%, var(--color-bg)), var(--color-bg) 46%);
   background-attachment: fixed;
 }
-/* ── the stethoscope that holds the blog's name ─────────────── */
-/* All three pieces — binaural, tube and bell — are background layers of one
-   box drawn around the name, on a shared 40-unit grid where the tube always
-   sits at y=28. That is what keeps the joins exact whatever the blog is
-   called: only the middle layer stretches, and it stretches along the line
-   the other two already end on. */
-.site-brand { position: relative; }
-/* a transparent flex item, so the name leaves room for the binaural */
-.site-brand::before { content: ""; flex: none; width: 1.75em; }
-/* a photo is a badge of its own: two of them in one corner is one too many */
-.site-brand:has(.site-brand-avatar)::before { display: none; }
-.site-brand:has(.site-brand-avatar) :is(span:not(.site-brand-text), .site-brand-text > span:first-child)::after { display: none; }
-:is(.site-brand > span:not(.site-brand-text), .site-brand-text > span:first-child) { position: relative; }
-:is(.site-brand > span:not(.site-brand-text), .site-brand-text > span:first-child)::after {
-  content: ""; position: absolute; pointer-events: none;
-  left: -2.05em; right: -1.25em; top: 0.04em; height: 2.2em;
+/* clouds: overlapping puffs on their own fixed layer, drifting very slowly */
+body::before {
+  content: ""; position: fixed; z-index: -1; pointer-events: none;
+  inset: 0 -12vmax auto -12vmax; height: 46vmax;
   background:
-    var(--vit-scope) no-repeat left top / auto 100%,
-    var(--vit-scope-end) no-repeat right top / auto 100%,
-    linear-gradient(var(--vit-tube), var(--vit-tube)) no-repeat left 1.6em top 1.4em / calc(100% - 3.02em) 0.132em;
+    radial-gradient(9vmax 6vmax at 8% 8%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(12vmax 8vmax at 15% 6%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(8vmax 5vmax at 23% 9%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(10vmax 6vmax at 70% 5%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(13vmax 8vmax at 78% 8%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(8vmax 5vmax at 86% 5%, var(--cute-cloud) 0 52%, transparent 74%),
+    radial-gradient(11vmax 7vmax at 45% 16%, var(--cute-cloud) 0 52%, transparent 76%);
+  animation: cute-drift 80s ease-in-out infinite alternate;
 }
-/* where there is a tagline under the name, the tube needs the room */
-.site-brand-text > span:first-child { margin-bottom: 0.55em; }
-
-/* the heartbeat, running under the header */
-.site-header { border-bottom: 1px solid var(--vit-edge); }
-/* room for the tube and the bell, which hang below the name */
-.site-header-inner { padding-block: 1.05rem; }
-.site-header::after {
-  content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 22px; pointer-events: none;
-  background: var(--color-accent);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 260px 22px;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 260px 22px;
-  opacity: var(--vit-trace);
+@keyframes cute-drift { from { transform: translateX(-2.5vmax); } to { transform: translateX(2.5vmax); } }
+@media (prefers-reduced-motion: reduce) { body::before { animation: none; } }
+.hero-title { text-shadow: 0 4px 0 color-mix(in srgb, var(--color-primary) 16%, transparent); }
+.post-card, .newsletter, .about, .post.container, .archive.container {
+  background: var(--color-surface);
+  border: 2px solid var(--cute-line);
+  border-radius: calc(var(--radius) * 1.6);
+  box-shadow: 0 6px 0 var(--cute-drop);
 }
-@media (prefers-reduced-motion: no-preference) {
-  .site-header::after { animation: vit-trace 7s linear infinite; }
+.post.container, .archive.container {
+  /* inset a little further than flat themes so the sky frames the page even on a phone */
+  width: min(100% - 2.2rem, var(--container));
+  margin-block: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  /* a wash of sky at the top so a long article is not one white slab */
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 13%, var(--color-surface)), var(--color-surface) 26%);
 }
-@keyframes vit-trace {
-  from { -webkit-mask-position: 0 center; mask-position: 0 center; }
-  to { -webkit-mask-position: -260px center; mask-position: -260px center; }
-}
-/* a heartbeat is company at the top of the page and a distraction three
-   screens into a chapter, so it fades out as you read down */
-@supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .site-header::after {
-      animation: vit-trace 7s linear infinite, vit-quiet linear both;
-      animation-timeline: auto, scroll(root block);
-      animation-range: normal, 0 340px;
-    }
-  }
-}
-@keyframes vit-quiet { to { opacity: 0.1; } }
-
-/* ── the menu, on a phone ───────────────────────────────────── */
-@media (max-width: 760px) {
-  /* the trace is a child of the header and paints after the nav, so it was
-     drawn straight across the open menu */
-  .site-header:has(.site-nav.is-open)::after { opacity: 0; }
-  .site-nav {
-    z-index: 2;
-    /* the page background is the same colour, so without paper of its own the
-       menu read as links floating on the graph paper */
-    /* the scrim keeps the pattern from competing with the link text, which it
-       does most in dark mode, where the motifs are drawn heavier */
-    background:
-      linear-gradient(color-mix(in srgb, var(--color-surface) 45%, transparent), color-mix(in srgb, var(--color-surface) 45%, transparent)),
-      var(--vit-motifs) repeat 0 center / 78px 78px,
-      var(--vit-paper);
-    border-bottom: 1px solid var(--vit-edge);
-    border-radius: 0 0 calc(var(--radius) * 1.3) calc(var(--radius) * 1.3);
-    box-shadow: 0 20px 34px -20px color-mix(in srgb, var(--color-text) 50%, transparent);
-    padding-block: 0.35rem 1rem;
-  }
-  .site-nav a {
-    padding-block: 0.8rem;
-    border-bottom: 1px dashed color-mix(in srgb, var(--color-primary) 22%, transparent);
-  }
-  .site-nav a:last-of-type { border-bottom: 0; }
-  .site-nav a[aria-current="page"] { color: var(--color-primary); font-weight: 700; }
-  .nav-search input { border-color: var(--vit-edge); background: var(--color-surface); }
-  .dark-toggle { margin-top: 0.75rem; }
-}
-
-/* ── the hero: a sheet clipped to a chart board ─────────────── */
-.sec-hero { padding-block: calc(2.4rem * var(--space-scale)); }
-.sec-hero .hero {
-  position: relative; overflow: hidden;
-  padding: clamp(2.8rem, 6vw, 3.8rem) clamp(1.3rem, 4vw, 3rem) clamp(2.8rem, 6vw, 3.6rem);
-  /* a sheet of notes on a warm wash, with two soft blooms of colour and a
-     scatter of plasters and hearts drifting behind the title */
-  background:
-    var(--vit-motifs) repeat 0 0 / 164px 164px,
-    var(--vit-motifs-alt) repeat 82px 82px / 164px 164px,
-    radial-gradient(42% 60% at 88% 8%, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 70%),
-    radial-gradient(46% 62% at 6% 92%, color-mix(in srgb, var(--color-primary) 16%, transparent), transparent 70%),
-    linear-gradient(180deg, var(--vit-wash), var(--vit-paper) 72%);
-  border: 1px solid var(--vit-edge);
-  border-radius: clamp(1.1rem, 2.6vw, 1.9rem);
-  box-shadow: var(--vit-shadow), 0 18px 36px -28px color-mix(in srgb, var(--color-text) 60%, transparent);
-}
-/* the title and its subtitle sit on the paper, not in the pattern */
-.sec-hero .hero-content { position: relative; }
-.sec-hero .hero-subtitle { color: color-mix(in srgb, var(--color-text) 62%, var(--color-muted)); }
-/* a soft, friendly button rather than a clinical rectangle */
-.sec-hero .hero-cta {
-  border-radius: 999px; padding-inline: 1.7rem;
-  box-shadow: 0 8px 18px -8px color-mix(in srgb, var(--color-primary) 75%, transparent);
-  transition: transform 0.16s ease, box-shadow 0.16s ease;
-}
-.sec-hero .hero-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 22px -8px color-mix(in srgb, var(--color-primary) 75%, transparent);
-}
-/* the clip that holds the sheet */
-.sec-hero .hero::before {
-  content: ""; position: absolute; top: 0.75rem; left: 50%; transform: translateX(-50%);
-  width: clamp(4.5rem, 14vw, 6.5rem); height: 0.8rem; border-radius: 999px;
-  background: linear-gradient(180deg, var(--vit-clip), color-mix(in srgb, var(--vit-clip) 45%, var(--color-surface)));
-  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-surface) 70%, transparent);
-}
-/* a second, still trace along the foot of the sheet */
-.sec-hero .hero::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22px; pointer-events: none;
-  background: var(--color-primary);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 220px 22px;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 220px 22px;
-  opacity: 0.3;
-}
-.sec-hero .hero-title::after {
-  content: ""; display: block; width: 3.4rem; height: 3px; border-radius: 2px; margin-top: 0.9rem;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-}
-.sec-hero .hero--center .hero-title::after { margin-inline: auto; }
-
-/* ── posts as index cards, with a coloured spine ────────────── */
-.post-card--cards, .post-card--grid, .newsletter {
-  background: linear-gradient(180deg, var(--vit-wash), var(--vit-paper) 5rem);
-  border: 1px solid var(--vit-edge);
-  border-radius: calc(var(--radius) * 1.1);
-  box-shadow: var(--vit-shadow);
-}
-.post-card { position: relative; overflow: hidden; transition: transform 0.18s ease, box-shadow 0.18s ease; }
-.post-card--cards::before, .post-card--grid::before {
-  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-  background: var(--color-primary);
-}
-:is(.post-card--cards, .post-card--grid):nth-child(3n + 2)::before { background: var(--color-accent); }
-:is(.post-card--cards, .post-card--grid):nth-child(3n)::before { background: color-mix(in srgb, var(--color-primary) 50%, var(--color-accent)); }
-/* a grid card is drawn like the others, so it needs the same inner margin */
-.post-card--grid .post-card-body { padding: 1.2rem; }
-.post-card--grid .post-card-cover img { border-radius: 0; }
-/* the ruled line an index card is printed with, under the date */
-:is(.post-card--cards, .post-card--grid) .post-card-meta {
-  padding-bottom: 0.5rem; margin-bottom: 0.7rem;
-  border-bottom: 1px solid var(--vit-edge);
-  font-variant-numeric: tabular-nums; letter-spacing: 0.015em;
-}
-.post-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px color-mix(in srgb, var(--color-text) 12%, transparent); }
-
-/* ── the page itself: lab-book paper, not a white box ───────── */
-.about, .post.container, .archive.container, .not-found.container {
-  padding: clamp(1.25rem, 4vw, 2.5rem);
-  width: min(100% - 1.5rem, var(--container));
-  margin-block: 1.25rem;
-  position: relative;
-  background: linear-gradient(180deg, var(--vit-wash), var(--vit-paper) 18rem);
-  border: 1px solid var(--vit-edge);
-  border-radius: calc(var(--radius) * 1.1);
-  box-shadow: var(--vit-shadow);
-}
-.not-found.container { padding-block: clamp(3rem, 8vw, 5rem); }
-/* the margin rule down the left of the page, as on any lined pad */
-@media (min-width: 700px) {
-  .post.container, .archive.container { padding-left: clamp(3rem, 6vw, 4.4rem); }
-  .post.container::before, .archive.container::before {
-    content: ""; position: absolute; top: 0; bottom: 0;
-    left: clamp(1.9rem, 4vw, 3rem); width: 1px;
-    background: color-mix(in srgb, var(--color-accent) 30%, transparent);
-  }
-}
-
-/* section headings get a short rule, like a ruled notebook margin */
-.sec-title { display: flex; align-items: center; gap: 0.6rem; }
-.sec-title::before {
-  content: ""; flex: none; width: 0.22em; height: 1em; border-radius: 2px;
-  background: var(--color-primary);
-}
+.post-title { position: relative; }
 .post-title::after {
-  content: ""; display: block; width: 4rem; height: 3px; margin-top: 0.7rem; border-radius: 2px;
-  background: var(--color-primary);
-}
-/* byline, date and reading time as the strip along the top of a chart */
-.post-header .post-meta {
-  display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.3rem 0.9rem;
-  margin-block: 1rem 0.7rem; padding: 0.42em 0.95em; border-radius: 999px;
-  border: 1px solid var(--vit-edge); background: var(--vit-wash);
-  font-size: 0.88em; letter-spacing: 0.02em; font-variant-numeric: tabular-nums;
-}
-/* the cover photo, mounted like a scan pasted into the notes */
-.post-cover { border: 1px solid var(--vit-edge); box-shadow: var(--vit-shadow); }
-/* how far through a long set of notes you are — the trace fills as you scroll.
-   Scroll-driven animation only: browsers without it simply get no bar, and it
-   needs no script of its own. */
-@supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .post.container::after {
-      content: ""; position: fixed; inset: 0 0 auto; height: 3px; z-index: 60;
-      transform: scaleX(0); transform-origin: 0 50%;
-      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-      animation: vit-read linear both;
-      animation-timeline: scroll(root block);
-    }
-  }
-}
-@keyframes vit-read { to { transform: scaleX(1); } }
-
-/* revision marks: highlighter on bold, a clinical note for quotes */
-.post-content strong, .prose strong {
-  background: linear-gradient(transparent 38%, var(--vit-mark) 38%, var(--vit-mark) 94%, transparent 94%);
-  padding: 0 0.12em;
-}
-.post-content blockquote {
-  margin: 1.5em 0; padding: 0.9em 1.1em;
-  border-left: 3px solid var(--color-accent);
-  background: color-mix(in srgb, var(--color-accent) 7%, var(--color-surface));
-  border-radius: 0 var(--radius) var(--radius) 0;
-  color: var(--color-text);
-}
-/* a hand-written <mark> reads as the same highlighter as bold does */
-.post-content mark, .prose mark {
-  background: var(--vit-mark); color: inherit; padding: 0 0.12em; border-radius: 2px;
-}
-/* the abbreviations clinical notes are full of, marked as hoverable */
-.post-content abbr[title], .prose abbr[title] {
-  text-decoration: underline dotted;
-  text-decoration-color: color-mix(in srgb, var(--color-primary) 55%, transparent);
-  text-underline-offset: 3px; cursor: help;
-}
-/* code sits on the paper, so the base surface colour would vanish into it */
-.post-content pre, .prose pre {
-  background: color-mix(in srgb, var(--color-primary) 7%, var(--color-surface));
-  border: 1px solid var(--vit-edge); border-radius: var(--radius);
-}
-.post-content :not(pre) > code, .prose :not(pre) > code {
-  background: color-mix(in srgb, var(--color-primary) 9%, var(--color-surface));
-  border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
-  border-radius: 4px;
-}
-.post-content :is(h2, h3) { border-bottom: 1px solid var(--vit-edge); padding-bottom: 0.25em; }
-.post-content :is(ul, ol) { padding-left: 1.3em; }
-.post-content li::marker { color: var(--color-primary); }
-
-/* each subject keeps its own colour, derived from the tag's own name */
-.tag, .tag-pill {
-  --tag-c: hsl(var(--tag-h, 175) var(--vit-tag-s) var(--vit-tag-l));
-  background: color-mix(in srgb, var(--tag-c) 12%, var(--color-surface));
-  border-color: color-mix(in srgb, var(--tag-c) 34%, transparent);
-  color: color-mix(in srgb, var(--tag-c) 80%, var(--color-text));
-  font-weight: 600;
-}
-.tag:hover, .tag-pill:hover { border-color: var(--tag-c); background: color-mix(in srgb, var(--tag-c) 20%, var(--color-surface)); }
-.tag-pill.is-active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
-
-/* ── the foot of a post ─────────────────────────────────────── */
-.post-share { margin-top: 2.6rem; padding-top: 1.4rem; border-top: 1px solid var(--vit-edge); }
-.post-share-label { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75em; }
-.share-btn { background: var(--vit-paper); border-color: var(--vit-edge); transition: transform 0.15s ease, color 0.15s ease, border-color 0.15s ease; }
-.share-btn:hover { transform: translateY(-1px); }
-/* the post before and after this one, as two more index cards */
-.post-adjacent { border-top: 0; margin-top: 2rem; padding-top: 0; }
-.post-adjacent-link {
-  position: relative; overflow: hidden; padding: 0.9rem 1.1rem;
-  border: 1px solid var(--vit-edge); border-radius: calc(var(--radius) * 1.1);
-  background: var(--vit-paper);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-.post-adjacent-link::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 3px; background: var(--color-primary); }
-.post-adjacent-next::before { left: auto; right: 0; background: var(--color-accent); }
-.post-adjacent-link:hover { transform: translateY(-2px); box-shadow: 0 10px 24px color-mix(in srgb, var(--color-text) 12%, transparent); }
-.post-adjacent-link span {
-  text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72em; font-weight: 700;
-  color: color-mix(in srgb, var(--color-primary) 70%, var(--color-text));
-}
-.post-comments { border-top: 1px solid var(--vit-edge); }
-
-/* search results on the same paper as the rest */
-.search-results { background: var(--vit-paper); border-color: var(--vit-edge); }
-.search-result:hover { background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface)); }
-/* a focus ring in the theme's own colour, for anyone driving this by keyboard */
-:is(a, button, input, summary, [tabindex]):focus-visible {
-  outline: 2px solid var(--color-primary); outline-offset: 2px; border-radius: 3px;
-}
-
-/* ── the home page, in a warmer bedside manner ──────────────── */
-/* section headings on the home page are marked with a little heart instead
-   of the clinical tab the rest of the site uses */
-:is(.sec-posts, .sec-newsletter, .sec-about) .sec-title::before {
-  width: 0.95em; height: 0.95em; border-radius: 0;
+  content: ""; display: block; width: 3.2rem; height: 0.42rem; margin-top: 0.6rem; border-radius: 999px;
   background: var(--color-accent);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
 }
-/* cards round off a little more, and lift in their own colour */
-.post-card--cards, .post-card--grid { border-radius: clamp(0.8rem, 1.6vw, 1.1rem); }
-.post-card--cards .post-card-meta, .post-card--grid .post-card-meta { border-bottom-style: dashed; }
-.post-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 26px -14px color-mix(in srgb, var(--color-primary) 55%, transparent);
+/* a little colour variety across the grid, mixed from the theme's own two colours */
+.post-card--cards:nth-child(3n + 1) { background: linear-gradient(170deg, color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)), var(--color-surface) 62%); }
+.post-card--cards:nth-child(3n + 2) { background: linear-gradient(170deg, color-mix(in srgb, var(--color-accent) 14%, var(--color-surface)), var(--color-surface) 62%); }
+.post-card--cards:nth-child(3n) { background: linear-gradient(170deg, color-mix(in srgb, var(--color-primary) 6%, var(--color-surface)), color-mix(in srgb, var(--color-accent) 8%, var(--color-surface)) 90%); }
+.post-card { transition: transform 0.22s cubic-bezier(.2,.9,.3,1.2), box-shadow 0.22s ease; overflow: hidden; }
+.post-card:hover { transform: translateY(-6px) rotate(-0.8deg); box-shadow: 0 14px 0 var(--cute-drop); }
+.post-card-cover img, .hero-image img { border-radius: calc(var(--radius) * 1.2); }
+.newsletter { background: linear-gradient(160deg, color-mix(in srgb, var(--color-accent) 18%, var(--color-surface)), var(--color-surface) 70%); }
+/* .about has no padding of its own — without this the text sits on the border */
+.about { padding: clamp(1.25rem, 4vw, 2.5rem); }
+.sec-title { display: flex; align-items: center; gap: 0.5rem; }
+.sec-title::before {
+  content: ""; flex: none; width: 0.62em; height: 0.62em; border-radius: 999px;
+  background: var(--color-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 28%, transparent);
 }
-:is(.post-card--cards, .post-card--grid):nth-child(3n + 2):hover {
-  box-shadow: 0 14px 26px -14px color-mix(in srgb, var(--color-accent) 55%, transparent);
+/* ── the hero, as a little paper scene ──────────────────────── */
+.sec-hero { position: relative; isolation: isolate; overflow: hidden; }
+/* a soft halo under the title, with a pastel rainbow arching over it */
+.sec-hero::before {
+  content: ""; position: absolute; z-index: -2; left: 50%; top: 2%; width: min(54rem, 96vw); aspect-ratio: 5 / 3;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, var(--color-surface) 0 34%, color-mix(in srgb, var(--color-surface) 55%, transparent) 58%, transparent 78%);
+  opacity: 0.8;
 }
-
-/* the sign-up block as a prescription pad: a tear-off strip along the top,
-   a dashed edge and the ℞ a pad is printed with */
-.sec-newsletter .newsletter {
-  position: relative; overflow: hidden;
-  padding-top: clamp(2.6rem, 5vw, 3.4rem);
-  border: 1px dashed color-mix(in srgb, var(--color-primary) 38%, transparent);
-  border-radius: clamp(0.9rem, 2vw, 1.4rem);
+/* a pastel rainbow arching over the title, pinned to the title so it tracks it.
+   The radius is explicit: closest-side collapses when the centre sits on an edge. */
+.hero-title { position: relative; }
+.hero-title::before {
+  content: ""; position: absolute; z-index: -1; left: 50%; bottom: 34%;
+  width: min(32rem, 86vw); aspect-ratio: 2 / 1; transform: translateX(-50%);
+  background: radial-gradient(16rem 8rem at 50% 100%,
+    transparent 0 66%,
+    color-mix(in srgb, var(--color-primary) 32%, transparent) 66% 73%,
+    color-mix(in srgb, var(--color-surface) 75%, transparent) 73% 77%,
+    color-mix(in srgb, var(--color-accent) 66%, transparent) 77% 84%,
+    transparent 84.5%);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 16%, #000 84%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 16%, #000 84%, transparent);
+}
+.hero--left .hero-title::before { display: none; }
+/* a big friendly bell hanging into the scene */
+.sec-hero::after {
+  content: ""; position: absolute; z-index: -1; right: 2vw; top: 8%;
+  width: min(17vw, 9.5rem); aspect-ratio: 4 / 5;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--color-accent) 92%, #fff), var(--color-accent) 62%);
+  clip-path: polygon(
+    44% 2%, 56% 2%, 60% 9%, 72% 17%, 79% 32%, 82% 52%, 85% 66%, 93% 76%, 95% 83%,
+    56% 83%, 57% 92%, 53% 96%, 47% 96%, 43% 92%, 44% 83%,
+    5% 83%, 7% 76%, 15% 66%, 18% 52%, 21% 32%, 28% 17%, 40% 9%);
+  filter: drop-shadow(0 7px 0 color-mix(in srgb, var(--color-primary) 20%, transparent));
+}
+.hero { position: relative; }
+/* three bubbles drifting around the title */
+.hero::after {
+  content: ""; position: absolute; z-index: -1; inset: 6% 6% 16%; pointer-events: none;
   background:
-    var(--vit-motifs) repeat 0 0 / 164px 164px,
-    linear-gradient(180deg, var(--vit-wash), var(--vit-paper) 7rem);
+    radial-gradient(0.55rem 0.55rem at 9% 26%, color-mix(in srgb, var(--color-accent) 85%, var(--color-surface)) 0 58%, transparent 60%),
+    radial-gradient(0.34rem 0.34rem at 17% 62%, color-mix(in srgb, var(--color-primary) 55%, var(--color-surface)) 0 58%, transparent 60%),
+    radial-gradient(0.48rem 0.48rem at 90% 36%, color-mix(in srgb, var(--color-accent) 75%, var(--color-surface)) 0 58%, transparent 60%);
 }
-.sec-newsletter .newsletter::before {
-  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1.5rem;
+/* a few soft puffs settling along the bottom of the scene */
+.hero::before {
+  content: ""; position: absolute; z-index: -1; left: -10vw; right: -10vw; bottom: -2.5rem; height: 9rem;
   background:
-    repeating-linear-gradient(90deg, color-mix(in srgb, var(--color-primary) 30%, transparent) 0 9px, transparent 9px 18px) left bottom / 100% 1px no-repeat,
-    color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
-}
-.sec-newsletter .newsletter::after {
-  content: "℞"; position: absolute; right: 1.2rem; top: 2rem;
-  font-family: var(--font-heading); font-size: clamp(2.2rem, 6vw, 3rem); line-height: 1;
-  color: var(--color-primary); opacity: var(--vit-rx); pointer-events: none;
-}
-.newsletter-form input { border-radius: 999px; border-color: var(--vit-edge); background: var(--color-surface); }
-.newsletter-form .btn { border-radius: 999px; padding-inline: 1.4rem; }
-
-/* a heartbeat of a different kind, beside the footer line */
-.footer-text { display: inline-flex; align-items: center; gap: 0.5rem; }
-.footer-text::before {
-  content: ""; flex: none; width: 0.95em; height: 0.95em;
-  background: var(--color-accent);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 21S3.5 15.6 3.5 9.6C3.5 6.5 6 4.3 8.7 4.3c1.8 0 3 .9 3.3 1.7.3-.8 1.5-1.7 3.3-1.7 2.7 0 5.2 2.2 5.2 5.3 0 6-8.5 11.4-8.5 11.4z' fill='%23000'/></svg>") no-repeat center / contain;
+    radial-gradient(7rem 3.4rem at 14% 100%, var(--cute-cloud) 0 52%, transparent 76%),
+    radial-gradient(9rem 4rem at 30% 104%, var(--cute-cloud) 0 52%, transparent 76%),
+    radial-gradient(8rem 3.6rem at 62% 102%, var(--cute-cloud) 0 52%, transparent 76%),
+    radial-gradient(10rem 4.2rem at 84% 106%, var(--cute-cloud) 0 52%, transparent 76%);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .footer-text::before { animation: vit-beat 2.4s ease-in-out infinite; }
+  .sec-hero::after { animation: cute-bob 6s ease-in-out infinite; }
 }
-@keyframes vit-beat {
-  0%, 58%, 100% { transform: scale(1); }
-  12% { transform: scale(1.22); }
-  24% { transform: scale(1); }
-  36% { transform: scale(1.14); }
+@keyframes cute-bob {
+  0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+  50% { transform: translateY(7px) rotate(1.5deg); }
 }
-
-/* a horizontal rule is a heartbeat between sections */
-.post-content hr, .prose hr {
-  height: 22px; border: 0; margin: 2.4em 0;
-  background: color-mix(in srgb, var(--color-accent) 75%, var(--color-text));
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x center / 220px 22px;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x center / 220px 22px;
-  opacity: 0.4;
+@media (max-width: 860px) {
+  /* smaller and higher, so it stops crowding the rainbow and the title */
+  .sec-hero::after { width: 19vw; right: -2vw; top: 2%; opacity: 0.75; }
 }
-
-/* ── callouts: the "don't miss this" blocks ─────────────────── */
-.callout {
-  margin: 1.6em 0; padding: 0.95em 1.15em;
-  border: 1px solid color-mix(in srgb, var(--cal, var(--color-primary)) 35%, transparent);
-  border-left: 4px solid var(--cal, var(--color-primary));
-  border-radius: 0 var(--radius) var(--radius) 0;
-  background: color-mix(in srgb, var(--cal, var(--color-primary)) 8%, var(--color-surface));
+.hero-title { text-shadow: 0 4px 0 color-mix(in srgb, var(--color-primary) 16%, transparent); }
+.btn { border-radius: 999px; font-weight: 700; }
+.btn-primary { box-shadow: 0 5px 0 var(--cute-press); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--cute-press); }
+.btn-primary:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--cute-press); }
+.tag, .tag-pill {
+  border: 2px solid var(--cute-line); font-weight: 600;
+  background: color-mix(in srgb, var(--color-accent) 16%, var(--color-bg)); color: var(--color-text);
 }
-.callout > :last-child { margin-bottom: 0; }
-.callout-label {
-  margin: 0 0 0.35em; font-family: var(--font-heading); font-weight: 700;
-  font-size: 0.82em; letter-spacing: 0.07em; text-transform: uppercase;
-  color: color-mix(in srgb, var(--cal, var(--color-primary)) 75%, var(--color-text));
+/* a row of cloud bumps hanging off the header, and again above the footer */
+.site-header { border-bottom: 3px solid var(--cute-line); }
+.site-header::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 13px; pointer-events: none;
+  background: radial-gradient(circle at 11px -2px, var(--color-surface) 11px, transparent 12px) repeat-x;
+  background-size: 22px 13px;
 }
-.callout--warning, .callout--caution { --cal: var(--color-accent); }
-.callout--mnemonic { --cal: #7c3aed; }
-.callout--dose { --cal: #b45309; }
-.callout--tip, .callout--example { --cal: color-mix(in srgb, var(--color-primary) 70%, #0ea5e9); }
-
-/* ── revision checklists ────────────────────────────────────── */
-.post-content input[type="checkbox"] {
-  appearance: none; width: 1.05em; height: 1.05em; margin-right: 0.5em; vertical-align: -0.15em;
-  border: 2px solid color-mix(in srgb, var(--color-primary) 45%, transparent);
-  border-radius: 4px; background: var(--color-surface);
+.dark-toggle, .nav-search input, .share-btn, .copy-btn { border: 2px solid var(--cute-line); border-radius: 999px; }
+/* nav links as little pills */
+.site-nav a { padding: 0.3em 0.75em; border-radius: 999px; transition: background 0.16s ease; }
+.site-nav a:hover { background: color-mix(in srgb, var(--color-primary) 12%, transparent); }
+.site-nav a[aria-current="page"] { background: color-mix(in srgb, var(--color-accent) 30%, transparent); color: var(--color-text); }
+/* a bell dot on every heading inside an article, matching the section titles */
+.post-content :is(h2, h3) { position: relative; }
+.post-content :is(h2, h3)::before {
+  content: ""; position: absolute; left: -0.95em; top: 0.52em; width: 0.4em; height: 0.4em; border-radius: 999px;
+  background: color-mix(in srgb, var(--color-accent) 90%, var(--color-surface));
 }
-.post-content input[type="checkbox"]:checked {
-  background: var(--color-primary); border-color: var(--color-primary);
-  /* a real tick: two crossed gradients read as an X, not a check */
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M3.5 8.5 L6.5 11.5 L12.5 4.5' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-  background-size: 90% 90%; background-position: center; background-repeat: no-repeat;
+/* quotes become speech bubbles with a little tail */
+.post-content blockquote {
+  position: relative; margin: 1.6em 0; padding: 1em 1.2em; border-left: 0; border-radius: calc(var(--radius) * 1.4);
+  background: color-mix(in srgb, var(--color-primary) 9%, var(--color-surface));
+  border: 2px solid var(--cute-line); color: var(--color-text);
 }
-.post-content li:has(input:checked) { color: var(--color-muted); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--color-muted) 50%, transparent); }
-
-/* ── tables: drug and value tables get read a lot ───────────── */
-.post-content table, .prose table {
-  border-collapse: separate; border-spacing: 0;
-  border: 1px solid var(--vit-edge); border-radius: var(--radius);
+.post-content blockquote::after {
+  content: ""; position: absolute; left: 1.8em; top: 100%; width: 0.9rem; height: 0.9rem; margin-top: -2px;
+  background: inherit; border-right: 2px solid var(--cute-line); border-bottom: 2px solid var(--cute-line);
+  transform: rotate(45deg) translate(-35%, -35%); border-bottom-right-radius: 4px;
 }
-/* the base sheet lays tables out as a scrolling block so a wide one survives a
-   phone; from tablet up they are real tables again and fill the column, with
-   the header row staying put under the site header on a long table */
-@media (min-width: 640px) {
-  .post-content table, .prose table { display: table; width: 100%; }
-  .post-content th { position: sticky; top: 4.9rem; z-index: 1; }
+.post-content img { border-radius: calc(var(--radius) * 1.3); border: 2px solid var(--cute-line); }
+.post-content pre { border: 2px solid var(--cute-line); border-radius: calc(var(--radius) * 1.2); }
+/* a card with no cover photo gets a pastel band instead of dead space */
+.post-card--cards:not(:has(.post-card-cover))::before {
+  content: ""; display: block; height: 0.55rem; margin: -0.1rem -0.1rem 0.9rem; border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  opacity: 0.75;
 }
-/* on a phone the table is only as wide as its content, so a frame around the
-   full column would leave a box with a table stranded inside it */
-@media (max-width: 639.98px) {
-  .post-content table, .prose table { border: 0; border-radius: 0; }
-}
-.post-content th {
-  background: var(--vit-th);
-  font-family: var(--font-heading); font-size: 0.92em; letter-spacing: 0.01em;
-}
-.post-content :is(th, td) { border: 0; border-bottom: 1px solid var(--vit-edge); }
-.post-content tr:last-child :is(th, td) { border-bottom: 0; }
-.post-content tbody tr:nth-child(even) { background: color-mix(in srgb, var(--color-primary) 4%, transparent); }
-
-/* ── figures ────────────────────────────────────────────────── */
-.post-content figure { margin: 1.8em 0; }
-.post-content figure img { display: block; width: 100%; border-radius: var(--radius); border: 1px solid var(--vit-edge); }
-.post-content figcaption {
-  margin-top: 0.55em; font-size: 0.88em; color: var(--color-muted); text-align: center;
-  padding-left: 1.6em; text-indent: -1.6em;
-}
-.post-content figcaption::before { content: "Fig. "; font-weight: 600; color: color-mix(in srgb, var(--color-primary) 70%, var(--color-text)); }
-
-/* ── section links ──────────────────────────────────────────── */
-.heading-anchor {
-  margin-left: 0.4em; color: color-mix(in srgb, var(--color-primary) 45%, transparent);
-  text-decoration: none; opacity: 0; transition: opacity 0.15s ease;
-}
-:is(h2, h3, h4):hover .heading-anchor, .heading-anchor:focus { opacity: 1; }
-
-/* ── printing: notes you can actually revise from ───────────── */
-@media print {
-  @page { margin: 16mm; }
-  body { background: #fff !important; color: #000; }
-  body::before, .weather-layer, .site-header, .site-footer, .post-share, .post-nav,
-  .post-comments, .nav-search, .dark-toggle, .newsletter, .heading-anchor,
-  .post-adjacent { display: none !important; }
-  .post.container, .archive.container, .about, .not-found.container, .sec-hero .hero {
-    background: #fff !important; border: 0 !important; box-shadow: none !important;
-    width: auto; max-width: none; margin: 0; padding: 0;
-  }
-  .post.container::before, .post.container::after,
-  .archive.container::before, .sec-hero .hero::before, .sec-hero .hero::after { display: none; }
-  .post-content, .prose { max-width: none; }
-  .post-content strong { background: none; text-decoration: underline; }
-  .post-header .post-meta { border: 0; background: none; padding: 0; }
-  .callout { border: 1px solid #999; border-left: 4px solid #333; background: none; }
-  .post-content hr { -webkit-mask: none; mask: none; height: 1px; background: #999; opacity: 1; }
-  .post-content th { background: #eee !important; position: static; }
-  /* spell out where a link went, since paper has no hover */
-  .post-content a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.82em; color: #555; word-break: break-all; }
-  :is(h1, h2, h3) { break-after: avoid; }
-  :is(blockquote, table, pre, figure, .callout, li) { break-inside: avoid; }
-}
-.btn { border-radius: calc(var(--radius) * 0.9); font-weight: 600; }
-/* ── the footer ─────────────────────────────────────────────── */
-/* a short page used to leave the graph paper showing under the footer, which
-   made the end of the site look like a gap rather than a finish */
-.tpl-minimal { display: flex; flex-direction: column; min-height: 100dvh; }
-.tpl-minimal > .site-footer { margin-top: auto; }
-/* The footer is a strip, not a room. Stacked and centred it was three small
-   things adrift in a pale field, so everything sits on one line that wraps
-   when it has to, on the same patterned paper as the hero and the pad. */
-.site-footer {
-  position: relative;
-  margin-top: calc(3rem * var(--space-scale));
-  border-top: 1px solid var(--vit-edge);
-  /* a smaller tile than the hero's: on a strip this shallow the full-size
-     motifs are cropped in half and read as wallpaper */
-  background: var(--vit-motifs) repeat 0 center / 104px 104px, var(--vit-paper);
-}
+.site-footer { border-top: 3px solid var(--cute-line); position: relative; }
 .site-footer::before {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 22px; pointer-events: none;
-  background: var(--color-accent);
-  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 260px 22px;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'><path d='M0 11 H74 L80 11 L86 4 L92 18 L98 8 L104 11 H150 L156 11 L160 7 L164 15 L168 11 H260' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/></svg>") repeat-x left center / 260px 22px;
-  opacity: calc(var(--vit-trace) * 0.52);
-}
-.site-footer-inner {
-  flex-direction: row; flex-wrap: wrap;
-  justify-content: center; align-items: center;
-  gap: 0.55rem 1.5rem;
-  padding-block: 1.85rem 1.7rem;
-}
-.footer-text {
-  font-weight: 600; font-size: 0.92em;
-  color: color-mix(in srgb, var(--color-text) 72%, var(--color-muted));
-}
-.footer-links { gap: 0.5rem 0.6rem; justify-content: center; }
-.footer-social { gap: 0.5rem 0.6rem; justify-content: center; flex-wrap: wrap; }
-/* a footer link and a social link are the same kind of thing to a reader, so
-   they are drawn the same way rather than as grey text beside a pill */
-.footer-links a, .social-link {
-  padding: 0.3em 0.85em; border-radius: 999px; text-decoration: none;
-  font-size: 0.88em; font-weight: 600;
-  border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
-  background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface));
-  color: color-mix(in srgb, var(--color-primary) 72%, var(--color-text));
-  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
-}
-.footer-links a:hover, .social-link:hover {
-  border-color: var(--color-primary);
-  background: color-mix(in srgb, var(--color-primary) 14%, var(--color-surface));
-  color: var(--color-primary);
+  content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 13px; pointer-events: none;
+  background: radial-gradient(circle at 11px 15px, var(--color-surface) 11px, transparent 12px) repeat-x;
+  background-size: 22px 13px;
 }
 
 /* weather */
